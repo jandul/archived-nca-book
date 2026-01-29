@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Data | Advances in Necessary Condition Analysis</title>
+  <meta name="description" content="Necessary Condition Analysis (NCA) is an emerging research method that is based on necessity logic. If a condition is not present, the outcome will not exist. Other factors cannot compensate for its absence. This is different from common causal reasoning where factors produce the outcome and can be compensated. The book intends to support users, readers and reviewers of NCA to better understand the method." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Data | Advances in Necessary Condition Analysis" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://bookdown.org/ncabook/advanced_nca2//Image/cover2b.png" />
+  <meta property="og:description" content="Necessary Condition Analysis (NCA) is an emerging research method that is based on necessity logic. If a condition is not present, the outcome will not exist. Other factors cannot compensate for its absence. This is different from common causal reasoning where factors produce the outcome and can be compensated. The book intends to support users, readers and reviewers of NCA to better understand the method." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Data | Advances in Necessary Condition Analysis" />
+  
+  <meta name="twitter:description" content="Necessary Condition Analysis (NCA) is an emerging research method that is based on necessity logic. If a condition is not present, the outcome will not exist. Other factors cannot compensate for its absence. This is different from common causal reasoning where factors produce the outcome and can be compensated. The book intends to support users, readers and reviewers of NCA to better understand the method." />
+  <meta name="twitter:image" content="https://bookdown.org/ncabook/advanced_nca2//Image/cover2b.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="theory.html"/>
+<link rel="next" href="dataanalysis.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.33/datatables.js"></script>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+|<img src="logoNCA.png" width="270" height="270">
+<li><a href="./">Advances in NCA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>1</b> Summary of NCA</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="summary.html"><a href="summary.html#standalone"><i class="fa fa-check"></i><b>1.1</b> NCA as stand-alone method</a></li>
+<li class="chapter" data-level="1.2" data-path="summary.html"><a href="summary.html#complementary"><i class="fa fa-check"></i><b>1.2</b> NCA as a complementary method</a></li>
+<li class="chapter" data-level="1.3" data-path="summary.html"><a href="summary.html#formulate"><i class="fa fa-check"></i><b>1.3</b> Formulate the necessary condition hypothesis</a></li>
+<li class="chapter" data-level="1.4" data-path="summary.html"><a href="summary.html#collect"><i class="fa fa-check"></i><b>1.4</b> Collect the data</a></li>
+<li class="chapter" data-level="1.5" data-path="summary.html"><a href="summary.html#dataanalysissummary"><i class="fa fa-check"></i><b>1.5</b> Analyse the data</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="summary.html"><a href="summary.html#prepare-the-analysis"><i class="fa fa-check"></i><b>1.5.1</b> Prepare the analysis</a></li>
+<li class="chapter" data-level="1.5.2" data-path="summary.html"><a href="summary.html#load-the-data"><i class="fa fa-check"></i><b>1.5.2</b> Load the data</a></li>
+<li class="chapter" data-level="1.5.3" data-path="summary.html"><a href="summary.html#estimate-effect-size-and-the-p-value-with-nca_analysis"><i class="fa fa-check"></i><b>1.5.3</b> Estimate effect size and the p value with <code>nca_analysis</code></a></li>
+<li class="chapter" data-level="1.5.4" data-path="summary.html"><a href="summary.html#create-output-with-nca_output"><i class="fa fa-check"></i><b>1.5.4</b> Create output with <code>nca_output</code></a></li>
+<li class="chapter" data-level="1.5.5" data-path="summary.html"><a href="summary.html#summarybottleneck"><i class="fa fa-check"></i><b>1.5.5</b> Perform the bottleneck analysis with <code>nca_output</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="summary.html"><a href="summary.html#report"><i class="fa fa-check"></i><b>1.6</b> Report the results</a></li>
+<li class="chapter" data-level="1.7" data-path="summary.html"><a href="summary.html#guidelines"><i class="fa fa-check"></i><b>1.7</b> Basic guidelines for good NCA practice</a></li>
+<li class="chapter" data-level="1.8" data-path="summary.html"><a href="summary.html#review"><i class="fa fa-check"></i><b>1.8</b> SCoRe-NCA. A checklist for reviewing an NCA publication</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="theory.html"><a href="theory.html"><i class="fa fa-check"></i><b>2</b> Theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="theory.html"><a href="theory.html#partstheory"><i class="fa fa-check"></i><b>2.1</b> The four parts of a theory</a></li>
+<li class="chapter" data-level="2.2" data-path="theory.html"><a href="theory.html#formulationnecessity"><i class="fa fa-check"></i><b>2.2</b> Formulation of necessity hypotheses</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="theory.html"><a href="theory.html#sources"><i class="fa fa-check"></i><b>2.2.1</b> Sources with potential necessary conditions</a></li>
+<li class="chapter" data-level="2.2.2" data-path="theory.html"><a href="theory.html#thoughtexperiment"><i class="fa fa-check"></i><b>2.2.2</b> Thought experiment</a></li>
+<li class="chapter" data-level="2.2.3" data-path="theory.html"><a href="theory.html#direction"><i class="fa fa-check"></i><b>2.2.3</b> Direction of necessity</a></li>
+<li class="chapter" data-level="2.2.4" data-path="theory.html"><a href="theory.html#relatedmultiple"><i class="fa fa-check"></i><b>2.2.4</b> Related multiple necessary conditions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="theory.html"><a href="theory.html#justificationnecessity"><i class="fa fa-check"></i><b>2.3</b> Justification of necessity hypotheses</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="theory.html"><a href="theory.html#temporalorder"><i class="fa fa-check"></i><b>2.3.1</b> Temporal order</a></li>
+<li class="chapter" data-level="2.3.2" data-path="theory.html"><a href="theory.html#causalmechanism"><i class="fa fa-check"></i><b>2.3.2</b> Causal mechinism</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="theory.html"><a href="theory.html#theoreticalcontribution"><i class="fa fa-check"></i><b>2.4</b> Theoretical contribution</a></li>
+<li class="chapter" data-level="2.5" data-path="theory.html"><a href="theory.html#theorytypes"><i class="fa fa-check"></i><b>2.5</b> Types of necessity theories</a></li>
+<li class="chapter" data-level="2.6" data-path="theory.html"><a href="theory.html#morecorners"><i class="fa fa-check"></i><b>2.6</b> Two empty corners</a></li>
+<li class="chapter" data-level="2.7" data-path="theory.html"><a href="theory.html#necessarybutnotsufficient"><i class="fa fa-check"></i><b>2.7</b> The meaning of ‘necessary but not sufficient’</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Data</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#transformation"><i class="fa fa-check"></i><b>3.1</b> Data transformation</a></li>
+<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#experiment"><i class="fa fa-check"></i><b>3.2</b> Experiment</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data.html"><a href="data.html#the-traditional-experiment"><i class="fa fa-check"></i><b>3.2.1</b> The traditional experiment</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data.html"><a href="data.html#necessityexperiment"><i class="fa fa-check"></i><b>3.2.2</b> The necessity experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#samplesize"><i class="fa fa-check"></i><b>3.3</b> Sample size</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data.html"><a href="data.html#smalln"><i class="fa fa-check"></i><b>3.3.1</b> Small N studies</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data.html"><a href="data.html#largen"><i class="fa fa-check"></i><b>3.3.2</b> Large N studies</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data.html"><a href="data.html#quantitative"><i class="fa fa-check"></i><b>3.4</b> Quantitative data</a></li>
+<li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#qualitative"><i class="fa fa-check"></i><b>3.5</b> Qualitative data</a></li>
+<li class="chapter" data-level="3.6" data-path="data.html"><a href="data.html#longitudinal"><i class="fa fa-check"></i><b>3.6</b> Longitudinal, panel and time-series data</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data.html"><a href="data.html#pooled"><i class="fa fa-check"></i><b>3.6.1</b> NCA with pooled data</a></li>
+<li class="chapter" data-level="3.6.2" data-path="data.html"><a href="data.html#nca-for-describing-time-trends"><i class="fa fa-check"></i><b>3.6.2</b> NCA for describing time trends</a></li>
+<li class="chapter" data-level="3.6.3" data-path="data.html"><a href="data.html#interpretation"><i class="fa fa-check"></i><b>3.6.3</b> Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="data.html"><a href="data.html#setmembership"><i class="fa fa-check"></i><b>3.7</b> Set membership data</a></li>
+<li class="chapter" data-level="3.8" data-path="data.html"><a href="data.html#outliers"><i class="fa fa-check"></i><b>3.8</b> Outliers</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="data.html"><a href="data.html#outliertypes"><i class="fa fa-check"></i><b>3.8.1</b> Outlier types</a></li>
+<li class="chapter" data-level="3.8.2" data-path="data.html"><a href="data.html#outlieridentification"><i class="fa fa-check"></i><b>3.8.2</b> Outlier identification</a></li>
+<li class="chapter" data-level="3.8.3" data-path="data.html"><a href="data.html#outlierdecisionmaking"><i class="fa fa-check"></i><b>3.8.3</b> Outlier decision approach</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="dataanalysis.html"><a href="dataanalysis.html"><i class="fa fa-check"></i><b>4</b> Data analysis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="dataanalysis.html"><a href="dataanalysis.html#visualinspection"><i class="fa fa-check"></i><b>4.1</b> Visual inspection of the scatter plot</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="dataanalysis.html"><a href="dataanalysis.html#is-the-expected-corner-empty"><i class="fa fa-check"></i><b>4.1.1</b> Is the expected corner empty?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="dataanalysis.html"><a href="dataanalysis.html#selectioneilingline"><i class="fa fa-check"></i><b>4.1.2</b> What is an appropriate ceiling line?</a></li>
+<li class="chapter" data-level="4.1.3" data-path="dataanalysis.html"><a href="dataanalysis.html#what-are-potential-outliers"><i class="fa fa-check"></i><b>4.1.3</b> What are potential outliers?</a></li>
+<li class="chapter" data-level="4.1.4" data-path="dataanalysis.html"><a href="dataanalysis.html#what-is-the-data-pattern-in-the-rest-of-plot"><i class="fa fa-check"></i><b>4.1.4</b> What is the data pattern in the rest of plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="dataanalysis.html"><a href="dataanalysis.html#inkind"><i class="fa fa-check"></i><b>4.2</b> The ‘empty space: Necessary condition ’in kind’</a></li>
+<li class="chapter" data-level="4.3" data-path="dataanalysis.html"><a href="dataanalysis.html#bottleneck"><i class="fa fa-check"></i><b>4.3</b> The bottleneck table: Necessary conditions ‘in degree’</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="dataanalysis.html"><a href="dataanalysis.html#percentagerange"><i class="fa fa-check"></i><b>4.3.1</b> Levels expressed as percentage of range</a></li>
+<li class="chapter" data-level="4.3.2" data-path="dataanalysis.html"><a href="dataanalysis.html#actual"><i class="fa fa-check"></i><b>4.3.2</b> Levels expressed as actual values</a></li>
+<li class="chapter" data-level="4.3.3" data-path="dataanalysis.html"><a href="dataanalysis.html#percentile"><i class="fa fa-check"></i><b>4.3.3</b> Levels expressed as percentiles</a></li>
+<li class="chapter" data-level="4.3.4" data-path="dataanalysis.html"><a href="dataanalysis.html#percentagemax"><i class="fa fa-check"></i><b>4.3.4</b> Levels expressed as percentage of maximum</a></li>
+<li class="chapter" data-level="4.3.5" data-path="dataanalysis.html"><a href="dataanalysis.html#bottleneckothercorners"><i class="fa fa-check"></i><b>4.3.5</b> Interpretation of the bottleneck table with other corners</a></li>
+<li class="chapter" data-level="4.3.6" data-path="dataanalysis.html"><a href="dataanalysis.html#na"><i class="fa fa-check"></i><b>4.3.6</b> NN and NA in the bottleneck table</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="dataanalysis.html"><a href="dataanalysis.html#robustnesschecks"><i class="fa fa-check"></i><b>4.4</b> Robustness checks</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="dataanalysis.html"><a href="dataanalysis.html#choiceceiling"><i class="fa fa-check"></i><b>4.4.1</b> Choice of ceiling line</a></li>
+<li class="chapter" data-level="4.4.2" data-path="dataanalysis.html"><a href="dataanalysis.html#choiceeffectsize"><i class="fa fa-check"></i><b>4.4.2</b> Choice of the threshold level of the effect size</a></li>
+<li class="chapter" data-level="4.4.3" data-path="dataanalysis.html"><a href="dataanalysis.html#choicepvalue"><i class="fa fa-check"></i><b>4.4.3</b> Choice of the threshold level of the p value</a></li>
+<li class="chapter" data-level="4.4.4" data-path="dataanalysis.html"><a href="dataanalysis.html#choicescope"><i class="fa fa-check"></i><b>4.4.4</b> Choice of the scope</a></li>
+<li class="chapter" data-level="4.4.5" data-path="dataanalysis.html"><a href="dataanalysis.html#choiceoutlier"><i class="fa fa-check"></i><b>4.4.5</b> Choice of outlier removal</a></li>
+<li class="chapter" data-level="4.4.6" data-path="dataanalysis.html"><a href="dataanalysis.html#choice-of-target-outcome"><i class="fa fa-check"></i><b>4.4.6</b> Choice of target outcome</a></li>
+<li class="chapter" data-level="4.4.7" data-path="dataanalysis.html"><a href="dataanalysis.html#robustnesstable"><i class="fa fa-check"></i><b>4.4.7</b> Robustness table</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="dataanalysis.html"><a href="dataanalysis.html#ncaregression"><i class="fa fa-check"></i><b>4.5</b> Combining NCA with regression analysis</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="dataanalysis.html"><a href="dataanalysis.html#introduction"><i class="fa fa-check"></i><b>4.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.5.2" data-path="dataanalysis.html"><a href="dataanalysis.html#logic-and-theory"><i class="fa fa-check"></i><b>4.5.2</b> Logic and theory</a></li>
+<li class="chapter" data-level="4.5.3" data-path="dataanalysis.html"><a href="dataanalysis.html#data-analysis"><i class="fa fa-check"></i><b>4.5.3</b> Data analysis</a></li>
+<li class="chapter" data-level="4.5.4" data-path="dataanalysis.html"><a href="dataanalysis.html#how-to-combine-nca-and-regression"><i class="fa fa-check"></i><b>4.5.4</b> How to combine NCA and regression</a></li>
+<li class="chapter" data-level="4.5.5" data-path="dataanalysis.html"><a href="dataanalysis.html#what-is-the-same-in-nca-and-regression"><i class="fa fa-check"></i><b>4.5.5</b> What is the same in NCA and regression?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="dataanalysis.html"><a href="dataanalysis.html#ncaplssem"><i class="fa fa-check"></i><b>4.6</b> Combining NCA with (PLS-)SEM</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="dataanalysis.html"><a href="dataanalysis.html#stepsncasem"><i class="fa fa-check"></i><b>4.6.1</b> Steps for conducting NCA with SEM</a></li>
+<li class="chapter" data-level="4.6.2" data-path="dataanalysis.html"><a href="dataanalysis.html#examplencaplssem"><i class="fa fa-check"></i><b>4.6.2</b> Demonstration of combining NCA and PLS-SEM with R</a></li>
+<li class="chapter" data-level="4.6.3" data-path="dataanalysis.html"><a href="dataanalysis.html#recommendations-for-combining-nca-and-pls-sem"><i class="fa fa-check"></i><b>4.6.3</b> Recommendations for combining NCA and (PLS-)SEM</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="dataanalysis.html"><a href="dataanalysis.html#ncaqca"><i class="fa fa-check"></i><b>4.7</b> Combining NCA with QCA</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="dataanalysis.html"><a href="dataanalysis.html#introduction-to-qca"><i class="fa fa-check"></i><b>4.7.1</b> Introduction to QCA</a></li>
+<li class="chapter" data-level="4.7.2" data-path="dataanalysis.html"><a href="dataanalysis.html#the-differences-between-nca-and-qca"><i class="fa fa-check"></i><b>4.7.2</b> The differences between NCA and QCA</a></li>
+<li class="chapter" data-level="4.7.3" data-path="dataanalysis.html"><a href="dataanalysis.html#recommendation-for-combining-nca-and-qca"><i class="fa fa-check"></i><b>4.7.3</b> Recommendation for combining NCA and QCA</a></li>
+<li class="chapter" data-level="4.7.4" data-path="dataanalysis.html"><a href="dataanalysis.html#examples"><i class="fa fa-check"></i><b>4.7.4</b> Examples</a></li>
+<li class="chapter" data-level="4.7.5" data-path="dataanalysis.html"><a href="dataanalysis.html#misinterpretationsqca"><i class="fa fa-check"></i><b>4.7.5</b> Logical misinterpretations when combining NCA and QCA</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="dataanalysis.html"><a href="dataanalysis.html#causalinference"><i class="fa fa-check"></i><b>4.8</b> Causal inference</a></li>
+<li class="chapter" data-level="4.9" data-path="dataanalysis.html"><a href="dataanalysis.html#metaanalysis"><i class="fa fa-check"></i><b>4.9</b> Meta-analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="mathematical.html"><a href="mathematical.html"><i class="fa fa-check"></i><b>5</b> NCA’s mathematical backgrounds</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="mathematical.html"><a href="mathematical.html#formalexpression"><i class="fa fa-check"></i><b>5.1</b> Formal mathematical expression</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="mathematical.html"><a href="mathematical.html#effectsize"><i class="fa fa-check"></i><b>5.1.1</b> Effect size</a></li>
+<li class="chapter" data-level="5.1.2" data-path="mathematical.html"><a href="mathematical.html#necinefficiency"><i class="fa fa-check"></i><b>5.1.2</b> Necessity inefficiency</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="mathematical.html"><a href="mathematical.html#multiplenca"><i class="fa fa-check"></i><b>5.2</b> Multiple NCA</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistical.html"><a href="statistical.html"><i class="fa fa-check"></i><b>6</b> NCA’s statistics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="statistical.html"><a href="statistical.html#ncas-statistical-expression"><i class="fa fa-check"></i><b>6.1</b> NCA’s statistical expression</a></li>
+<li class="chapter" data-level="6.2" data-path="statistical.html"><a href="statistical.html#permutationtest"><i class="fa fa-check"></i><b>6.2</b> NCA’s statistical test</a></li>
+<li class="chapter" data-level="6.3" data-path="statistical.html"><a href="statistical.html#simulations-with-nca"><i class="fa fa-check"></i><b>6.3</b> Simulations with NCA</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="statistical.html"><a href="statistical.html#requirementssim"><i class="fa fa-check"></i><b>6.3.1</b> Requirements for simulations with NCA</a></li>
+<li class="chapter" data-level="6.3.2" data-path="statistical.html"><a href="statistical.html#power"><i class="fa fa-check"></i><b>6.3.2</b> Simulations for estimating the power of NCA’s statistical test</a></li>
+<li class="chapter" data-level="6.3.3" data-path="statistical.html"><a href="statistical.html#ceilingquality"><i class="fa fa-check"></i><b>6.3.3</b> Simulations for evaluating a ceiling line and its effect size</a></li>
+<li class="chapter" data-level="6.3.4" data-path="statistical.html"><a href="statistical.html#simulations-of-correlation"><i class="fa fa-check"></i><b>6.3.4</b> Simulations of correlation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>7</b> Miscellaneous</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="miscellaneous.html"><a href="miscellaneous.html#software"><i class="fa fa-check"></i><b>7.1</b> NCA software</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="miscellaneous.html"><a href="miscellaneous.html#rsoftware"><i class="fa fa-check"></i><b>7.1.1</b> Main NCA software: R package</a></li>
+<li class="chapter" data-level="7.1.2" data-path="miscellaneous.html"><a href="miscellaneous.html#othersoftware"><i class="fa fa-check"></i><b>7.1.2</b> Other NCA software packages</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="miscellaneous.html"><a href="miscellaneous.html#learning-about-nca"><i class="fa fa-check"></i><b>7.2</b> Learning about NCA</a></li>
+<li class="chapter" data-level="7.3" data-path="miscellaneous.html"><a href="miscellaneous.html#hqscatterplots"><i class="fa fa-check"></i><b>7.3</b> Producing high-quality NCA scatter plots</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="miscellaneous.html"><a href="miscellaneous.html#standard-plot"><i class="fa fa-check"></i><b>7.3.1</b> Standard plot</a></li>
+<li class="chapter" data-level="7.3.2" data-path="miscellaneous.html"><a href="miscellaneous.html#standard-plot-with-basic-adaptations"><i class="fa fa-check"></i><b>7.3.2</b> Standard plot with basic adaptations</a></li>
+<li class="chapter" data-level="7.3.3" data-path="miscellaneous.html"><a href="miscellaneous.html#standard-plot-with-advanced-adaptations"><i class="fa fa-check"></i><b>7.3.3</b> Standard plot with advanced adaptations</a></li>
+<li class="chapter" data-level="7.3.4" data-path="miscellaneous.html"><a href="miscellaneous.html#plot-with-plotly"><i class="fa fa-check"></i><b>7.3.4</b> Plot with <code>plotly</code></a></li>
+<li class="chapter" data-level="7.3.5" data-path="miscellaneous.html"><a href="miscellaneous.html#plot-with-ggplot"><i class="fa fa-check"></i><b>7.3.5</b> Plot with <code>ggplot</code></a></li>
+<li class="chapter" data-level="7.3.6" data-path="miscellaneous.html"><a href="miscellaneous.html#saving-the-plot-from-within-the-r-script"><i class="fa fa-check"></i><b>7.3.6</b> Saving the plot from within the R script</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="miscellaneous.html"><a href="miscellaneous.html#additionalcode"><i class="fa fa-check"></i><b>7.4</b> Additional functions for use with the NCA softare in R (beta)</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="miscellaneous.html"><a href="miscellaneous.html#ncarobustnesstablegeneral"><i class="fa fa-check"></i><b>7.4.1</b> <code>nca_robustness_table_general.R</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="miscellaneous.html"><a href="miscellaneous.html#ncarobustnesschecksgeneral"><i class="fa fa-check"></i><b>7.4.2</b> <code>nca_robustness_checks_general.R</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="miscellaneous.html"><a href="miscellaneous.html#getoutliers"><i class="fa fa-check"></i><b>7.4.3</b> <code>get_outliers.R</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="miscellaneous.html"><a href="miscellaneous.html#getindicatordata"><i class="fa fa-check"></i><b>7.4.4</b> <code>get_indicator_data_TAM.R</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="miscellaneous.html"><a href="miscellaneous.html#estimatesemmodel"><i class="fa fa-check"></i><b>7.4.5</b> <code>estimate_sem_model_TAM.R</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="miscellaneous.html"><a href="miscellaneous.html#significancesem"><i class="fa fa-check"></i><b>7.4.6</b> <code>get_signficance_sem.R</code></a></li>
+<li class="chapter" data-level="7.4.7" data-path="miscellaneous.html"><a href="miscellaneous.html#unstandardize"><i class="fa fa-check"></i><b>7.4.7</b> <code>unstandardize.R</code></a></li>
+<li class="chapter" data-level="7.4.8" data-path="miscellaneous.html"><a href="miscellaneous.html#normalize"><i class="fa fa-check"></i><b>7.4.8</b> <code>normalize.R</code></a></li>
+<li class="chapter" data-level="7.4.9" data-path="miscellaneous.html"><a href="miscellaneous.html#getbottleneckcases"><i class="fa fa-check"></i><b>7.4.9</b> <code>get_bottleneck_cases.R</code></a></li>
+<li class="chapter" data-level="7.4.10" data-path="miscellaneous.html"><a href="miscellaneous.html#getipmadf"><i class="fa fa-check"></i><b>7.4.10</b> <code>get_ipma_df.R</code></a></li>
+<li class="chapter" data-level="7.4.11" data-path="miscellaneous.html"><a href="miscellaneous.html#getipmaplot"><i class="fa fa-check"></i><b>7.4.11</b> <code>get_ipma_plot.R</code></a></li>
+<li class="chapter" data-level="7.4.12" data-path="miscellaneous.html"><a href="miscellaneous.html#getcipmadf"><i class="fa fa-check"></i><b>7.4.12</b> <code>get_cipma_df.R</code></a></li>
+<li class="chapter" data-level="7.4.13" data-path="miscellaneous.html"><a href="miscellaneous.html#getcipmaplot"><i class="fa fa-check"></i><b>7.4.13</b> <code>get_cipma_plot.R</code></a></li>
+<li class="chapter" data-level="7.4.14" data-path="miscellaneous.html"><a href="miscellaneous.html#getsinglebottleneckcases"><i class="fa fa-check"></i><b>7.4.14</b> <code>get_single_bottleneck_cases.R</code></a></li>
+<li class="chapter" data-level="7.4.15" data-path="miscellaneous.html"><a href="miscellaneous.html#getbipmadf"><i class="fa fa-check"></i><b>7.4.15</b> <code>get_bipma_df.R</code></a></li>
+<li class="chapter" data-level="7.4.16" data-path="miscellaneous.html"><a href="miscellaneous.html#getbipmaplot"><i class="fa fa-check"></i><b>7.4.16</b> <code>get_bipma_plot.R</code></a></li>
+<li class="chapter" data-level="7.4.17" data-path="miscellaneous.html"><a href="miscellaneous.html#ncasem"><i class="fa fa-check"></i><b>7.4.17</b> <code>ncasem.R</code></a></li>
+<li class="chapter" data-level="7.4.18" data-path="miscellaneous.html"><a href="miscellaneous.html#ncasemexample"><i class="fa fa-check"></i><b>7.4.18</b> <code>ncasem_example_TAM.R</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<a href="https://www.erim.eur.nl/necessary-condition-analysis/">
+<img alt="erim" src="NCAwebsite2.png" width="270"></a
+<a href="https://www.erim.eur.nl/necessary-condition-analysis/" target="blank">NCA website</a></li>
+<li><a href="mailto:jdul@rsm.nl">Send email to the author</a>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Advances in Necessary Condition Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Data<a href="data.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>NCA is versatile regarding the data that can be used for the analysis. In quantitative studies NCA uses quantitative data (numbers), in qualitative studies NCA uses qualitative data (letters, words or numbers without a quantitative meaning), and is set theoretical studies (like Qualitative Comparative Analysis-QCA) NCA uses set membership scores. NCA can use any type of data. For example, NCA can handle new or archival data and can handle indicator (item) scores or aggregated scores (e.g, latent variables). NCA does not pose new requirements on collecting data –also NCA needs a proper research design, a good sample, and valid and reliable scores. However, a few aspects can be different. This Chapter discusses several aspects of data that are relevant for NCA: the transformation of data (section <a href="data.html#transformation">3.1</a>), the experiment (section <a href="data.html#experiment">3.2</a>), sample size (section <a href="data.html#samplesize">3.3</a>), different data types such as quantitative data (section <a href="data.html#quantitative">3.4</a>), qualitative data (section <a href="data.html#qualitative">3.5</a>), longitudinal data (section <a href="data.html#longitudinal">3.6</a>), and set membership scores (section <a href="data.html#setmembership">3.7</a>), and how to handle outliers (section <a href="data.html#outliers">3.8</a>).</p>
+<div id="transformation" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Data transformation<a href="data.html#transformation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In quantitative (statistical) studies, data are often transformed before the analysis is done. For example, in machine learning, cluster analysis and multiple regression analysis, data are often standardized. The sample mean is subtracted from the original score and divided by the sample standard deviation to obtain the <em>z-score</em>: <span class="math inline">\(X_{new} = (X — X_{mean}) / SD\)</span>. In multiple regression analysis this allows a comparison of the regression coefficients of the variables, independently of the variable scale. Normalization in another data transformation. Original data are often min-max normalized: <span class="math inline">\(X_{new} = (X — X_{min}) / (X_{max} — X_{min})\)</span>. The normalized variables have scores between 0 and 1. Transforming original scores into Z-scores or min-max normalized scores are examples of a <em>linear</em> transformation. Also a <em>non-linear</em> data transformation are often done in quantitative (statistical) studies. For example, skewed distributed data can be log transformed to obtain a more normally distributed data, which is relevant when the statistical approach assumes normally distributed data. Calibration in QCA is another example of a non-linear transformation. Original variable scores (‘raw scores’) are transformed into set membership scores using for example the logistic function (‘s-curve’).</p>
+<p>NCA in principle does not need data transformation. The effect size is already normalized between 0 and 1 and allows comparison of effect sizes of different variables. Furthermore, NCA does make assumptions about the distribution of the data. However, if the researcher wishes to do a linear transformation, this would not effect the results of NCA, as is shown in this example:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="data.html#cb34-1" tabindex="-1"></a><span class="fu">library</span>(NCA)</span>
+<span id="cb34-2"><a href="data.html#cb34-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb34-3"><a href="data.html#cb34-3" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="data.html#cb34-4" tabindex="-1"></a><span class="co">#original data</span></span>
+<span id="cb34-5"><a href="data.html#cb34-5" tabindex="-1"></a><span class="fu">data</span> (nca.example)</span>
+<span id="cb34-6"><a href="data.html#cb34-6" tabindex="-1"></a>data <span class="ot">&lt;-</span> nca.example</span>
+<span id="cb34-7"><a href="data.html#cb34-7" tabindex="-1"></a></span>
+<span id="cb34-8"><a href="data.html#cb34-8" tabindex="-1"></a><span class="co">#linear: standardized data (z scores)</span></span>
+<span id="cb34-9"><a href="data.html#cb34-9" tabindex="-1"></a>datas <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">mutate_all</span>(<span class="sc">~</span>(<span class="fu">scale</span>(.) <span class="sc">%&gt;%</span> as.vector))</span>
+<span id="cb34-10"><a href="data.html#cb34-10" tabindex="-1"></a></span>
+<span id="cb34-11"><a href="data.html#cb34-11" tabindex="-1"></a><span class="co">#linear: min-max normalized data (0,1; scope)</span></span>
+<span id="cb34-12"><a href="data.html#cb34-12" tabindex="-1"></a>minMax <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {(x <span class="sc">-</span> <span class="fu">min</span>(x)) <span class="sc">/</span> (<span class="fu">max</span>(x) <span class="sc">-</span> <span class="fu">min</span>(x))}</span>
+<span id="cb34-13"><a href="data.html#cb34-13" tabindex="-1"></a>datan <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">lapply</span>(data, minMax))</span>
+<span id="cb34-14"><a href="data.html#cb34-14" tabindex="-1"></a></span>
+<span id="cb34-15"><a href="data.html#cb34-15" tabindex="-1"></a><span class="co">#conduct NCA</span></span>
+<span id="cb34-16"><a href="data.html#cb34-16" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">nca_analysis</span>(data, <span class="dv">1</span>,<span class="dv">3</span>, <span class="at">test.rep =</span> <span class="dv">1000</span>, <span class="at">ceilings =</span> <span class="st">&#39;ce_fdh&#39;</span>) <span class="co">#original data</span></span>
+<span id="cb34-17"><a href="data.html#cb34-17" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">nca_analysis</span>(datas, <span class="dv">1</span>,<span class="dv">3</span>, <span class="at">test.rep =</span> <span class="dv">1000</span>, <span class="at">ceilings =</span> <span class="st">&#39;ce_fdh&#39;</span>) <span class="co"># standardized data</span></span>
+<span id="cb34-18"><a href="data.html#cb34-18" tabindex="-1"></a>modeln <span class="ot">&lt;-</span> <span class="fu">nca_analysis</span>(datan, <span class="dv">1</span>,<span class="dv">3</span>, <span class="at">test.rep =</span> <span class="dv">1000</span>, <span class="at">ceilings =</span> <span class="st">&#39;ce_fdh&#39;</span>) <span class="co">#normalized data</span></span>
+<span id="cb34-19"><a href="data.html#cb34-19" tabindex="-1"></a></span>
+<span id="cb34-20"><a href="data.html#cb34-20" tabindex="-1"></a><span class="co">#compare results</span></span></code></pre></div>
+<p><br></p>
+<p>Results with original data:</p>
+<pre><code>## 
+## ---------------------------------------------------------------------------</code></pre>
+<pre><code>## Effect size(s):</code></pre>
+<pre><code>##               ce_fdh p    
+## Individualism 0.42   0.084
+## ---------------------------------------------------------------------------</code></pre>
+<p><br></p>
+<p>Results with linear standardized data:</p>
+<pre><code>## 
+## ---------------------------------------------------------------------------</code></pre>
+<pre><code>## Effect size(s):</code></pre>
+<pre><code>##               ce_fdh p    
+## Individualism 0.42   0.084
+## ---------------------------------------------------------------------------</code></pre>
+<p><br></p>
+<p>Results with linear normalized data:</p>
+<pre><code>## 
+## ---------------------------------------------------------------------------</code></pre>
+<pre><code>## Effect size(s):</code></pre>
+<pre><code>##               ce_fdh p    
+## Individualism 0.42   0.084
+## ---------------------------------------------------------------------------</code></pre>
+<p>Linear transformation does not effect the estimations of the effect size and the p value. Interpretation of the results with <em>original</em> data is often easier than the interpretation of the results with transformed data. The original data may have a more direct meaning than the transformed data.</p>
+<p>In contrast with linear transformations, non-linear transformations will change the effect size and p value, as shown in this example:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data.html#cb44-1" tabindex="-1"></a><span class="fu">library</span>(NCA)</span>
+<span id="cb44-2"><a href="data.html#cb44-2" tabindex="-1"></a><span class="fu">library</span>(QCA)</span>
+<span id="cb44-3"><a href="data.html#cb44-3" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="data.html#cb44-4" tabindex="-1"></a><span class="co">#original data</span></span>
+<span id="cb44-5"><a href="data.html#cb44-5" tabindex="-1"></a><span class="fu">data</span> (nca.example)</span>
+<span id="cb44-6"><a href="data.html#cb44-6" tabindex="-1"></a>data <span class="ot">&lt;-</span> nca.example</span>
+<span id="cb44-7"><a href="data.html#cb44-7" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="data.html#cb44-8" tabindex="-1"></a><span class="co">#non-linear transformation: log</span></span>
+<span id="cb44-9"><a href="data.html#cb44-9" tabindex="-1"></a>datal <span class="ot">&lt;-</span> <span class="fu">log</span>(data)</span>
+<span id="cb44-10"><a href="data.html#cb44-10" tabindex="-1"></a></span>
+<span id="cb44-11"><a href="data.html#cb44-11" tabindex="-1"></a><span class="co">#non-linear transformation: calibrated set membership scores (logistic function)</span></span>
+<span id="cb44-12"><a href="data.html#cb44-12" tabindex="-1"></a>thx1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data[,<span class="dv">1</span>], <span class="fu">c</span>(<span class="fl">0.10</span>,<span class="fl">0.50</span>,<span class="fl">0.90</span>))  <span class="co">#example of thresholds</span></span>
+<span id="cb44-13"><a href="data.html#cb44-13" tabindex="-1"></a>thx2 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data[,<span class="dv">2</span>], <span class="fu">c</span>(<span class="fl">0.10</span>,<span class="fl">0.50</span>,<span class="fl">0.90</span>)) <span class="co">#example of thresholds</span></span>
+<span id="cb44-14"><a href="data.html#cb44-14" tabindex="-1"></a>thy <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data[,<span class="dv">3</span>], <span class="fu">c</span>(<span class="fl">0.10</span>,<span class="fl">0.50</span>,<span class="fl">0.90</span>)) <span class="co">#example of thresholds</span></span>
+<span id="cb44-15"><a href="data.html#cb44-15" tabindex="-1"></a>x1T <span class="ot">&lt;-</span> <span class="fu">calibrate</span>(data[,<span class="dv">1</span>],<span class="at">type=</span><span class="st">&quot;fuzzy&quot;</span>, <span class="at">thresholds=</span> <span class="fu">c</span>(thx1[<span class="dv">1</span>], thx1[<span class="dv">2</span>], thx1[<span class="dv">3</span>]),<span class="at">logistic =</span> <span class="cn">TRUE</span>, <span class="at">idm =</span> <span class="fl">0.953</span>)</span>
+<span id="cb44-16"><a href="data.html#cb44-16" tabindex="-1"></a>x2T <span class="ot">&lt;-</span> <span class="fu">calibrate</span>(data[,<span class="dv">2</span>], <span class="at">type=</span><span class="st">&quot;fuzzy&quot;</span>, <span class="at">thresholds =</span> <span class="fu">c</span>(thx2[<span class="dv">1</span>], thx2[<span class="dv">2</span>], thx2[<span class="dv">3</span>]), <span class="at">logistic =</span> <span class="cn">TRUE</span>, <span class="at">idm =</span> <span class="fl">0.953</span>)</span>
+<span id="cb44-17"><a href="data.html#cb44-17" tabindex="-1"></a>yT <span class="ot">&lt;-</span> <span class="fu">calibrate</span>(data[,<span class="dv">3</span>], <span class="at">type=</span><span class="st">&quot;fuzzy&quot;</span>, <span class="at">thresholds =</span> <span class="fu">c</span>(thy[<span class="dv">1</span>], thy[<span class="dv">2</span>], thy[<span class="dv">3</span>]), <span class="at">logistic =</span> <span class="cn">TRUE</span>, <span class="at">idm =</span> <span class="fl">0.953</span>)</span>
+<span id="cb44-18"><a href="data.html#cb44-18" tabindex="-1"></a>datac <span class="ot">&lt;-</span> <span class="fu">cbind</span> (x1T,x2T,yT)</span>
+<span id="cb44-19"><a href="data.html#cb44-19" tabindex="-1"></a><span class="fu">rownames</span>(datac) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(data)</span>
+<span id="cb44-20"><a href="data.html#cb44-20" tabindex="-1"></a><span class="fu">colnames</span>(datac) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(data)</span>
+<span id="cb44-21"><a href="data.html#cb44-21" tabindex="-1"></a>datac <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(datac)</span>
+<span id="cb44-22"><a href="data.html#cb44-22" tabindex="-1"></a></span>
+<span id="cb44-23"><a href="data.html#cb44-23" tabindex="-1"></a><span class="co">#conduct NCA</span></span>
+<span id="cb44-24"><a href="data.html#cb44-24" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">nca_analysis</span>(data, <span class="dv">1</span>,<span class="dv">3</span>, <span class="at">test.rep =</span> <span class="dv">1000</span>, <span class="at">ceilings =</span> <span class="st">&#39;ce_fdh&#39;</span>) <span class="co">#original data</span></span>
+<span id="cb44-25"><a href="data.html#cb44-25" tabindex="-1"></a>modell <span class="ot">&lt;-</span> <span class="fu">nca_analysis</span>(datal, <span class="dv">1</span>,<span class="dv">3</span>, <span class="at">test.rep =</span> <span class="dv">1000</span>, <span class="at">ceilings =</span> <span class="st">&#39;ce_fdh&#39;</span>) <span class="co"># log transformed data</span></span>
+<span id="cb44-26"><a href="data.html#cb44-26" tabindex="-1"></a>modelc <span class="ot">&lt;-</span> <span class="fu">nca_analysis</span>(datac, <span class="dv">1</span>,<span class="dv">3</span>, <span class="at">test.rep =</span> <span class="dv">1000</span>,<span class="at">ceilings =</span> <span class="st">&#39;ce_fdh&#39;</span>) <span class="co">#calibrated data</span></span>
+<span id="cb44-27"><a href="data.html#cb44-27" tabindex="-1"></a></span>
+<span id="cb44-28"><a href="data.html#cb44-28" tabindex="-1"></a><span class="co">#compare results</span></span></code></pre></div>
+<p><br></p>
+<p>Results with original data:</p>
+<pre><code>## 
+## ---------------------------------------------------------------------------</code></pre>
+<pre><code>## Effect size(s):</code></pre>
+<pre><code>##               ce_fdh p    
+## Individualism 0.42   0.095
+## ---------------------------------------------------------------------------</code></pre>
+<p><br></p>
+<p>Results with non-linear log transformed data:</p>
+<pre><code>## 
+## ---------------------------------------------------------------------------</code></pre>
+<pre><code>## Effect size(s):</code></pre>
+<pre><code>##               ce_fdh p    
+## Individualism 0.20   0.276
+## ---------------------------------------------------------------------------</code></pre>
+<p><br></p>
+<p>Results with non- linear calibrated data:</p>
+<pre><code>## 
+## ---------------------------------------------------------------------------</code></pre>
+<pre><code>## Effect size(s):</code></pre>
+<pre><code>##               ce_fdh p    
+## Individualism 0.11   0.095
+## ---------------------------------------------------------------------------</code></pre>
+<p>Therefore non-linear transformation should be avoided in NCA. An exception is when a non-linear transformed original score is a valid representation of the concept of interest (the <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span> in the necessity hypothesis). For example, the concept of a country’s economic prosperity can be expressed by log GDP. In this case a log transformation of GDP data is justified (e.g., see section <a href="data.html#pooled">3.6.1</a>). Also in QCA data are normally non-linearly transformed to obtain calibrated scores. The general advise is to refrain from linear data transformation when the original data can be better interpreted than transformed data, and only to transform data non-linearly when this is needed to capture the concept of interest.</p>
+</div>
+<div id="experiment" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Experiment<a href="data.html#experiment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Whereas in a common experiment <span class="math inline">\(X\)</span> is manipulated to produce the <em>presence</em> of <span class="math inline">\(Y\)</span> on average, in NCA <span class="math inline">\(X\)</span> is manipulated to produce <em>absence</em> of <span class="math inline">\(Y\)</span>. This is done as follows. Assuming the necessary condition that for maintaining a desired level of <span class="math inline">\(Y = y_c\)</span>, <span class="math inline">\(X\)</span> must be equal to or larger than <span class="math inline">\(x_c\)</span>, the research starts with cases <em>with</em> the outcome (<span class="math inline">\(Y ≥ y_c\)</span>) and <em>with</em> the condition (<span class="math inline">\(X ≥ x_c\)</span>), then the condition is <em>removed or reduced</em> (<span class="math inline">\(X &lt; x_c\)</span>), and it is observed if the outcome has <em>disappeared or reduced</em> (<span class="math inline">\(Y &lt; y_c\)</span>). This contrasts the traditional “average treatment effect” experiment in which the research starts with cases <em>without</em> the outcome (<span class="math inline">\(Y &lt; y_c\)</span>) and without the condition (<span class="math inline">\(X &lt; x_c\)</span>), then the condition is <em>added or increased</em> (<span class="math inline">\(X ≥ x_c\)</span>), and it is observed if the outcome has <em>appeared or increased</em> (<span class="math inline">\(Y ≥ y_c\)</span>).</p>
+<p>In this section I give further details about the necessity experiment for testing whether a condition <span class="math inline">\(X\)</span> is necessary for outcome <span class="math inline">\(Y\)</span>. I first describe the traditional experiment and afterwards the necessity experiment.</p>
+<div id="the-traditional-experiment" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> The traditional experiment<a href="data.html#the-traditional-experiment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The traditional experiment estimates the “average treatment effect”: the average effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>. The Randomized Controlled Trial (RCT) is considered the gold standard for such experiment. In an RCT, a sample of cases is selected from the population of interest and is randomly divided into a ‘treatment group’ and a ‘control group’. In the treatment group, <span class="math inline">\(X\)</span> (the treatment) is manipulated by the researcher and in the control group nothing is manipulated. After a certain period of time the difference of the outcomes <span class="math inline">\(Y\)</span> in the two groups is measured, which is an indication of the causal effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>. For claiming causality, the existence of a time difference between manipulation and measurement of the outcome is essential as it ensures that the cause came before the outcome. Although this time difference can be short (e.g., when there is an immediate effect of the manipulation) it will always exist in an experiment. During this time period, not only the treatment, but also other factors may have changed. The control group ensures that the ‘time effect’ of other factors is taken into account, and it is assumed that the time effect in the treatment group and in the control group are the same. Random allocation of cases to the two groups is an attempt to safeguard that there are no average time effect differences between the treatment group and the control group.</p>
+<p>An RCT is used to evaluate the <em>average</em> effect of a treatment (a policy, an intervention, a medical treatment, etc.). The treatment group describes the real world of cases where the intervention has occurred, and the control group mimics the counterfactual world of <em>these</em> cases if the intervention would not have occurred. The use of a control group and randomization is an effort to compare the actual world of cases that got the intervention with the actual world of <em>similar</em> (but not the same) cases that did not get the intervention. “Similar” means that the two groups <em>on average</em> have the same characteristics with respect to factors that can also have an effect on the outcome, other than the treatment. Randomization must ensure a statistical similarity of the two groups: they have the same <em>average</em> level of potential confounders. So, randomization is an effort to control for potential confounders.</p>
+<p>Figure <a href="data.html#fig:traditionalbefaft">3.1</a> represents the traditional experiment when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are both dichotomous (absent = 0; present = 1), The sample of 100 cases is divided into a treatment group (blue) of 50 cases and a control group of 50 cases (red). The left figure shows the situation before the treatment. All cases are in the lower-left cell: the effect is absent, and the treatment is absent. The manipulation for the treatment group consists of <em>adding</em> the treatment. This means that <span class="math inline">\(X\)</span> is changed from absent (<span class="math inline">\(X\)</span> = 0, no treatment) to present (<span class="math inline">\(X\)</span> = 1, treatment). After the manipulation (right figure), the effect <span class="math inline">\(Y\)</span> of the treatment group is caused by a ‘time effect’ and a ‘manipulation effect’. In the control group <span class="math inline">\(X\)</span> is not changed (no manipulation) but there is a time effect. Because the time effects in both groups are considered the same (due to randomization) the difference between the outcome of the treatment group and the control group can be attributed to <span class="math inline">\(X\)</span>, the manipulation.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:traditionalbefaft"></span>
+<img src="_main_files/figure-html/traditionalbefaft-1.png" alt="XY table of the traditional experiment before (left) and after (right) treatment. X  = Treatment (0 = no; 1 = yes); Y = Effect (0 = no; 1 = yes). Red: control group; Blue: treatment group." width="100%" />
+<p class="caption">
+Figure 3.1: XY table of the traditional experiment before (left) and after (right) treatment. X = Treatment (0 = no; 1 = yes); Y = Effect (0 = no; 1 = yes). Red: control group; Blue: treatment group.
+</p>
+</div>
+<p>With a traditional RCT experiment, after the treatment usually all four cells have cases. In this example, 10 cases from the control group have moved from the lower-left cell to the upper-left cell, suggesting a time effect. The cases from the treatment group have all moved to <span class="math inline">\(X\)</span> = 1. Treatment and the time had no effect on the 30 cases in the lower-right cell. Treatment and time did have an effect on the 20 cases in the upper-right cell. The data pattern in the four cells suggests that the treatment had an effect. There are more cases in the upper-right cell (resulting from a time effect and a treatment effect) compared to the number of cases in the upper left cell (resulting only from a time effect). The odds ratio is an estimate the “average treatment effect”: <span class="math inline">\((20/30)/(10/40) = 2.67\)</span>.</p>
+<div id="the-sufficiency-experiment" class="section level4 hasAnchor" number="3.2.1.1">
+<h4><span class="header-section-number">3.2.1.1</span> The sufficiency experiment<a href="data.html#the-sufficiency-experiment" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The sufficiency experiment can be considered as a special case of the traditional experiment, namely when after the manipulation (Figure <a href="data.html#fig:sufficiency1befaft">3.2</a>), all cases of the treatment group are in the upper-right cell. Then the odds ratio for estimating the average effect is infinite, independently of the distribution of the cases in the control group: <span class="math inline">\((50/0)/(10/40) = \infty\)</span>. Note that this situation is named “perfect separation” and is considered a problem for “average effect” statistical analysis. In this situation <span class="math inline">\(X\)</span> is called a “perfect predictor” that is normally left out from further analysis, because of the statistical problems. However, actually <span class="math inline">\(X\)</span> is an very important predictor of the outcome: it ensures the outcome, hence the name “perfect predictor”.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sufficiency1befaft"></span>
+<img src="_main_files/figure-html/sufficiency1befaft-1.png" alt="XY table of the sufficiency experiment before (left) and after (right) treatment. X  = Treatment (0 = no; 1 = yes); Y = Effect (0 = no; 1 = yes). Red: control group; Blue: treatment group." width="100%" />
+<p class="caption">
+Figure 3.2: XY table of the sufficiency experiment before (left) and after (right) treatment. X = Treatment (0 = no; 1 = yes); Y = Effect (0 = no; 1 = yes). Red: control group; Blue: treatment group.
+</p>
+</div>
+</div>
+<div id="non-necessity-test" class="section level4 hasAnchor" number="3.2.1.2">
+<h4><span class="header-section-number">3.2.1.2</span> Non-necessity test<a href="data.html#non-necessity-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Referring to Figure <a href="data.html#fig:traditionalbefaft">3.1</a>, right, a part of the traditional “average treatment effect” experiment can be interpreted as a <em>non-necessity test</em>. While the emptiness in the lower-right cell reflects sufficiency, the emptiness of the upper-left cell reflects necessity. If this cell has cases due to the time effect, it can be concluded that the treatment is not necessary for the effect, because the effect is possible without the treatment. If this cell remains empty the necessity is not disconfirmed. This ‘non-necessity test’ as part of a traditional experiment can only be done with the control group. The treatment group cannot be used for testing necessity because it cannot test the emptiness of the upper-left cell. The non-necessity test with the control group is not an experiment since no manipulation is involved. It can be considered an observational study.</p>
+</div>
+</div>
+<div id="necessityexperiment" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> The necessity experiment<a href="data.html#necessityexperiment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For testing the emptiness of the upper-left cell with an experiment (with manipulation of <span class="math inline">\(X\)</span>), another approach is required. In the necessity experiment, all cases start to be in the upper-right cell (<span class="math inline">\(X\)</span> = 1 and <span class="math inline">\(Y\)</span> = 1) as illustrated in Figure <a href="data.html#fig:necessity1befaft">3.3</a>, left.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:necessity1befaft"></span>
+<img src="_main_files/figure-html/necessity1befaft-1.png" alt="XY table of the necessity experiment before (left) and after (right) treatment. X  = Treatment (0 = no; 1 = yes); Y = Effect (0 = no; 1 = yes). Red: control group; Blue: treatment group." width="100%" />
+<p class="caption">
+Figure 3.3: XY table of the necessity experiment before (left) and after (right) treatment. X = Treatment (0 = no; 1 = yes); Y = Effect (0 = no; 1 = yes). Red: control group; Blue: treatment group.
+</p>
+</div>
+<p>The manipulation consists of <em>removing</em> rather than adding the treatment (from <span class="math inline">\(X\)</span> = 1 to <span class="math inline">\(X\)</span> = 0) and it is observed whether this removes the outcome (from <span class="math inline">\(Y\)</span> = 1 to <span class="math inline">\(Y\)</span> = 0). This is illustrated in Figure <a href="data.html#fig:necessity1befaft">3.3</a>, right. Necessity is supported when the upper-left cell remains empty. Like in a sufficiency experiment, the odds ratio is infinite. Also this situation is called “perfect separation” and is considered a problem for “average effect” statistical analysis, and <span class="math inline">\(X\)</span> is called a “perfect predictor” that is normally left out from further analysis, because of the statistical problems. However, again <span class="math inline">\(X\)</span> is an very important predictor of the outcome and indeed a “perfect predictor”: it ensures the absence of the outcome when <span class="math inline">\(X\)</span> is absent. Again, the odds ratio for estimating the average effect is infinite, independently of the distribution of the cases in the control group: <span class="math inline">\((50/0)/(20/30) = \infty\)</span>.</p>
+<div id="the-necessity-experiment-with-continuous-outcome-and-dichotomous-condition" class="section level4 hasAnchor" number="3.2.2.1">
+<h4><span class="header-section-number">3.2.2.1</span> The necessity experiment with continuous outcome and dichotomous condition<a href="data.html#the-necessity-experiment-with-continuous-outcome-and-dichotomous-condition" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Figure <a href="data.html#fig:necessitybefaft1continuousdichotomous">3.4</a> illustrates the situation when the outcome is a continuous variable. Before the manipulation the condition is present (<span class="math inline">\(X\)</span> = 1). The <span class="math inline">\(Y\)</span>-values of the cases include the <em>maximum value</em> of the outcome (<span class="math inline">\(Y\)</span> = 1). Necessity is supported when after the manipulation the maximum value in the treatment group is reduced to a value of <span class="math inline">\(Y = Y_c\)</span>, resulting in an empty upper-left corner of the <span class="math inline">\(XY\)</span> plot. The necessary condition can be formulated as <span class="math inline">\(X = 1\)</span> is necessary for <span class="math inline">\(Y &gt;= Y_c\)</span>. The necessity effect size is the empty area divided by the scope. In this example the effect size = 0.175.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:necessitybefaft1continuousdichotomous"></span>
+<img src="_main_files/figure-html/necessitybefaft1continuousdichotomous-1.png" alt="XY plot of the necessity experiment with continuous outcome before (left) and after (right) treatment. X  = Treatment (0 = no; 1 = yes); Y = Effect between 0 and 1. Red: control group; Blue: treatment group." width="100%" />
+<p class="caption">
+Figure 3.4: XY plot of the necessity experiment with continuous outcome before (left) and after (right) treatment. X = Treatment (0 = no; 1 = yes); Y = Effect between 0 and 1. Red: control group; Blue: treatment group.
+</p>
+</div>
+</div>
+<div id="the-necessity-experiment-with-continuous-outcome-and-condition" class="section level4 hasAnchor" number="3.2.2.2">
+<h4><span class="header-section-number">3.2.2.2</span> The necessity experiment with continuous outcome and condition<a href="data.html#the-necessity-experiment-with-continuous-outcome-and-condition" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In Figures <a href="data.html#fig:necessitybefaft1continuouscontinuousintact">3.5</a>, <a href="data.html#fig:necessitybefaft1continuouscontinuoussmaller">3.6</a>, <a href="data.html#fig:necessitybefaft1continuouscontinuousrejected">3.7</a>, and <a href="data.html#fig:necessitybefaft1continuouscontinuousrare">3.8</a> both the condition and the outcome are continuous variables. Rather than being a necessity experiment to test whether necessity exists, in this experiment an existing necessity is challenged. The manipulation consists of offering an experimental situation (e.g., an intervention or a scenario such as in a vignette study or a Monte Carlo experiment) that reduces the level of the condition in the treatment group but not in the control group. Necessity remains supported when after the manipulation no cases enter the empty zone. This is shown in Figure <a href="data.html#fig:necessitybefaft1continuouscontinuousintact">3.5</a>, where the necessity effect size before manipulation (0.25) stays intact after manipulation.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:necessitybefaft1continuouscontinuousintact"></span>
+<img src="_main_files/figure-html/necessitybefaft1continuouscontinuousintact-1.png" alt="XY plot of an experiment to challenge necessit with continuous condition and outcome before (left) and after (right) treatment of reducing the X. Effect size **remains** after manipulation.  Red: control group; Blue: treatment group." width="100%" />
+<p class="caption">
+Figure 3.5: XY plot of an experiment to challenge necessit with continuous condition and outcome before (left) and after (right) treatment of reducing the X. Effect size <strong>remains</strong> after manipulation. Red: control group; Blue: treatment group.
+</p>
+</div>
+<p>However, when cases enter the empty zone, the necessity is reduced (smaller effect size) or rejected (no empty space). Figure <a href="data.html#fig:necessitybefaft1continuouscontinuoussmaller">3.6</a> shows an example of a reduction of the necessaty effect size from 0.25 to 0.15.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:necessitybefaft1continuouscontinuoussmaller"></span>
+<img src="_main_files/figure-html/necessitybefaft1continuouscontinuoussmaller-1.png" alt="XY plot of an experiment to challenge necessity with continuous condition and outcome before (left) and after (right) treatment of reducing the X. Effect size **reduces** after manipulation. Red: control group; Blue: treatment group." width="100%" />
+<p class="caption">
+Figure 3.6: XY plot of an experiment to challenge necessity with continuous condition and outcome before (left) and after (right) treatment of reducing the X. Effect size <strong>reduces</strong> after manipulation. Red: control group; Blue: treatment group.
+</p>
+</div>
+<p>Figure <a href="data.html#fig:necessitybefaft1continuouscontinuousrejected">3.7</a> is an example of a rejection of a necessary condition after manipulation because the effect size disappears after manipulation.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:necessitybefaft1continuouscontinuousrejected"></span>
+<img src="_main_files/figure-html/necessitybefaft1continuouscontinuousrejected-1.png" alt="XY plot of an experiment to challenge necessity with continuous condition and outcome before (left) and after (right) treatment of reducing the X. Effect size **disappears** after manipulation. Red: control group; Blue: treatment group." width="100%" />
+<p class="caption">
+Figure 3.7: XY plot of an experiment to challenge necessity with continuous condition and outcome before (left) and after (right) treatment of reducing the X. Effect size <strong>disappears</strong> after manipulation. Red: control group; Blue: treatment group.
+</p>
+</div>
+<p>In rare situations before manipulation the necessary condition may be satisfied in all cases of the sample such that no empty space is present in the sample. After manipulation the hidden empty space becomes visible (see Figure <a href="data.html#fig:necessitybefaft1continuouscontinuousrare">3.8</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:necessitybefaft1continuouscontinuousrare"></span>
+<img src="_main_files/figure-html/necessitybefaft1continuouscontinuousrare-1.png" alt="XY plot of an experiment to challenge necessity with continuous condition and outcome before (left) and after (right) treatment of reducing the X. Effect size **appears** after manipulation. Red: control group; Blue: treatment group." width="100%" />
+<p class="caption">
+Figure 3.8: XY plot of an experiment to challenge necessity with continuous condition and outcome before (left) and after (right) treatment of reducing the X. Effect size <strong>appears</strong> after manipulation. Red: control group; Blue: treatment group.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="samplesize" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Sample size<a href="data.html#samplesize" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A frequently asked question is “What is the required sample size for NCA”. The short answer is: “The more the better, but at least N = 1”. This is explained below.</p>
+<div id="smalln" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Small N studies<a href="data.html#smalln" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In hypothesis testing research a sample is used to test whether the hypothesis can be falsified (rejected) or not. After repeated non-rejections with different samples, a hypothesis may be considered ‘confirmed’.</p>
+<p>When <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are dichotomous variables (e.g., having only two values ‘absent’ or ‘present’, ‘0’ or ‘1’, low or high) it is possible to falsify a necessary condition with even a single case (N = 1). The single case is selected by <em>purposive sampling</em> (not random sampling). The selected case must have the outcome (present, 1, high), and it is observed if this case has the condition or not. If not (absent, 0, low), the hypothesis is rejected. If yes (present, 1, high), the hypothesis is not rejected. In the deterministic view on necessity, where no exceptions exist, the researcher can conclude that the hypothesis is not rejected. For a stronger conclusion replications with other cases must be done.</p>
+<p>An example of this approach is a study by <span class="citation">Harding et al. (<a href="#ref-harding2002studying">2002</a>)</span>, who studied rampage school shootings in the USA. They first explored two shooting cases and identified five potential necessary conditions: gun availability, cultural script (a model why the shooting solves a problem), perceived marginal social position, personal trauma, and failure of social support system. Next, they tested these conditions with two other shooting cases, an concluded that their ‘pure necessity theory’ (see section <a href="theory.html#theorytypes">2.5</a>) was not rejected.</p>
+<p>In another example, <span class="citation">Fujita &amp; Kusano (<a href="#ref-fujita2020denial">2020</a>)</span> published an article in the <em>Journal of East Asian Studies</em> studying why some Japanese prime ministers (PM’s) have attempted to deny Japan’s violent past through highly controversial visits to the Yasukuni Shrine, while others have not. They propose three necessary conditions for a Japanese PM’s to decide to visit: a conservative ruling party, a government enjoying high popularity, and Japan’s perception of a Chinese threat. They tested these conditions by considering the 5 successful cases (PM’s who visited the shrine) from all 22 cabinets between 1986 and 2014. In these successful cases the three necessary conditions were present. This means that the hypotheses were not rejected. They additionally tested the contrapositive: the absence of at least one necessary condition is sufficient for the absence of a visit, which was also supported by the data.</p>
+<p>The editor of the journal commented on the study as follows:
+<a href="https://www.youtube.com/watch?v=zHlVzsQg8Ek" class="uri">https://www.youtube.com/watch?v=zHlVzsQg8Ek</a></p>
+<p>Even in small N studies it is possible to estimate the p value when the number of cases is at least 4 (assuming that all <span class="math inline">\(X\)</span>’s have different values, and all <span class="math inline">\(Y\)</span>’s have different values). This can be explained as follows. The p value refers to the probability that the observed data pattern is obtained when the variables are unrelated. NCA’s statistical test compares the effect size of the observed sample (with N observed cases) with the effect sizes of created samples with N fictive cases when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are unrelated. Fictive cases that represent non-relatedness between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are obtained by combining observed <span class="math inline">\(X\)</span> values with observed <span class="math inline">\(Y\)</span> values into new samples. The total number of created samples with a unique combination (permutations) of fictive cases is N! (N factorial). Only one of the permutations corresponds to the observed sample. For each sample the effect size is calculated. The p value is then defined as the probability (p) that the effect size of the observed sample is equal to or larger than the effect size of all samples. If this probability is small (e.g., p &lt; 0.05), a ‘significant’ result is obtained. This means that the observed sample is unlikely the result of a random process of unrelated variables (the null hypothesis is rejected), suggesting support for an alternative hypothesis. The p value helps to avoid a false positive conclusion, namely that the effect size is the result of a necessity relationship between X and Y, whereas actually it may be a random result of unrelated variables.
+For example, for a sample size of N = 2, the total number of unique samples or permutations (including the observed sample) is <span class="math inline">\(2! = 1*2 = 2\)</span>. When the observed sample consists of case 1 <span class="math inline">\((x_1,y_1)\)</span> and case 2 <span class="math inline">\((x_2,y_2)\)</span> then the observed x-values <span class="math inline">\((x_1,x_2)\)</span> and the observed y-values <span class="math inline">\((y_1,y_2)\)</span> can be combined into two unique samples of size N = 2: the observed sample with observed case 1 <span class="math inline">\((x_1, y_1)\)</span> and observed case 2 <span class="math inline">\((x_2, y_2)\)</span>, and the alternative created sample of N = 2 with two fictive cases <span class="math inline">\((x_1, y_2)\)</span> and <span class="math inline">\((x_2, y_1)\)</span>. For example, when the observed sample has case 1 is <span class="math inline">\((0,0)\)</span> and case 2 is <span class="math inline">\((1,1)\)</span> the observed effect size with empirical scope is 1. The effect size of the alternative sample has the cases <span class="math inline">\((1,0)\)</span> and <span class="math inline">\((0,1)\)</span> with effect size 0. The probability that the effect size of the observed sample is equal to or larger than the effect sizes of the two samples is 1 in 2, thus p = 0.5. This means that the observed effect size of 1 is a ‘non-significant’ result because the probability that the observed effect size is caused by unrelated variables is not small enough (not below 0.05).</p>
+<p>Similarly, for sample size N = 3 the total number of unique samples is <span class="math inline">\(3! = 1*2*3 = 6\)</span>, and the smallest possible p value is <span class="math inline">\(1/6 = 0.167\)</span>, for N = 4 the total number of unique samples is <span class="math inline">\(4! = 1*2*3*4 = 24\)</span>, and the smallest possible p value is <span class="math inline">\(1/24 = 0.042\)</span>, and for N = 5 the total number of unique samples is <span class="math inline">\(5! = 1*2*3*4*5 = 120\)</span>, and the smallest possible p value is <span class="math inline">\(1/120 = 0.008\)</span>, etc. Thus, only from N = 4 it is possible to obtain a p value that is small enough for making conclusions about the ‘statistical significance’ of an effect size.
+When sample size increases, the total number of unique samples increases rapidly, and the possible p value decreases rapidly. For N = 10 the total number of samples (permutations) is 3628800 and the corresponding possible p value is smaller than 0.0000003. For N = 20 is the total number of samples is a number of 19 digits with a corresponding possible p value that has 18 zero’s after the decimal point. When N is large the computation of the effect sizes of all samples (permutations) requires unrealistic computer times. Therefore, NCA’s uses a random sample from all possible samples (permutations) and estimates the p value with this selection of samples. Therefore, NCA’s statistical test is an ‘approximate permutation test’. In the NCA software this test is implemented with the <code>test.rep</code> argument in the <code>nca_analysis</code> function to provide the number of samples to be analyzed, for example 10000 (the larger the more precision but also more computation time). When the test.rep value is larger than N! (which can happen for small N), the software selects all N! samples for the p value calculation.</p>
+</div>
+<div id="largen" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Large N studies<a href="data.html#largen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In large N studies cases are sampled from a population in the theoretical domain. The goal of inferential statistics is to make an inference (statistical generalization) from the sample to the population. The ideal sample is a <em>probability sample</em> where all cases of the population have equal chances to become part of the sample. This contrasts <em>convenience sample</em> where cases are selected from the population for convenience of the researcher, for example because the researcher has easy access to the case. NCA puts no new requirements on sampling, and common techniques that are used with other data analysis methods can also be applied for NCA, with the same possibilities and limitations.</p>
+</div>
+</div>
+<div id="quantitative" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Quantitative data<a href="data.html#quantitative" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- ## <span style="color: #D3D3D3">Quantitative data</span> {#quantitative} -->
+<!-- <!--- ### \textcolor{gray}{Quantitative data}-->
+<!-- under construction -->
+<p>Quantitative data are data expressed by numbers where the numbers are scores (or values) with a meaningful order and meaningful distance. Scores can have two levels (dichotomous, e.g. 0 and 1 ), a finite number of levels (discrete, e.g. 1,2,3,4,5) or an infinite number of levels (continuous, e.g. 1.8, 9.546, 306.22).</p>
+<p>NCA can be used with any type of quantitative data.
+It is possible that a <em>single indicator</em> represents the concept (condition or outcome) of interest. Then this indicator score is used to score the concept. For example, in a questionnaire study where a subject or informant is asked to score conditions and outcomes with seven-point Likert scales, the scores are one of seven possible (discrete) scores.</p>
+<p>It is also possible that a <em>construct</em> that is build from several indicators is used to represent the concept of interest. Separate indicator scores are then summed, averaged or otherwise combined (aggregated) by the researcher to score the concept. It is also possible to combine several indicator scores statistically, for example by using the factor scores resulting from factor analysis, or construct score of latent variables resulting from the measurement model of a Structural Equation Model.</p>
+<p>Quantitative data can be analysed with NCA’s ‘scatter plot approach’ and with NCA’s software for R. When the number of variable levels is small (e.g. less than 5) it is also possible to use NCA’s contingency table approach.<br />
+<!-- ### <span style="color: #D3D3D3">Single indicators</span>  -->
+<!-- <!---#### \textcolor{gray}{Single indicators}-->
+<!-- under construction -->
+<!-- ### <span style="color: #D3D3D3">Constructs</span>  -->
+<!-- <!---#### \textcolor{gray}{Constructs}-->
+<!-- under construction --></p>
+</div>
+<div id="qualitative" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Qualitative data<a href="data.html#qualitative" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Qualitative data are data expressed by names, letters or numbers without a quantitative meaning. For example, gender can be expressed with names (‘male’, ‘female’, ‘other’), letters (‘m’, ‘f’, ‘o’) or numbers (‘1’, ‘2’, ‘3’). Qualitative data are discrete and have usually no order between the scores (e.g., names of people) or if there is an order, the distances between the scores are unspecified (e.g. ’low, medium, high). Although with qualitative data a quantitative NCA, (with the <code>NCA</code> software for R) in not possible, it is still possible to apply NCA in a qualitative way using visual inspection of the <span class="math inline">\(XY\)</span> contingency table or scatter plot.</p>
+<p>When the condition is qualitative the researcher observes for a given score of <span class="math inline">\(Y\)</span>, which qualitative score of the condition (e.g., ‘m’, ‘f’, ‘o’) can reach that score of <span class="math inline">\(Y\)</span>. When the logical order of the condition is absent, the position of the empty space can be in any upper corner (left corner, middle or right; assuming the hypotheses that <span class="math inline">\(X\)</span> is necessary for the presence of or a high level of <span class="math inline">\(Y\)</span>). When a logical order of the qualitative scores is present, the empty space is in the upper left corner (assuming the hypotheses that the presence of a high level of <span class="math inline">\(X\)</span> is necessary for the presence of or a high level of <span class="math inline">\(Y\)</span>). In both cases the size of the empty space is arbitrary and the effect size cannot be calculated because the values of <span class="math inline">\(X\)</span> and therefore the effect size are meaningless. However, when <span class="math inline">\(Y\)</span> is quantitative, the distance between the highest observed <span class="math inline">\(Y\)</span> score and the next-highest observed <span class="math inline">\(Y\)</span> score could be an indication of the constraint of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>.<br />
+<!---currenlty less than 0.1 seconds. The effect size itself cannot be calculated because the values of $X$ and therefore the values of the empty space are meaningless.--></p>
+</div>
+<div id="longitudinal" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Longitudinal, panel and time-series data<a href="data.html#longitudinal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Researchers often use cross-sectional research designs. In such designs several variables are measured at one moment in time. In a longitudinal research design the variables are measured at several moments in time. The resulting data are called longitudinal data, panel data or time-series data. In this book, longitudinal data (a name commonly used by statisticians) and panel data (a name commonly used by econometricians) are considered as synonyms.</p>
+<p>Longitudinal/panel data are data from a longitudinal/panel study in which <em>several variables</em> are measured at several moments in time. Time-series data are a special case of longitudinal/panel data in which <em>one variable</em> is measured many times.</p>
+<p>Longitudinal/panel and time-series data can be analysed with NCA with different goals in mind. Two straightforward ways are discussed in this book. First, if the researcher is not specifically interested in time, the time data can be pooled together as if the data were from cross-sectional data set <span class="citation">(e.g., <a href="#ref-jaiswal2021drivers">Jaiswal &amp; Zane, 2022b</a>)</span>. Second, if the researcher is interested in time trends, NCA can be applied for each time stamp separately.</p>
+<div id="pooled" class="section level3 hasAnchor" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> NCA with pooled data<a href="data.html#pooled" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pooled"></span>
+<img src="plot.Economic.prosperity..log.GDP.per.capita.-Life.expectancy..years..jpg" alt="Scatter plot of Economic prosperity and Life expectancey with two ceiling lines (Pooled Worldbank data from 1960 to 2019 for all countries/years)." width="100%" />
+<p class="caption">
+Figure 3.9: Scatter plot of Economic prosperity and Life expectancey with two ceiling lines (Pooled Worldbank data from 1960 to 2019 for all countries/years).
+</p>
+</div>
+<p>Figure <a href="data.html#fig:pooled">3.9</a> shows an example of a scatter plot of a time-pooled data. It is an example of the necessity of a country’s economic prosperity for a country’s average life expectancy: A high expected age is not possible without economic prosperity. This necessity claim can be theoretically justified by the effect of economic prosperity on the
+quality of the health care system. The data are from the Worldbank for 60 years between 1960 and 2019 and for 199 countries. Data is available for 8899 country-years. The scatter plot of time pooled data has Economic prosperity expressed as log GDP per capita on the <span class="math inline">\(X\)</span> axis, and
+Life expectancy at birth expressed in years on the <span class="math inline">\(Y\)</span> axis.</p>
+<p>Figure <a href="data.html#fig:pooled">3.9</a> shows a clear empty space in the upper left corner. The NCA analysis is done with the C-LP ceiling line, which is a straight ceiling line that has no observations above it, and with the
+CE-FDH line that follows the somewhat non-linear trend of the upper left border
+between the full and empty space. The empty space in the upper left corner indicates that a certain level of life expectancy is not possible without a certain level of economic prosperity. For example, for a country’s life expectancy of 75 years, a economic prosperity of at least 3 (10<sup>3</sup> = 1000 equivalent US dollar) is necessary. The effect sizes for the two ceiling techniques are 0.13 (p &lt; 0.001) and 0.16 (p &lt; 0.001), respectively. This suggests that a <em>necessity</em>
+relationship exists between Economic prosperity and Life expectancy.
+(There is also a well-known positive <em>average</em> relationship (imaginary line through the middle of the data), but this average trend is
+not considered here. Furthermore, the lower right corner is empty as well suggesting that the absence of <span class="math inline">\(X\)</span> is necessary for the absence of <span class="math inline">\(Y\)</span>, which could be evaluated with the <code>corner = 4</code> argument in the <code>nca_analysis</code> function of the <code>NCA</code> software.)</p>
+</div>
+<div id="nca-for-describing-time-trends" class="section level3 hasAnchor" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> NCA for describing time trends<a href="data.html#nca-for-describing-time-trends" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When the researcher is interested in time trends, NCA can be applied for
+each time stamp separately. Such approach can be considered a multiple
+cross-sectional NCA analysis. As an example in Table 3.1 a longitudinal analysis is done with the same countries and years as in Figure <a href="data.html#fig:pooled">3.9</a>, but now analysed per year and using only the C-LP ceiling line. For making the NCA results comparable per year, the scope for each year is standardized to the scope of the pooled data (based on the absolute minima and maxima of empirically observed Economic prosperity and Life expectancy in the data). This scope is entered in the NCA analysis as the theoretical scope for each year.</p>
+<p><br></p>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-247546f08b25d494102d" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-247546f08b25d494102d">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table 3.1 NCA parameters per year.<\/caption>","data":[[1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],[36.3,35.3,35.4,35.7,35.2,37.2,37.8,38.1,38.7,39.9,40.2,59.3,51.3,59.9,61.3,43.8,46,47.2,47.8,48.3,65.2,50.1,50.8,51.1,54.9,55.6,56.2,56.7,57,57.3,57.7,58,58.4,58.4,60.7,57.9,57.8,57.3,56.8,57,56.9,56.8,56.4,56.3,56.4,57.1,57.2,57.7,57.8,56.9,56.6,55.6,53.5,54.5,54,53,52.2,51.1,50.2,48.9],[8.800000000000001,9.1,9.199999999999999,9.1,9.300000000000001,8.800000000000001,8.699999999999999,8.699999999999999,8.6,8.300000000000001,8.800000000000001,3.5,5.8,3.4,3.1,8.199999999999999,7.7,7.4,7.3,7.2,2.5,6.7,6.5,6.4,5.4,5.2,5.1,5,5,4.9,4.9,4.8,4.8,4.8,4.2,5.1,5.1,5.3,5.6,5.5,5.6,5.7,5.8,5.9,5.9,5.7,5.6,5.5,5.5,5.8,5.8,6.1,6.8,6.5,6.6,6.9,7.1,7.4,7.6,8],[0.29,0.29,0.28,0.28,0.28,0.28,0.27,0.26,0.26,0.26,0.22,0.23,0.22,0.22,0.22,0.2,0.19,0.19,0.19,0.18,0.19,0.18,0.19,0.19,0.19,0.19,0.18,0.18,0.17,0.17,0.17,0.17,0.16,0.16,0.16,0.15,0.15,0.15,0.14,0.14,0.14,0.14,0.13,0.13,0.13,0.13,0.13,0.13,0.13,0.13,0.13,0.13,0.13,0.13,0.13,0.13,0.13,0.13,0.13,0.13],[0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>year<\/th>\n      <th>ceiling.intercept<\/th>\n      <th>ceiling.slope<\/th>\n      <th>effect.size<\/th>\n      <th>p.value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3,4]},{"name":"year","targets":0},{"name":"ceiling.intercept","targets":1},{"name":"ceiling.slope","targets":2},{"name":"effect.size","targets":3},{"name":"p.value","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+<p><br><br></p>
+<p>Table 3.1 shows several NCA parameters for each time-point. The effect
+sizes range from 0.13 to 0.29 and the p values for all years is less
+than 0.001. In general, the effect size decreases over the years, such
+that the constraint that economic prosperity puts on life expectancy is
+decreasing over time.</p>
+<p><img src="_main_files/figure-html/dynamic-1.gif" /><!-- --></p>
+<div style="page-break-after: always;"></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:animation"></span>
+<img src="animation.gif" alt="Animation with countries per year with the ceiling line in red." width="0%" />
+<p class="caption">
+Figure 3.10: Animation with countries per year with the ceiling line in red.
+</p>
+</div>
+<!--- comment this can be deleted [animation](https://www.erim.eur.nl/fileadmin/centre_content/necessary_condition_analysis/Prosperity-Life-expectancy.gif) -->
+<p>Figure <a href="data.html#fig:animation">3.10</a> is an animated figure showing the time trends. In the figure, each data point is a country.
+The size of a data point refers to the country’s population size, and
+the color to the geographic region to which it belongs, e.g., yellow for
+the Sub-Saharan region, and violet for East Asian and Pacific region.</p>
+</div>
+<div id="interpretation" class="section level3 hasAnchor" number="3.6.3">
+<h3><span class="header-section-number">3.6.3</span> Interpretation<a href="data.html#interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The interpretation of longitudinal analysis with NCA focuses on the change of the effect size and ceiling line over time. For example, Table 3.1 shows that the size of the necessity effect of economic prosperity for life expectancy reduces over time. This indicates that economic prosperity has become less of a bottleneck for high life expectancy. Figure <a href="data.html#fig:animation">3.10</a> shows that this decrease of effect size is particularly due to the increase of the intercept (upward moving of the ceiling line). This indicates a rise of the maximum possible life expectancy for a given level of prosperity.</p>
+<div class="figure"><span style="display:block;" id="fig:compar"></span>
+<img src="1960.png" alt="Scatter plot of Economic prosperity and Life expectancey for 1960 and 2019." width="50%" /><img src="2019.png" alt="Scatter plot of Economic prosperity and Life expectancey for 1960 and 2019." width="50%" />
+<p class="caption">
+Figure 3.11: Scatter plot of Economic prosperity and Life expectancey for 1960 and 2019.
+</p>
+</div>
+<!-- start pdf: -->
+<!-- Figure \@ref(fig:compar) shows that in 1960 the maximum life expectancy for a prosperity of 3.4 (10^{3.4} = 2500 equivalent US dollars) -->
+<!-- was about 65 years, and in 2019 it was about 75 years. The reduction of necessity is also partly due to the flattening of the -->
+<!-- ceiling line, indicating that the difference between the best performing -->
+<!-- less prosperous countries, and the best performing more prosperous -->
+<!-- countries, is diminishing. In 1960 countries with prosperity of -->
+<!-- 3.4 (2500 dollar) had a maximum possible life expectancy that was 10 -->
+<!-- years less than that for countries with prosperity of 4.4 -->
+<!-- (25000 dollar): (65 versus 75). However, in 2019 countries with prosperity of 3.4 (2500 dollar) -->
+<!-- had a maximum possible life expectancy that was only 5 years less  than that for countries with prosperity of 4.4 (25000 -->
+<!-- dollar).(75 versus 80). -->
+<!-- end pdf: -->
+<!-- start html: -->
+<p>Figure <a href="data.html#fig:compar">3.11</a> shows that in 1960 the maximum life expectancy for a prosperity
+of 3.4 (10<sup>3.4</sup> = 2500 equivalent US dollars) was about 65 years, and in 2019 it was about 75 years. The reduction of necessity is also partly due to the flattening of the
+ceiling line, indicating that the difference between the best performing
+less prosperous countries, and the best performing more prosperous
+countries, is diminishing. In 1960 countries with prosperity of
+3.4 (2500 dollar) had a maximum possible life expectancy that was 10
+years less than that for countries with prosperity of 4.4
+(25000 dollar): 65 versus 75 years. However, in 2019 countries with prosperity of 3.4 (2500 dollar)
+had a maximum possible life expectancy that was only 5 years less than that for countries with prosperity of 4.4 (25000
+dollar): 75 versus 80 years.
+<!--  end html: --></p>
+<p>Another observation is that the density of countries near the ceiling
+line has increased over the years. This indicates that the relative
+differences in life expectancy between the more and less performing
+countries has reduced.</p>
+<p>Socio-economic policy practitioners could probably make new interesting
+interpretations from these necessity trends. For example, in the past,
+economic prosperity was a major bottleneck for high life expectancy.
+Currently, most countries (but surely not all) are rich enough for
+having a decent life expectancy of 75 years; if these countries do not
+reach that level of life expectancy, other factors than economic
+prosperity are the reason that it is not achieved. In the future,
+economic prosperity may not be a limiting factor for high life
+expectancy when all countries have reached an GDP per capita of 2500
+dollar and the empty space in the upper left corner has disappeared.</p>
+</div>
+</div>
+<div id="setmembership" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Set membership data<a href="data.html#setmembership" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>NCA can be used with set membership scores. This is usually done when NCA is combined with QCA. In QCA ‘raw’ variable scores are ‘calibrated’ into set membership scores with values between 0 and 1. A set membership score indicates to which extend a case belongs to the set of cases that have a given characteristic, in particular the <span class="math inline">\(X\)</span> and the <span class="math inline">\(Y\)</span>. Several studies have been published that use NCA with set membership data <span class="citation">(e.g., <a href="#ref-torres2021levels">Torres &amp; Godinho, 2022</a>)</span>. These studies combine NCA with QCA for gaining additional insights (in degree) about the conditions that must be present in all sufficient configurations.
+Section <a href="dataanalysis.html#ncaqca">4.7</a> discusses how NCA can be combined with QCA.</p>
+</div>
+<div id="outliers" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> Outliers<a href="data.html#outliers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Outliers are observations that are “far away” from other observations. Outliers can have a large influence on the results of any data analysis, including NCA. In NCA an outlier is an ‘influential’ case or observation that has a large influence on the necessity effect size when removed.</p>
+<div id="outliertypes" class="section level3 hasAnchor" number="3.8.1">
+<h3><span class="header-section-number">3.8.1</span> Outlier types<a href="data.html#outliertypes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Because the effect size is defined by the numerator <em>ceiling zone</em> divided by the denominator <em>scope</em> and an outlier is defined by its influence on the effect size, two types of outliers exist in NCA: an ‘ceiling zone outlier’ and a ‘scope outlier’.</p>
+<p>A <em>ceiling zone outlier</em> is an isolated case in the otherwise empty corner of the scatter plot that reflects necessity (usually the upper left corner). Such case determines the location of the ceiling line, thus the size of the ceiling zone, and thus the necessity effect size. When a ceiling zone outlier is removed, it usually increases the ceiling zone and thus <em>increases</em> the necessity effect size.</p>
+<p>A <em>scope outlier</em> is an isolated case that determines the minimum or maximum value of the condition or the outcome, thus the scope, and thus the necessity effect size. When a scope outlier is removed, it usually decreases the scope and thus <em>increases</em> the effect size.</p>
+<p>When a case is both a ceiling zone outlier and a scope outlier, it determines the position of the ceiling and the minimum or maximum of value of <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span>. When such case is removed it simultaneously decreases the ceiling zone and the scope. The net effect is often is a <em>decrease</em> of the necessity effect size.</p>
+<p>When duplicate cases determine the ceiling line or the scope the effect size will not change when only one of the duplicate cases is removed. Single cases that have a duplicate have no influence on the effect size when removed, and therefore are no candidates for potential outliers, unless a duplicate set cases is defined as outlier and removed. Cases that are below the ceiling line and away from the extreme values of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are not potential outliers.</p>
+<p>It depends on the ceiling line technique which cases are candidates for potential ceiling zone outliers. The CE-FDH and CR-FDH ceiling techniques use the upper left corner points of the CE-FDH ceiling line (step function) for drawing the ceiling line. These upper left corner points are called ‘peers’. Therefore, the peers are potential outliers when these ceiling lines, which are the default lines of NCA, are used. The C-LP ceiling line uses only two points of the peers for drawing the ceiling line, and these points can therefore be potential ceiling zone outliers. The scope outliers do not depend on the ceiling technique.</p>
+</div>
+<div id="outlieridentification" class="section level3 hasAnchor" number="3.8.2">
+<h3><span class="header-section-number">3.8.2</span> Outlier identification<a href="data.html#outlieridentification" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are no scientific rules for deciding if a case is an outlier. This decision depends primarily on the judgment of the researcher. For a first impression of possible outliers, the researcher can visually inspect the scatter plot for cases that are far away from other cases. In the literature rules of thumb are used for identifying outliers. For example, a score of a variable is an outlier score ‘if it deviates more than three standard deviations from the mean’, or ‘if 1.5 interquartile ranges is above the third quartile or below the first quartile’. These pragmatic rules address only one variable (<span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span>) at a time. Such single variable rules of thumb may be used for identifying potential scope outliers (unusual minimum
+and maximum values of condition or outcome). These rules are not suitable for identifying potential ceiling zone outliers. The reason is that ceiling zone outliers depend on the <em>combination</em> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> values. For example, a case with a
+non-extreme <span class="math inline">\(Y\)</span>-value may be a regular case when it has a large <span class="math inline">\(X\)</span> value, because it does not define the ceiling. Then removing the case does not change the effect size. However, when <span class="math inline">\(X\)</span> is small the case defines the ceiling and removing the case may change the effect size considerably. This means that both <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> must be considered when identifying ceiling zone outliers in NCA.</p>
+<p>No pragmatic bivariate outlier rules currently exist for NCA. Because a case is a potential outlier if it considerably changes the necessity effect size when it is removed, the researcher can first select potential outlier and then calculate the effect size change when the case is removed. If no clear potential outlier case can be identified, the researcher may decide that the data set does not contain outliers.</p>
+<p>All potential ceiling zone outliers and potential scope outliers can be evaluated one by one by calculating the absolute and relative effect size changes when the case is removed (with replacement). An outlier may be identified if the change is ‘large’ –according to the judgment of the researcher–. Again, no scientific rules exist for what can be considered as a ‘large’ effect size change. In my experience single cases that change the effect size more than 30% when removed could be serious outliers, worth for a detailed further assessment. This does not mean that these cases <em>are</em> outliers, nor that single cases that change the effect size less than 30% <em>are not</em> outliers.</p>
+<p>The NCA software from version 3.2.0 includes the <code>nca_outliers</code> function to evaluate potential outliers in a scatter plot. For illustration an outlier analysis is done with the example that is part of the <code>NCA</code> software to test the hypothesis that a country’s Individualism is necessary for a country’s Innovation performance. Data are available for 28 cases (countries).</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data.html#cb54-1" tabindex="-1"></a><span class="fu">library</span>(NCA)</span>
+<span id="cb54-2"><a href="data.html#cb54-2" tabindex="-1"></a><span class="fu">data</span>(nca.example)</span>
+<span id="cb54-3"><a href="data.html#cb54-3" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">nca_analysis</span>(nca.example, <span class="dv">1</span>,<span class="dv">3</span>)</span>
+<span id="cb54-4"><a href="data.html#cb54-4" tabindex="-1"></a><span class="fu">nca_output</span>(model, <span class="at">plots=</span><span class="cn">TRUE</span>, <span class="at">summaries =</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p>The scatter plot with the two default ceiling lines is shown in Figure <a href="data.html#fig:ncaexample">3.12</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ncaexample"></span>
+<img src="ncaexample.png" alt="Scatter plot of nca.example" width="100%" />
+<p class="caption">
+Figure 3.12: Scatter plot of nca.example
+</p>
+</div>
+<p>From visual inspection no clear outlier case that is very far away from the other case can be recognized.</p>
+<p>The <code>nca_outliers</code> function can evaluate potential outliers in a scatter plot as follows:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data.html#cb55-1" tabindex="-1"></a><span class="fu">library</span>(NCA)</span>
+<span id="cb55-2"><a href="data.html#cb55-2" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">nca_outliers</span> (nca.example, <span class="dv">1</span>, <span class="dv">3</span>) </span>
+<span id="cb55-3"><a href="data.html#cb55-3" tabindex="-1"></a><span class="fu">print</span>(outliers)</span></code></pre></div>
+<pre><code>##      outliers eff.or eff.nw dif.abs dif.rel ceiling scope
+## 1 Japan         0.42   0.55    0.14    32.7       X      
+## 2 USA           0.42   0.33   -0.09   -21.5       X     X
+## 3 Sweden        0.42   0.43    0.02     3.6       X      
+## 4 South Korea   0.42   0.40   -0.01    -3.0       X     X
+## 5 Finland       0.42   0.42    0.00     0.2       X      
+## 6 Mexico        0.42   0.42    0.00     0.1             X</code></pre>
+<!-- For each potential outlier several measures are provided. *eff.or* is the original estimated effect size, *eff.nw* is the new effect size when the case is removed, *dif.abs* is the absolute different between the new and the original effect size. A negative sign means that the new effect size is smaller thatn the orginan effect size. *dif.rel* is the relative difference between the new and original effect sizes expressed as a percentage. -->
+<!-- Therefore, potential *ceiling zone outliers* could be selected by evaluating all peers. The peers are the upper left corner points of the CE-FDH ceiling line (step function).  They can be found with the  argument`peers` of the `NCA`software as follows (assuming that the `nca_analysis` of `nca.example` is named 'model'): -->
+<!-- ```{r echo = TRUE,results=TRUE} -->
+<!-- ceiling.zone.outliers <- model$peers -->
+<!-- print(ceiling.zone.outliers) -->
+<!-- ``` -->
+<!-- The output is a list names of the peers (countries) and their $X$ and $Y$ coordinates. -->
+<!-- Next, potential *scope outliers* could be selected by evaluating the cases that have the minimum or maximum value of $X$ and $Y$. This can be done with the following script (assuming that `nca_analysis` of `nca.example` is named 'model').  -->
+<!-- ```{r echo = TRUE,results=TRUE} -->
+<!-- Xmin <- as.numeric(unlist(model$summaries, use.names = F)[3]) -->
+<!-- Xmax <- as.numeric(unlist(model$summaries, use.names = F)[4]) -->
+<!-- Ymin <- as.numeric(unlist(model$summaries, use.names = F)[5]) -->
+<!-- Ymax <- as.numeric(unlist(model$summaries, use.names = F)[6]) -->
+<!-- Cases.Xmin <- row.names(nca.example)[which (nca.example[,1] == Xmin)] -->
+<!-- Cases.Xmax <- row.names(nca.example)[which (nca.example[,1] == Xmax)] -->
+<!-- Cases.Ymin <- row.names(nca.example)[which (nca.example[,3] == Ymin)] -->
+<!-- Cases.Ymax <- row.names(nca.example)[which (nca.example[,3] == Ymax)] -->
+<!-- scope.outliers <- rbind(Cases.Xmin,Cases.Xmax,Cases.Ymin,Cases.Ymax)  -->
+<!-- print(scope.outliers) -->
+<!-- ``` -->
+<!-- It turns out that South Korea defines the minimum $X$, USA the maximum $X$ and the maximum $Y$, and Mexico the minimum $Y$. -->
+<!-- This means that South Korea and USA are not only potential ceiling zone outliers but also potential scope outliers.  -->
+<!-- Finding potential ceiling zone outliers and potential scope outliers can be combined in the folowing user-defined function.  -->
+<!-- The function selects the cases that are peers and the cases that have minimum and maximum values and evaluates their individual influences  on the effect size by removing each cases one by one (with replacement). -->
+<!-- The function needs 5 inputs: the name of the data set, a specification of $X$ and  $Y$, the ceiling line, and whether or not all cases should be considered potential outliers.    -->
+<!-- ```{r, warning=FALSE, message=FALSE} -->
+<!-- nca_outliers <- function (data, xvar, yvar, ceiling = "cr_fdh", all = FALSE){ -->
+<!--   library(NCA) -->
+<!--   modelA <- nca_analysis(data, xvar,yvar, ceilings = ceiling)  -->
+<!--   eff.or <- as.numeric(unlist(modelA$summaries, use.names = F)[8])  -->
+<!--   #select potential ceiling zone outliers: peers -->
+<!--   peers<- as.data.frame(modelA$peers) # peers -->
+<!--   #select potential scope outliers: minimum/maximum -->
+<!--   Xmin <- as.numeric(unlist(modelA$summaries, use.names = F)[3]) -->
+<!--   Xmax <- as.numeric(unlist(modelA$summaries, use.names = F)[4]) -->
+<!--   Ymin <- as.numeric(unlist(modelA$summaries, use.names = F)[5]) -->
+<!--   Ymax <- as.numeric(unlist(modelA$summaries, use.names = F)[6]) -->
+<!--   Cases.Xmin <- row.names(data)[which (data[,1] == Xmin)] -->
+<!--   Cases.Xmax <- row.names(data)[which (data[,1] == Xmax)] -->
+<!--   Cases.Ymin <- row.names(data)[which (data[,3] == Ymin)] -->
+<!--   Cases.Ymax <- row.names(data)[which (data[,3] == Ymax)] -->
+<!--   #unique potential outliers -->
+<!--   if (all) {outl <- rownames(data)} else { -->
+<!--   outl <- unique (c(row.names(peers), Cases.Xmin, Cases.Xmax, Cases.Ymin, Cases.Ymax))  -->
+<!--   }  -->
+<!--   #evaluate potential outliers -->
+<!--   #remove outliers one by one (with replacement) and calculate effect size (difference) -->
+<!--   cnt = 0  -->
+<!--   dif.abs = NULL -->
+<!--   dif.rel = NULL -->
+<!--   eff.nw = NULL -->
+<!--   for (i in 1:length(outl)){  -->
+<!--     cnt <- cnt +1 -->
+<!--     dataR <- data[-which(row.names(data)== outl[i]),] -->
+<!--     modelR <- nca_analysis(dataR, xvar, yvar, ceilings=ceiling) -->
+<!--     eff.nw[i] <- as.numeric(unlist(modelR$summaries, use.names = F)[8]) -->
+<!--     dif.abs[i] <- (eff.nw[i] - eff.or) -->
+<!--     dif.rel[i] <- (eff.nw[i] - eff.or)/(eff.or)*100 -->
+<!--   } -->
+<!--   eff.or <- round(eff.or, digits = 2) -->
+<!--   eff.nw <- round(eff.nw, digits = 2) -->
+<!--   dif.abs <- round(dif.abs, digits = 2) -->
+<!--   dif.rel <- round(dif.rel, digits = 1) -->
+<!--   potential.outliers <- data.frame(outl, eff.or, eff.nw, dif.abs, dif.rel) -->
+<!--   return(potential.outliers) -->
+<!-- } -->
+<!-- ``` -->
+<!-- The function can be applied to the `nca.example` data set, with the `ce_fdh` ceiling line as follows: -->
+<!-- ```{r, warning=FALSE, message=FALSE} -->
+<!-- nca_outliers(nca.example,1,3, ceiling = "ce_fdh", all = FALSE) -->
+<!-- ``` -->
+<p>The output table shows in the first column the case names of the potential outliers. The second column displays the original effect size when no cases are removed (<em>eff.or</em>) and the third column displays the new effect size when the outlier is removed (<em>eff.nw</em>). The fourth column shows the absolute difference (<em>dif.abs</em>) between the new and the original effect sizes, and the fifth column the relative difference (<em>dif.rel</em>) between the new and the original effect sizes expressed as a percentage. A negative sign means that the new effect size is smaller than the orginal effect size.</p>
+<p>The output shows six potential outliers. The new effect sizes range from 0.33 to 0.55, absolute differences range from -0.09 to +0.14, and relative differences range from -21.5% to +32.7%. Five outliers are ceiling zone outliers and three are scope outliers. It is possible that a case can be both types of outlier. South Korea defines the ceiling line and is thus a potential ceiling zone outlier, and it also defines the minimum <span class="math inline">\(X\)</span> and is a potential scope outlier. USA is also both a ceiling zone outlier and a scope outlier because it defines the ceiling line and the maximum <span class="math inline">\(X\)</span> and the maximum <span class="math inline">\(Y\)</span>. Mexico does not define the ceiling line but defines the minimum <span class="math inline">\(Y\)</span>. Finland, Japan and Sweden define the ceiling line but not the minimum or maximum value of <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span>.</p>
+<p>For visual inspection of the outliers in the scatter plot, the <code>plotly = TRUE</code> argument in the <code>nca_outliers</code> function displays an interactive scatter plot with highlighted outliers (plot not shown here):</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data.html#cb57-1" tabindex="-1"></a><span class="fu">nca_outliers</span> (nca.example, <span class="dv">1</span>, <span class="dv">3</span>, <span class="at">plotly =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<p>As expected, the three potential outliers that are only <em>ceiling zone outliers</em> (Finland, Japan, Sweden) increase the effect size when removed. Their absolute differences range from virtually 0 to 0.14, and their relative effect size differences from 0.2% to 32.7%. As expected, the potential outlier that is only an <em>potential scope outlier</em> (Mexico) increases the effect size when removed, but this influence is marginal. As expected, the two potential <em>ceiling zone outliers</em> that are also potential <em>scope outliers</em> reduce the effect size when removed (South Korea and USA) with absolute effect size differences of -0.01 and -.0.09, respectively, and relative effect size differences of -3.0% and - 21.5%, respectively. All other cases are no potential outliers because they have no influence on the effect size when removed.
+<!-- This can be evaluated with the ```use.all = TRUE``` argument in the ```nca_outliers``` function as follows: --></p>
+<!-- ```{r echo = TRUE,results=TRUE} -->
+<!-- outliers <- nca_outliers (nca.example, 1, 3, use.all = TRUE)  -->
+<!-- print(outliers) -->
+<!-- ``` -->
+<p>The two default ceiling lines CE-FDH and CR-FDH have the same potential outliers. For other ceiling lines the outliers can be different. For example, the C-LP ceiling technique selects two cases for drawing the ceiling line, and therefore only these two cases can be potential ceiling zone outliers. The ceiling line can be specified with the <code>ceiling</code> argument in the <code>nca_outliers</code> function as follows:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data.html#cb58-1" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">nca_outliers</span> (nca.example, <span class="dv">1</span>, <span class="dv">3</span>, <span class="at">ceiling =</span> <span class="st">&#39;c_lp&#39;</span>) </span>
+<span id="cb58-2"><a href="data.html#cb58-2" tabindex="-1"></a><span class="fu">print</span>(outliers)</span></code></pre></div>
+<pre><code>##      outliers eff.or eff.nw dif.abs dif.rel ceiling scope
+## 1 Japan         0.16   0.33    0.16   101.0       X      
+## 2 USA           0.16   0.06   -0.11   -65.3       X     X
+## 3 South Korea   0.16   0.14   -0.02   -12.3       X     X
+## 4 Mexico        0.16   0.16    0.00     0.1       X     X</code></pre>
+<p>Note that after a potential outlier is removed and the effect size difference is calculated, the case is added again to the data set before another potential outlier is evaluated (removing with replacement).</p>
+<p>With the <code>nca_outlier</code> function it is also possible to evaluate two or more potential outliers at once by specifying <code>k</code> (= number of outliers). This evaluates the change of effect size when k potential outliers are removed at once. For example, a researcher can evaluate two potential outliers as follows:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data.html#cb60-1" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">nca_outliers</span> (nca.example, <span class="dv">1</span>, <span class="dv">3</span>, <span class="at">k =</span> <span class="dv">2</span>) </span>
+<span id="cb60-2"><a href="data.html#cb60-2" tabindex="-1"></a><span class="fu">print</span>(outliers)</span></code></pre></div>
+<pre><code>##               outliers eff.or eff.nw dif.abs dif.rel ceiling scope
+## 1  Japan - Finland       0.42   0.59    0.18    42.3       X      
+## 2  Japan - South Korea   0.42   0.58    0.16    38.8       X     X
+## 3  Japan - Sweden        0.42   0.57    0.15    36.4       X      
+## 4  Japan - Austria       0.42   0.56    0.14    34.0       X      
+## 5  Japan - Mexico        0.42   0.55    0.14    32.9       X     X
+## 6  Japan                 0.42   0.55    0.14    32.7       X      
+## 7  Japan - Portugal      0.42   0.55    0.14    32.7       X      
+## 8  Japan - Greece        0.42   0.55    0.14    32.7       X      
+## 9  Japan - Spain         0.42   0.55    0.14    32.7       X      
+## 10 Japan - Germany       0.42   0.55    0.14    32.7       X      
+## 11 Japan - Switzerland   0.42   0.55    0.14    32.7       X      
+## 12 Japan - Australia     0.42   0.55    0.14    32.7       X      
+## 13 Japan - Turkey        0.42   0.55    0.14    32.7       X      
+## 14 USA - Sweden          0.42   0.30   -0.12   -28.3       X     X
+## 15 USA - South Korea     0.42   0.31   -0.10   -24.9       X     X
+## 16 USA                   0.42   0.33   -0.09   -21.5       X     X
+## 17 USA - Portugal        0.42   0.33   -0.09   -21.5       X     X
+## 18 USA - Greece          0.42   0.33   -0.09   -21.5       X     X
+## 19 USA - Spain           0.42   0.33   -0.09   -21.5       X     X
+## 20 USA - Austria         0.42   0.33   -0.09   -21.5       X     X
+## 21 USA - Germany         0.42   0.33   -0.09   -21.5       X     X
+## 22 USA - Switzerland     0.42   0.33   -0.09   -21.5       X     X
+## 23 USA - Turkey          0.42   0.33   -0.09   -21.5       X     X
+## 24 USA - Mexico          0.42   0.33   -0.09   -21.4       X     X
+## 25 USA - Finland         0.42   0.33   -0.09   -21.3       X     X</code></pre>
+<pre><code>## # Not showing 44 possible outliers</code></pre>
+<p>The output shows the combinations of two potential outliers with the largest influence on the effect size when the combination is removed. The output also include single potential outliers when the single potential outlier has a similar influence on the effect size as combinations of potential outliers. A combination of more than 2 outliers is also possible; for larger data sets this may increase the computation time may considerably.</p>
+<p>A potential outlier combination consists always of a single ceiling outliers or a single scope outlier (or both) as indicated in the output. When more k &gt; 1 the <code>plotly</code> scatter plot only shows the single outliers in red as for k = 1.</p>
+<p>From the example it appears that Japan is the most serious potential outlier.</p>
+</div>
+<div id="outlierdecisionmaking" class="section level3 hasAnchor" number="3.8.3">
+<h3><span class="header-section-number">3.8.3</span> Outlier decision approach<a href="data.html#outlierdecisionmaking" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>After a potential outlier is identified, the next question is what to do with it. NCA employs a two step approach for making a decision about an outlier. In the first step it is evaluated whether the outlier is caused by a sampling or measurement error. In the second step it is decided if an ‘outlier for unknown reasons’ should be part of the phenomenon (using the deterministic perspective on necessity) or should be considered an exception <span class="citation">(using the typicality perspective on necessity, see <a href="#ref-dul2024different">Dul, 2024a</a>)</span>.</p>
+<!-- the outlier should be deleted from further analysis. If the error can be corrected  a mechanistic outlier rule could be applied  to decide whether the outlier should be removed (although this is generally not recommended). In the second step an outlier that is not removed in the first step  or .  and foan accepted rule for NCA   the case   The second step handles the remaining outliers, which are 'outliers for unknown reasons'. Here the  researcher has the option to keep the outlier or to remove it.      -->
+<!-- : remove or keep. Because removing outliers has a large effect on the outcome (see the definition of outlier), removing a case from the data set  without further judgment is not recommended. In general, the recommendation is to keep a potential outlier, unless there is a good reason to remove it (thus "keep unless", instead of "remove unless"). When an outlier is removed it is important to report that it was removed and why.  -->
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:outlierdecision1"></span>
+<img src="outlier2_1.png" alt="Outlier decision tree for Step 1 of the outlier decision approach." width="100%" />
+<p class="caption">
+Figure 3.13: Outlier decision tree for Step 1 of the outlier decision approach.
+</p>
+</div>
+<p>The decision tree for the first step of NCA’s outlier decision approach is illustrated in Figure <a href="data.html#fig:outlierdecision1">3.13</a>.
+First, the potential outlier case is selected. Next it is evaluated for sampling error. Sampling error refers a case that is not part of the theoretical domain of the necessity theory that is hypothesized by the researcher. For example, the case may be a large company, whereas the necessity theory applies to small companies only. A outlier case that is a sampling error should be removed from further analysis. If there is no sampling error, the potential outlier case may have measurement error. The condition or the outcome may have been incorrectly scored, which could happen for a variety of reasons. If there is measurement error but the error can be corrected, the outlier case becomes a regular case is kept for the analyses. If the measurement error cannot be corrected two situations may apply. If the measurement error is in the score of the outcome, the case should be removed from further analysis of all necessary conditions (if there are multiple necessary conditions). If the measurement error is in the score of the condition value, the case should be removed from further analysis of that condition, but the researcher may want to keep the case for the analysis of other conditions (as the case may not be an outlier for other conditions). If the the outlier is not caused by sampling error or measurement error or if no information about sampling error or measurement error is available, the outlier may be considered an ‘outlier for unknown reasons’. The researcher may then decide to apply an outlier rule that decides whether the case is kept or removed. Existing mono-variate outlier rules may be used for scope outliers in NCA. For example, a case may be considered an outlier if it is three standard deviations away from the mean of the condition or the outcome. For bi-variate ceiling outliers no generally accepted outlier rule exists. Such outlier rule may be stated by the researcher, for example based on the magnitude of the absolute or relative effect size changes when the case is removed (see section <a href="data.html#outlieridentification">3.8.2</a>). Outlier rules should be specified and justified. If no outlier rule is applied the potential outlier case is kept and the next step of NCA’s outlier decision approach begins.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:outlierdecision2"></span>
+<img src="outlier2_2.png" alt="Outlier decision tree for for Step 2 of the outlier decision approach." width="100%" />
+<p class="caption">
+Figure 3.14: Outlier decision tree for for Step 2 of the outlier decision approach.
+</p>
+</div>
+<p>The decision tree for the second step is illustrated in Figure <a href="data.html#fig:outlierdecision2">3.14</a>. The second step starts with the researcher’s decision about the causal necessity perspective. Two perspectives are distinguished for necessity causality <span class="citation">(<a href="#ref-dul2024different">Dul, 2024a</a>)</span>. The deterministic perspective can be formulated as ‘if <span class="math inline">\(X\)</span> then always <span class="math inline">\(Y\)</span>’. This perspective does not allow exceptions. An outlier for unknown reasons is then considered to be part of the phenomenon of interest, and the analysis is done with the outliers. The typicality perspective can be formulated as ‘if <span class="math inline">\(X\)</span> then typically <span class="math inline">\(Y\)</span>’. This perspective does allows exceptions. An outlier for unknown reasons is then considered to be an exception. The analysis is done without the outlier. When reporting the results, the exceptions are discussed as well.</p>
+<p>It is the choice of the researcher to adopt a deterministic or typicality perspective on NCA. Handling an outlier is a decision made by the researcher. If another outlier decision is plausible as well, it is advised to perform a robustness check to evaluate the sensitivity of the results (see section <a href="dataanalysis.html#robustnesschecks">4.4</a>).</p>
+<!-- When a potential outlier case has a large influence the necessity effect size if removed, but stays in the dataset, a *sensitivity analysis* can be done. In this analysis the researcher explores the influence of the potential outlier case not only on the effect size (see above), but also the p value of the effect size to judge if (lack of) evidence of necessity in the data remains approximately the same or not.  -->
+<!-- Furthermore, when a potential outlier case has a large influence the necessity effect size if removed, but stays in the dataset, the researcher might consider taking a 'probabilistic view' on necessary. In this view necessity is considered to be present, even if outlier cases do not support it. The necessity analysis is done with the data set without the outliers (e.g., NCA is done with the incomplete dataset) and the outliers are added afterwards again. The researcher should be reluctant to use this approach, in particularly for ceiling zone outliers, because ignoring such outlier usually results in an increase of the effect size.  -->
+<!-- For example, Japan can be removed from `nca.example` as follows:  -->
+<!-- ```{r echo = TRUE,results=FALSE, cache=TRUE} -->
+<!-- nca.example <- nca.example[-14,] -->
+<!-- model <- nca_analysis(nca.example, 1,3) -->
+<!-- nca_output(model, plots=TRUE, summaries =FALSE) -->
+<!-- ``` -->
+<!-- The scatter plot of Figure \@ref(fig:ncaexample4) can be compared with the scatter plot of Figure \@ref(fig:ncaexample). -->
+<!-- ```{r ncaexample4, echo=FALSE, fig.cap='Scatter plot of nca.example with one potential outlier (Japan) removed', out.width='100%', fig.align='center', cache=TRUE} -->
+<!-- knitr::include_graphics("outlier-no-japan.png") -->
+<!-- ``` -->
+<!-- In the original analysis with the complete dataset, the results of the effect size with the CE-FDH ceiling line, was 0.42 (p = 0.080). However, in  the results without Japan in the dataset increase the effect size to 0.55 and decreases the p value to p = 0.012. Therefore, removing an outlier could influence the researcher's judgment about evidence of necessity in the data. The researcher's judgment about the hypothesis is less convincing if the judgment is sensitive for including or removing outliers that are not clear sampling errors (e.g., Japan is not part of the theoretical domain) or clear measurement errors (e.g., incorrect measurement of Japan's Individualism or Innovation performance).  -->
+<!-- The above procedures are for one outlier at a time. The judgment becomes more complex when the researcher considers removing more than one outlier at the same time. After removing the first outlier, a case that was originally not part of the first set of single potential outliers, may be identified as a new potential outlier, etc.    -->
+
+</div>
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
+<div id="ref-dul2024different" class="csl-entry">
+Dul, J. (2024a). A different causal perspective with <span>Necessary Condition Analysis</span>. <em>Journal of Business Research</em>, <em>177</em>, 114618. <a href="https://doi.org/10.1016/j.jbusres.2024.114618">https://doi.org/10.1016/j.jbusres.2024.114618</a>
+</div>
+<div id="ref-fujita2020denial" class="csl-entry">
+Fujita, T., &amp; Kusano, H. (2020). Denial or history? Yasukuni visits as signaling. <em>Journal of East Asian Studies</em>, <em>20</em>(2), 291–316. <a href="https://doi.org/10.1017/jea.2020.2">https://doi.org/10.1017/jea.2020.2</a>
+</div>
+<div id="ref-harding2002studying" class="csl-entry">
+Harding, D. J., Fox, C., &amp; Mehta, J. D. (2002). Studying rare events through qualitative case studies: Lessons from a study of rampage school shootings. <em>Sociological Methods &amp; Research</em>, <em>31</em>(2), 174–217. <a href="https://doi.org/10.1177%2F0049124102031002003">https://doi.org/10.1177%2F0049124102031002003</a>
+</div>
+<div id="ref-jaiswal2021drivers" class="csl-entry">
+Jaiswal, M., &amp; Zane, L. J. (2022b). Drivers of sustainable new technology diffusion in national markets: The case of electric vehicles. <em>Thunderbird International Business Review</em>, <em>64</em>(1), 25–38. <a href="https://doi.org/10.1002/tie.22243">https://doi.org/10.1002/tie.22243</a>
+</div>
+<div id="ref-torres2021levels" class="csl-entry">
+Torres, P., &amp; Godinho, P. (2022). Levels of necessity of entrepreneurial ecosystems elements. <em>Small Business Economics</em>, <em>59</em>, 29–45. <a href="https://doi.org/10.1007/s11187-021-00515-3">https://doi.org/10.1007/s11187-021-00515-3</a>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="theory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dataanalysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": true,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "serif",
+    "size": 2
+  },
+  "edit": null,
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  },
+  "info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Theory | Advances in Necessary Condition Analysis</title>
+  <meta name="description" content="Necessary Condition Analysis (NCA) is an emerging research method that is based on necessity logic. If a condition is not present, the outcome will not exist. Other factors cannot compensate for its absence. This is different from common causal reasoning where factors produce the outcome and can be compensated. The book intends to support users, readers and reviewers of NCA to better understand the method." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Theory | Advances in Necessary Condition Analysis" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://bookdown.org/ncabook/advanced_nca2//Image/cover2b.png" />
+  <meta property="og:description" content="Necessary Condition Analysis (NCA) is an emerging research method that is based on necessity logic. If a condition is not present, the outcome will not exist. Other factors cannot compensate for its absence. This is different from common causal reasoning where factors produce the outcome and can be compensated. The book intends to support users, readers and reviewers of NCA to better understand the method." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Theory | Advances in Necessary Condition Analysis" />
+  
+  <meta name="twitter:description" content="Necessary Condition Analysis (NCA) is an emerging research method that is based on necessity logic. If a condition is not present, the outcome will not exist. Other factors cannot compensate for its absence. This is different from common causal reasoning where factors produce the outcome and can be compensated. The book intends to support users, readers and reviewers of NCA to better understand the method." />
+  <meta name="twitter:image" content="https://bookdown.org/ncabook/advanced_nca2//Image/cover2b.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="summary.html"/>
+<link rel="next" href="data.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.33/datatables.js"></script>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+|<img src="logoNCA.png" width="270" height="270">
+<li><a href="./">Advances in NCA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>1</b> Summary of NCA</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="summary.html"><a href="summary.html#standalone"><i class="fa fa-check"></i><b>1.1</b> NCA as stand-alone method</a></li>
+<li class="chapter" data-level="1.2" data-path="summary.html"><a href="summary.html#complementary"><i class="fa fa-check"></i><b>1.2</b> NCA as a complementary method</a></li>
+<li class="chapter" data-level="1.3" data-path="summary.html"><a href="summary.html#formulate"><i class="fa fa-check"></i><b>1.3</b> Formulate the necessary condition hypothesis</a></li>
+<li class="chapter" data-level="1.4" data-path="summary.html"><a href="summary.html#collect"><i class="fa fa-check"></i><b>1.4</b> Collect the data</a></li>
+<li class="chapter" data-level="1.5" data-path="summary.html"><a href="summary.html#dataanalysissummary"><i class="fa fa-check"></i><b>1.5</b> Analyse the data</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="summary.html"><a href="summary.html#prepare-the-analysis"><i class="fa fa-check"></i><b>1.5.1</b> Prepare the analysis</a></li>
+<li class="chapter" data-level="1.5.2" data-path="summary.html"><a href="summary.html#load-the-data"><i class="fa fa-check"></i><b>1.5.2</b> Load the data</a></li>
+<li class="chapter" data-level="1.5.3" data-path="summary.html"><a href="summary.html#estimate-effect-size-and-the-p-value-with-nca_analysis"><i class="fa fa-check"></i><b>1.5.3</b> Estimate effect size and the p value with <code>nca_analysis</code></a></li>
+<li class="chapter" data-level="1.5.4" data-path="summary.html"><a href="summary.html#create-output-with-nca_output"><i class="fa fa-check"></i><b>1.5.4</b> Create output with <code>nca_output</code></a></li>
+<li class="chapter" data-level="1.5.5" data-path="summary.html"><a href="summary.html#summarybottleneck"><i class="fa fa-check"></i><b>1.5.5</b> Perform the bottleneck analysis with <code>nca_output</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="summary.html"><a href="summary.html#report"><i class="fa fa-check"></i><b>1.6</b> Report the results</a></li>
+<li class="chapter" data-level="1.7" data-path="summary.html"><a href="summary.html#guidelines"><i class="fa fa-check"></i><b>1.7</b> Basic guidelines for good NCA practice</a></li>
+<li class="chapter" data-level="1.8" data-path="summary.html"><a href="summary.html#review"><i class="fa fa-check"></i><b>1.8</b> SCoRe-NCA. A checklist for reviewing an NCA publication</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="theory.html"><a href="theory.html"><i class="fa fa-check"></i><b>2</b> Theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="theory.html"><a href="theory.html#partstheory"><i class="fa fa-check"></i><b>2.1</b> The four parts of a theory</a></li>
+<li class="chapter" data-level="2.2" data-path="theory.html"><a href="theory.html#formulationnecessity"><i class="fa fa-check"></i><b>2.2</b> Formulation of necessity hypotheses</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="theory.html"><a href="theory.html#sources"><i class="fa fa-check"></i><b>2.2.1</b> Sources with potential necessary conditions</a></li>
+<li class="chapter" data-level="2.2.2" data-path="theory.html"><a href="theory.html#thoughtexperiment"><i class="fa fa-check"></i><b>2.2.2</b> Thought experiment</a></li>
+<li class="chapter" data-level="2.2.3" data-path="theory.html"><a href="theory.html#direction"><i class="fa fa-check"></i><b>2.2.3</b> Direction of necessity</a></li>
+<li class="chapter" data-level="2.2.4" data-path="theory.html"><a href="theory.html#relatedmultiple"><i class="fa fa-check"></i><b>2.2.4</b> Related multiple necessary conditions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="theory.html"><a href="theory.html#justificationnecessity"><i class="fa fa-check"></i><b>2.3</b> Justification of necessity hypotheses</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="theory.html"><a href="theory.html#temporalorder"><i class="fa fa-check"></i><b>2.3.1</b> Temporal order</a></li>
+<li class="chapter" data-level="2.3.2" data-path="theory.html"><a href="theory.html#causalmechanism"><i class="fa fa-check"></i><b>2.3.2</b> Causal mechinism</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="theory.html"><a href="theory.html#theoreticalcontribution"><i class="fa fa-check"></i><b>2.4</b> Theoretical contribution</a></li>
+<li class="chapter" data-level="2.5" data-path="theory.html"><a href="theory.html#theorytypes"><i class="fa fa-check"></i><b>2.5</b> Types of necessity theories</a></li>
+<li class="chapter" data-level="2.6" data-path="theory.html"><a href="theory.html#morecorners"><i class="fa fa-check"></i><b>2.6</b> Two empty corners</a></li>
+<li class="chapter" data-level="2.7" data-path="theory.html"><a href="theory.html#necessarybutnotsufficient"><i class="fa fa-check"></i><b>2.7</b> The meaning of ‘necessary but not sufficient’</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Data</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#transformation"><i class="fa fa-check"></i><b>3.1</b> Data transformation</a></li>
+<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#experiment"><i class="fa fa-check"></i><b>3.2</b> Experiment</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data.html"><a href="data.html#the-traditional-experiment"><i class="fa fa-check"></i><b>3.2.1</b> The traditional experiment</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data.html"><a href="data.html#necessityexperiment"><i class="fa fa-check"></i><b>3.2.2</b> The necessity experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#samplesize"><i class="fa fa-check"></i><b>3.3</b> Sample size</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data.html"><a href="data.html#smalln"><i class="fa fa-check"></i><b>3.3.1</b> Small N studies</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data.html"><a href="data.html#largen"><i class="fa fa-check"></i><b>3.3.2</b> Large N studies</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data.html"><a href="data.html#quantitative"><i class="fa fa-check"></i><b>3.4</b> Quantitative data</a></li>
+<li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#qualitative"><i class="fa fa-check"></i><b>3.5</b> Qualitative data</a></li>
+<li class="chapter" data-level="3.6" data-path="data.html"><a href="data.html#longitudinal"><i class="fa fa-check"></i><b>3.6</b> Longitudinal, panel and time-series data</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data.html"><a href="data.html#pooled"><i class="fa fa-check"></i><b>3.6.1</b> NCA with pooled data</a></li>
+<li class="chapter" data-level="3.6.2" data-path="data.html"><a href="data.html#nca-for-describing-time-trends"><i class="fa fa-check"></i><b>3.6.2</b> NCA for describing time trends</a></li>
+<li class="chapter" data-level="3.6.3" data-path="data.html"><a href="data.html#interpretation"><i class="fa fa-check"></i><b>3.6.3</b> Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="data.html"><a href="data.html#setmembership"><i class="fa fa-check"></i><b>3.7</b> Set membership data</a></li>
+<li class="chapter" data-level="3.8" data-path="data.html"><a href="data.html#outliers"><i class="fa fa-check"></i><b>3.8</b> Outliers</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="data.html"><a href="data.html#outliertypes"><i class="fa fa-check"></i><b>3.8.1</b> Outlier types</a></li>
+<li class="chapter" data-level="3.8.2" data-path="data.html"><a href="data.html#outlieridentification"><i class="fa fa-check"></i><b>3.8.2</b> Outlier identification</a></li>
+<li class="chapter" data-level="3.8.3" data-path="data.html"><a href="data.html#outlierdecisionmaking"><i class="fa fa-check"></i><b>3.8.3</b> Outlier decision approach</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="dataanalysis.html"><a href="dataanalysis.html"><i class="fa fa-check"></i><b>4</b> Data analysis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="dataanalysis.html"><a href="dataanalysis.html#visualinspection"><i class="fa fa-check"></i><b>4.1</b> Visual inspection of the scatter plot</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="dataanalysis.html"><a href="dataanalysis.html#is-the-expected-corner-empty"><i class="fa fa-check"></i><b>4.1.1</b> Is the expected corner empty?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="dataanalysis.html"><a href="dataanalysis.html#selectioneilingline"><i class="fa fa-check"></i><b>4.1.2</b> What is an appropriate ceiling line?</a></li>
+<li class="chapter" data-level="4.1.3" data-path="dataanalysis.html"><a href="dataanalysis.html#what-are-potential-outliers"><i class="fa fa-check"></i><b>4.1.3</b> What are potential outliers?</a></li>
+<li class="chapter" data-level="4.1.4" data-path="dataanalysis.html"><a href="dataanalysis.html#what-is-the-data-pattern-in-the-rest-of-plot"><i class="fa fa-check"></i><b>4.1.4</b> What is the data pattern in the rest of plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="dataanalysis.html"><a href="dataanalysis.html#inkind"><i class="fa fa-check"></i><b>4.2</b> The ‘empty space: Necessary condition ’in kind’</a></li>
+<li class="chapter" data-level="4.3" data-path="dataanalysis.html"><a href="dataanalysis.html#bottleneck"><i class="fa fa-check"></i><b>4.3</b> The bottleneck table: Necessary conditions ‘in degree’</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="dataanalysis.html"><a href="dataanalysis.html#percentagerange"><i class="fa fa-check"></i><b>4.3.1</b> Levels expressed as percentage of range</a></li>
+<li class="chapter" data-level="4.3.2" data-path="dataanalysis.html"><a href="dataanalysis.html#actual"><i class="fa fa-check"></i><b>4.3.2</b> Levels expressed as actual values</a></li>
+<li class="chapter" data-level="4.3.3" data-path="dataanalysis.html"><a href="dataanalysis.html#percentile"><i class="fa fa-check"></i><b>4.3.3</b> Levels expressed as percentiles</a></li>
+<li class="chapter" data-level="4.3.4" data-path="dataanalysis.html"><a href="dataanalysis.html#percentagemax"><i class="fa fa-check"></i><b>4.3.4</b> Levels expressed as percentage of maximum</a></li>
+<li class="chapter" data-level="4.3.5" data-path="dataanalysis.html"><a href="dataanalysis.html#bottleneckothercorners"><i class="fa fa-check"></i><b>4.3.5</b> Interpretation of the bottleneck table with other corners</a></li>
+<li class="chapter" data-level="4.3.6" data-path="dataanalysis.html"><a href="dataanalysis.html#na"><i class="fa fa-check"></i><b>4.3.6</b> NN and NA in the bottleneck table</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="dataanalysis.html"><a href="dataanalysis.html#robustnesschecks"><i class="fa fa-check"></i><b>4.4</b> Robustness checks</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="dataanalysis.html"><a href="dataanalysis.html#choiceceiling"><i class="fa fa-check"></i><b>4.4.1</b> Choice of ceiling line</a></li>
+<li class="chapter" data-level="4.4.2" data-path="dataanalysis.html"><a href="dataanalysis.html#choiceeffectsize"><i class="fa fa-check"></i><b>4.4.2</b> Choice of the threshold level of the effect size</a></li>
+<li class="chapter" data-level="4.4.3" data-path="dataanalysis.html"><a href="dataanalysis.html#choicepvalue"><i class="fa fa-check"></i><b>4.4.3</b> Choice of the threshold level of the p value</a></li>
+<li class="chapter" data-level="4.4.4" data-path="dataanalysis.html"><a href="dataanalysis.html#choicescope"><i class="fa fa-check"></i><b>4.4.4</b> Choice of the scope</a></li>
+<li class="chapter" data-level="4.4.5" data-path="dataanalysis.html"><a href="dataanalysis.html#choiceoutlier"><i class="fa fa-check"></i><b>4.4.5</b> Choice of outlier removal</a></li>
+<li class="chapter" data-level="4.4.6" data-path="dataanalysis.html"><a href="dataanalysis.html#choice-of-target-outcome"><i class="fa fa-check"></i><b>4.4.6</b> Choice of target outcome</a></li>
+<li class="chapter" data-level="4.4.7" data-path="dataanalysis.html"><a href="dataanalysis.html#robustnesstable"><i class="fa fa-check"></i><b>4.4.7</b> Robustness table</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="dataanalysis.html"><a href="dataanalysis.html#ncaregression"><i class="fa fa-check"></i><b>4.5</b> Combining NCA with regression analysis</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="dataanalysis.html"><a href="dataanalysis.html#introduction"><i class="fa fa-check"></i><b>4.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.5.2" data-path="dataanalysis.html"><a href="dataanalysis.html#logic-and-theory"><i class="fa fa-check"></i><b>4.5.2</b> Logic and theory</a></li>
+<li class="chapter" data-level="4.5.3" data-path="dataanalysis.html"><a href="dataanalysis.html#data-analysis"><i class="fa fa-check"></i><b>4.5.3</b> Data analysis</a></li>
+<li class="chapter" data-level="4.5.4" data-path="dataanalysis.html"><a href="dataanalysis.html#how-to-combine-nca-and-regression"><i class="fa fa-check"></i><b>4.5.4</b> How to combine NCA and regression</a></li>
+<li class="chapter" data-level="4.5.5" data-path="dataanalysis.html"><a href="dataanalysis.html#what-is-the-same-in-nca-and-regression"><i class="fa fa-check"></i><b>4.5.5</b> What is the same in NCA and regression?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="dataanalysis.html"><a href="dataanalysis.html#ncaplssem"><i class="fa fa-check"></i><b>4.6</b> Combining NCA with (PLS-)SEM</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="dataanalysis.html"><a href="dataanalysis.html#stepsncasem"><i class="fa fa-check"></i><b>4.6.1</b> Steps for conducting NCA with SEM</a></li>
+<li class="chapter" data-level="4.6.2" data-path="dataanalysis.html"><a href="dataanalysis.html#examplencaplssem"><i class="fa fa-check"></i><b>4.6.2</b> Demonstration of combining NCA and PLS-SEM with R</a></li>
+<li class="chapter" data-level="4.6.3" data-path="dataanalysis.html"><a href="dataanalysis.html#recommendations-for-combining-nca-and-pls-sem"><i class="fa fa-check"></i><b>4.6.3</b> Recommendations for combining NCA and (PLS-)SEM</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="dataanalysis.html"><a href="dataanalysis.html#ncaqca"><i class="fa fa-check"></i><b>4.7</b> Combining NCA with QCA</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="dataanalysis.html"><a href="dataanalysis.html#introduction-to-qca"><i class="fa fa-check"></i><b>4.7.1</b> Introduction to QCA</a></li>
+<li class="chapter" data-level="4.7.2" data-path="dataanalysis.html"><a href="dataanalysis.html#the-differences-between-nca-and-qca"><i class="fa fa-check"></i><b>4.7.2</b> The differences between NCA and QCA</a></li>
+<li class="chapter" data-level="4.7.3" data-path="dataanalysis.html"><a href="dataanalysis.html#recommendation-for-combining-nca-and-qca"><i class="fa fa-check"></i><b>4.7.3</b> Recommendation for combining NCA and QCA</a></li>
+<li class="chapter" data-level="4.7.4" data-path="dataanalysis.html"><a href="dataanalysis.html#examples"><i class="fa fa-check"></i><b>4.7.4</b> Examples</a></li>
+<li class="chapter" data-level="4.7.5" data-path="dataanalysis.html"><a href="dataanalysis.html#misinterpretationsqca"><i class="fa fa-check"></i><b>4.7.5</b> Logical misinterpretations when combining NCA and QCA</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="dataanalysis.html"><a href="dataanalysis.html#causalinference"><i class="fa fa-check"></i><b>4.8</b> Causal inference</a></li>
+<li class="chapter" data-level="4.9" data-path="dataanalysis.html"><a href="dataanalysis.html#metaanalysis"><i class="fa fa-check"></i><b>4.9</b> Meta-analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="mathematical.html"><a href="mathematical.html"><i class="fa fa-check"></i><b>5</b> NCA’s mathematical backgrounds</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="mathematical.html"><a href="mathematical.html#formalexpression"><i class="fa fa-check"></i><b>5.1</b> Formal mathematical expression</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="mathematical.html"><a href="mathematical.html#effectsize"><i class="fa fa-check"></i><b>5.1.1</b> Effect size</a></li>
+<li class="chapter" data-level="5.1.2" data-path="mathematical.html"><a href="mathematical.html#necinefficiency"><i class="fa fa-check"></i><b>5.1.2</b> Necessity inefficiency</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="mathematical.html"><a href="mathematical.html#multiplenca"><i class="fa fa-check"></i><b>5.2</b> Multiple NCA</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistical.html"><a href="statistical.html"><i class="fa fa-check"></i><b>6</b> NCA’s statistics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="statistical.html"><a href="statistical.html#ncas-statistical-expression"><i class="fa fa-check"></i><b>6.1</b> NCA’s statistical expression</a></li>
+<li class="chapter" data-level="6.2" data-path="statistical.html"><a href="statistical.html#permutationtest"><i class="fa fa-check"></i><b>6.2</b> NCA’s statistical test</a></li>
+<li class="chapter" data-level="6.3" data-path="statistical.html"><a href="statistical.html#simulations-with-nca"><i class="fa fa-check"></i><b>6.3</b> Simulations with NCA</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="statistical.html"><a href="statistical.html#requirementssim"><i class="fa fa-check"></i><b>6.3.1</b> Requirements for simulations with NCA</a></li>
+<li class="chapter" data-level="6.3.2" data-path="statistical.html"><a href="statistical.html#power"><i class="fa fa-check"></i><b>6.3.2</b> Simulations for estimating the power of NCA’s statistical test</a></li>
+<li class="chapter" data-level="6.3.3" data-path="statistical.html"><a href="statistical.html#ceilingquality"><i class="fa fa-check"></i><b>6.3.3</b> Simulations for evaluating a ceiling line and its effect size</a></li>
+<li class="chapter" data-level="6.3.4" data-path="statistical.html"><a href="statistical.html#simulations-of-correlation"><i class="fa fa-check"></i><b>6.3.4</b> Simulations of correlation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>7</b> Miscellaneous</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="miscellaneous.html"><a href="miscellaneous.html#software"><i class="fa fa-check"></i><b>7.1</b> NCA software</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="miscellaneous.html"><a href="miscellaneous.html#rsoftware"><i class="fa fa-check"></i><b>7.1.1</b> Main NCA software: R package</a></li>
+<li class="chapter" data-level="7.1.2" data-path="miscellaneous.html"><a href="miscellaneous.html#othersoftware"><i class="fa fa-check"></i><b>7.1.2</b> Other NCA software packages</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="miscellaneous.html"><a href="miscellaneous.html#learning-about-nca"><i class="fa fa-check"></i><b>7.2</b> Learning about NCA</a></li>
+<li class="chapter" data-level="7.3" data-path="miscellaneous.html"><a href="miscellaneous.html#hqscatterplots"><i class="fa fa-check"></i><b>7.3</b> Producing high-quality NCA scatter plots</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="miscellaneous.html"><a href="miscellaneous.html#standard-plot"><i class="fa fa-check"></i><b>7.3.1</b> Standard plot</a></li>
+<li class="chapter" data-level="7.3.2" data-path="miscellaneous.html"><a href="miscellaneous.html#standard-plot-with-basic-adaptations"><i class="fa fa-check"></i><b>7.3.2</b> Standard plot with basic adaptations</a></li>
+<li class="chapter" data-level="7.3.3" data-path="miscellaneous.html"><a href="miscellaneous.html#standard-plot-with-advanced-adaptations"><i class="fa fa-check"></i><b>7.3.3</b> Standard plot with advanced adaptations</a></li>
+<li class="chapter" data-level="7.3.4" data-path="miscellaneous.html"><a href="miscellaneous.html#plot-with-plotly"><i class="fa fa-check"></i><b>7.3.4</b> Plot with <code>plotly</code></a></li>
+<li class="chapter" data-level="7.3.5" data-path="miscellaneous.html"><a href="miscellaneous.html#plot-with-ggplot"><i class="fa fa-check"></i><b>7.3.5</b> Plot with <code>ggplot</code></a></li>
+<li class="chapter" data-level="7.3.6" data-path="miscellaneous.html"><a href="miscellaneous.html#saving-the-plot-from-within-the-r-script"><i class="fa fa-check"></i><b>7.3.6</b> Saving the plot from within the R script</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="miscellaneous.html"><a href="miscellaneous.html#additionalcode"><i class="fa fa-check"></i><b>7.4</b> Additional functions for use with the NCA softare in R (beta)</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="miscellaneous.html"><a href="miscellaneous.html#ncarobustnesstablegeneral"><i class="fa fa-check"></i><b>7.4.1</b> <code>nca_robustness_table_general.R</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="miscellaneous.html"><a href="miscellaneous.html#ncarobustnesschecksgeneral"><i class="fa fa-check"></i><b>7.4.2</b> <code>nca_robustness_checks_general.R</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="miscellaneous.html"><a href="miscellaneous.html#getoutliers"><i class="fa fa-check"></i><b>7.4.3</b> <code>get_outliers.R</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="miscellaneous.html"><a href="miscellaneous.html#getindicatordata"><i class="fa fa-check"></i><b>7.4.4</b> <code>get_indicator_data_TAM.R</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="miscellaneous.html"><a href="miscellaneous.html#estimatesemmodel"><i class="fa fa-check"></i><b>7.4.5</b> <code>estimate_sem_model_TAM.R</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="miscellaneous.html"><a href="miscellaneous.html#significancesem"><i class="fa fa-check"></i><b>7.4.6</b> <code>get_signficance_sem.R</code></a></li>
+<li class="chapter" data-level="7.4.7" data-path="miscellaneous.html"><a href="miscellaneous.html#unstandardize"><i class="fa fa-check"></i><b>7.4.7</b> <code>unstandardize.R</code></a></li>
+<li class="chapter" data-level="7.4.8" data-path="miscellaneous.html"><a href="miscellaneous.html#normalize"><i class="fa fa-check"></i><b>7.4.8</b> <code>normalize.R</code></a></li>
+<li class="chapter" data-level="7.4.9" data-path="miscellaneous.html"><a href="miscellaneous.html#getbottleneckcases"><i class="fa fa-check"></i><b>7.4.9</b> <code>get_bottleneck_cases.R</code></a></li>
+<li class="chapter" data-level="7.4.10" data-path="miscellaneous.html"><a href="miscellaneous.html#getipmadf"><i class="fa fa-check"></i><b>7.4.10</b> <code>get_ipma_df.R</code></a></li>
+<li class="chapter" data-level="7.4.11" data-path="miscellaneous.html"><a href="miscellaneous.html#getipmaplot"><i class="fa fa-check"></i><b>7.4.11</b> <code>get_ipma_plot.R</code></a></li>
+<li class="chapter" data-level="7.4.12" data-path="miscellaneous.html"><a href="miscellaneous.html#getcipmadf"><i class="fa fa-check"></i><b>7.4.12</b> <code>get_cipma_df.R</code></a></li>
+<li class="chapter" data-level="7.4.13" data-path="miscellaneous.html"><a href="miscellaneous.html#getcipmaplot"><i class="fa fa-check"></i><b>7.4.13</b> <code>get_cipma_plot.R</code></a></li>
+<li class="chapter" data-level="7.4.14" data-path="miscellaneous.html"><a href="miscellaneous.html#getsinglebottleneckcases"><i class="fa fa-check"></i><b>7.4.14</b> <code>get_single_bottleneck_cases.R</code></a></li>
+<li class="chapter" data-level="7.4.15" data-path="miscellaneous.html"><a href="miscellaneous.html#getbipmadf"><i class="fa fa-check"></i><b>7.4.15</b> <code>get_bipma_df.R</code></a></li>
+<li class="chapter" data-level="7.4.16" data-path="miscellaneous.html"><a href="miscellaneous.html#getbipmaplot"><i class="fa fa-check"></i><b>7.4.16</b> <code>get_bipma_plot.R</code></a></li>
+<li class="chapter" data-level="7.4.17" data-path="miscellaneous.html"><a href="miscellaneous.html#ncasem"><i class="fa fa-check"></i><b>7.4.17</b> <code>ncasem.R</code></a></li>
+<li class="chapter" data-level="7.4.18" data-path="miscellaneous.html"><a href="miscellaneous.html#ncasemexample"><i class="fa fa-check"></i><b>7.4.18</b> <code>ncasem_example_TAM.R</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<a href="https://www.erim.eur.nl/necessary-condition-analysis/">
+<img alt="erim" src="NCAwebsite2.png" width="270"></a
+<a href="https://www.erim.eur.nl/necessary-condition-analysis/" target="blank">NCA website</a></li>
+<li><a href="mailto:jdul@rsm.nl">Send email to the author</a>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Advances in Necessary Condition Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="theory" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Theory<a href="theory.html#theory" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>A necessity <em>theory</em> is a theory that employs causal necessity logic for describing the causal relationships between all, or a selection of the concepts of a theory <span class="citation">(<a href="#ref-bokrantz2022building">Bokrantz &amp; Dul, 2023</a>)</span>. Necessity <em>theorizing</em> is formulating necessity theory using necessity logic when describing causal relationships between concepts.</p>
+<div id="partstheory" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> The four parts of a theory<a href="theory.html#partstheory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A theory –including a necessity theory– consists of four parts: concepts, propositions, focal unit and theoretical domain. The <em>concepts</em> are the variable parts of a theory that can increase or decrease. In NCA the independent concepts are called ‘conditions’ and the dependent concepts ‘outcomes’. A <em>proposition</em> describes the causal relationship between the concepts. In NCA the causal relationship is a necessity relationship: ‘<span class="math inline">\(X\)</span> is necessary for <span class="math inline">\(Y\)</span>’. The <em>focal unit</em> is the object to which the theory applies: country, person, firm, project. etc. The <em>theoretical domain</em> is the set of cases of the focal unit where the theory is supposed to hold. A case is one particular example of the focal unit: a specific country, a specific person, etc.</p>
+<p>The four characteristics of theory on which the <code>nca.example</code> data set of the <code>NCA</code> software is based are:</p>
+<ul>
+<li><p>Focal unit: country.</p></li>
+<li><p>Concepts:</p>
+<ul>
+<li><p>Independent concepts (conditions): Individualism, Risk taking.</p></li>
+<li><p>Dependent concept (outcome): Innovation performance.</p></li>
+</ul></li>
+<li><p>Propositions: Individualism is necessary for Innovation performance. Risk taking is necessary for Innovation performance.</p></li>
+<li><p>Theoretical domain: all countries of the world.</p></li>
+</ul>
+<p>In theory testing research, empirical data are used to test the propositions. The theoretical concepts are operationalized into <em>variables</em> that can be measured, the propositions are operationalized into <em>hypotheses</em> consisting of variables with their expected relationship, the focal unit becomes the <em>unit of analysis</em>, and cases are selected from the theoretical domain. For the case selection usually a <em>population</em> of cases is identified in the theoretical domain and a <em>sample</em> is taken from this population, but purposive selection of cases is possibe as well. From the sample a <em>dataset</em> is obtained with variables scores of the cases.</p>
+</div>
+<div id="formulationnecessity" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Formulation of necessity hypotheses<a href="theory.html#formulationnecessity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The propositions (or the operationalized hypotheses) are the core elements of a theory. They describe the expected causal relationships between the concepts. Most theories express the causal relationship in terms of probabilistic sufficiency: cause <span class="math inline">\(X\)</span> likely changes effect <span class="math inline">\(Y\)</span>. Such cause contributes to the outcome ‘on average’. Other theories express the causal relationship deterministically or typically : cause <span class="math inline">\(X\)</span> is (typically) necessary or sufficient for <span class="math inline">\(Y\)</span>. These different causal perspectives are discussed in <span class="citation">Dul (<a href="#ref-dul2024different">2024a</a>)</span>. NCA employs a deterministic (no exceptions) or typicality (with exceptions) causal perspective about necessity.</p>
+<p>NCA starts with formulating a hypothesis that a condition is a necessary cause for the outcome. In some fields the existence of a causal necessity relationship is widely known and accepted. An example is the psychological theory that intelligence is necessary for creativity. This hypothesis was proposed in the 1960’s <span class="citation">(<a href="#ref-guilford1967nature">Guilford, 1967</a>)</span> and is still widely around. Until recently, this theory could not be tested with a specific necessity method. When NCA became available it was possible to ensure theory-method fit by testing the hypothesis with NCA, as was done by <span class="citation">Karwowski et al. (<a href="#ref-karwowski2016intellligence">2016</a>)</span>.</p>
+<p>In other fields, theories that are broadly accepted include systematic formulations of necessity. Some of these establised theories were recently tested with NCA. Examples are the Ability Motivation, Opportunity model – AMO (or Motivation, Opportunity, Ability model - MOA) of human behavior <span class="citation">(e.g., <a href="#ref-tuuli2021ability">Tuuli &amp; Rhee, 2021</a>)</span>, the Theory of Planned Behavior – TPB <span class="citation">(<a href="#ref-frommeyer2022utility">Frommeyer et al., 2022</a>)</span>, the Technology Acceptance Model – TAM <span class="citation">(e.g., <a href="#ref-richter2020predictors">Richter, Schubring, et al., 2020</a>)</span> and the Self-Determination Theory – SDT <span class="citation">(e.g., <a href="#ref-cassia2024value">Cassia &amp; Magno, 2024</a>)</span>. Other established necessity theories have never been tested with NCA, including Porter’s theory on competitive advantage of nations <span class="citation">(<a href="#ref-porter1985competitive">Porter, 1985</a>)</span>, Wernerfelt’s resource-based view of the firm <span class="citation">(<a href="#ref-wernerfelt1984resource">Wernerfelt, 1984</a>)</span>, Teece’s theory on dynamic capabilities <span class="citation">(<a href="#ref-teece1997dynamic">Teece et al., 1997</a>)</span>, Rogers’ theory on person-centered psychotherapy <span class="citation">(<a href="#ref-rogers1957necessary">Rogers, 1957</a>)</span> and Turner’s framework for project management success <span class="citation">(<a href="#ref-turner2009handbook">Turner, 2009</a>)</span>.</p>
+<p>Yet, necessity causality (even if explicitly formulated) is not widely recognized and when these theories are being tested, probabilistic sufficiency causality is (implicitly) assumed. NCA gives the opportunity to test such theories while ensuring theory-method fit.</p>
+<p>In most research fields necessity formulations of the relationships of interest are scattered around in the literature. Although necessity causality exists in virtually all research areas, and necessity statements are commonly made, the necessity statements are usually not part of the theories. NCA gives the researcher an opportunity to formalize the theoretical necessity statements and test them with an appropriate method.</p>
+<div id="sources" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Sources with potential necessary conditions<a href="theory.html#sources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Four sources can be used for formulating necessary condition hypotheses. First, existing <em>necessity statements in the literature</em> can be identified. Although several necessity statements may use the word ‘necessity’ rather loosely as synonym for ‘important’, many necessity statements refer to necessity logic and causality. Common words referring to a condition that is necessity for an outcome are listed in Table <a href="theory.html#tab:wordsnecessity">2.1</a>. Several words reflect that the necessary condition must be present to have the outcome (enablers); other words reflect that the absence of the necessary conditions guarantees the absence of the outcome (constaints).</p>
+<br>
+<table style="width:30%; font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;" class="table lightable-paper">
+<caption style="font-size: initial !important;">
+<span id="tab:wordsnecessity">Table 2.1: </span>Words representing necessity
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Enablers (The presence of X …)
+</th>
+<th style="text-align:left;">
+Constraints (The absence of X …)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+X is necessary for Y
+</td>
+<td style="text-align:left;">
+X constrains Y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+X is needed for Y
+</td>
+<td style="text-align:left;">
+X limits Y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+X is critical for Y
+</td>
+<td style="text-align:left;">
+X blocks Y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+X is crucial for Y
+</td>
+<td style="text-align:left;">
+X bounds Y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+X is essential for Y
+</td>
+<td style="text-align:left;">
+X restricts Y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+X is indispensable for Y
+</td>
+<td style="text-align:left;">
+X is a barrier for Y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+X is a prerequisite for Y
+</td>
+<td style="text-align:left;">
+X is a bottleneck for Y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+X is a requirement for Y
+</td>
+<td style="text-align:left;">
+Without X there cannot be Y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+X is a conditio sine qua non for Y
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+X is a pre-condition for Y
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+X allows Y
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+X enables Y
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+There must be X to have Y
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Y requires X
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>Second, when <em>‘important’ contributing causal factors</em> for a outcome of interest have been identified with conventional methods, several of them could also be necessary conditions. For example, when a researcher formulates an additive theory with generic causes (to be analysed with regression analysis) arguments are provided why a concept is an important contributor to an outcome. As a standard, the arguments imply sufficiency logic (‘<span class="math inline">\(X\)</span> produces <span class="math inline">\(Y\)</span>’), but as an alternative, the relationship could also be described with necessity logic: an important factor that cannot be compensated for. Not only independent concepts but also mediator and moderator concepts in additive theories could be candidate necessary conditions. In other words, when current additive theories state that concepts are ‘important’ contributing concepts they may or may not (also) be necessary. But also contributing concepts that are considered ‘unimportant’ according to additive theories could be necessary.</p>
+<p>Third, <em>‘critical’ and ‘bottleneck’ factors in practice</em> could be candidate necessary conditions to be included in the theory. Practitioners commonly act upon ‘critical success factors’ or ‘must have’ factors (versus ‘nice to have’ factors). When such factor does not have the required level it can become a bottleneck on which the practitioner must act to ensure a desired outcome. Practitioners often have a ‘theory in use’ <span class="citation">(<a href="#ref-dul2008case">Dul &amp; Hak, 2008</a>)</span> in which they argue why a factor is related to an outcome. Often the arguments imply necessity logic.</p>
+<p>Fourth, the researcher may have ideas about necessary conditions in a specific based the researcher’s knowledge about that field. Such ideas could be discussed with other experts in the field.</p>
+</div>
+<div id="thoughtexperiment" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Thought experiment<a href="theory.html#thoughtexperiment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When a potential necessary condition is selected the researcher can do a <em>‘thought-experiment’</em> to test if necessity is possible<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. Thus for testing necessity the researcher can ask the question “Can I imagine cases <em>with</em> outcome <span class="math inline">\(Y\)</span>, but <em>without</em> condition <span class="math inline">\(X\)</span>?”. When such cases are relatively common, the conclusion is that the condition is <em>not</em> necessary. When cases with the outcome <span class="math inline">\(Y\)</span> and without the condition <span class="math inline">\(X\)</span> are impossible or rare, the hypothesis may generally hold. The rare cases can be used to define the context where the hypothesis holds and where not, and thus to define the <em>theoretical domain</em> of the theory. Defining the theoretical domain –where the theory is supposed to hold– is important for all theories, because theories do rarely hold universally.</p>
+<p>To illustrate the thought-experiment and the process of defining the theoretical domain, assume that a researcher wants to test the hypothesis ‘understanding English is necessary for reading this book’. This statement is generally correct, but it is possible to imagine cases (persons) <em>with</em> the outcome (reading the book) but <em>without</em> the condition (not mastering English). Such exception is possible when someone translates the book in the language other than English, such that a reader who does not master English can read the translated book. This exception helps to specify the theoretical domain of the hypothesis: ‘persons reading the original version of book’. Further exploration of exceptions can help to specify the theoretical domain. This process continues until the theoretical domain is precisely specified where the hypotheses is expected to hold virtually always. For testing this hypothesis, cases are selected from this specified theoretical domain. This can help to avoid sampling error (see section <a href="data.html#outliers">3.8</a>).</p>
+<p>It is also possible that the necessary condition is rejected in the thought experiment because the condition is formulated too narrow. For example, ‘green apple’ is not necessary for an apple pie, and also red apple is not necessary for an apple pie. However, the higher-order construct (apple) is necessary. Then it would make sense to formulate the necessary condition hypothesis with the higher order concept. In general, attractive theories are supposed to be valid in a broad set of contexts, not only in very specific situations.</p>
+</div>
+<div id="direction" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Direction of necessity<a href="theory.html#direction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A hypothesis is usually only generally and semantically described as a theoretical statement. In NCA the common hypothesis is a qualitative theoretical statement like “X is necessary for Y” (in kind). A hypothesis usually is not described as a quantitative statement like “a specific level of X is necessary for a specific level of Y” (in degree).
+A hypothesis usually includes or implies a ‘direction’ of the causal relationship. In NCA four ‘directions’ are possible: the presence/high value of <span class="math inline">\(X\)</span> is necessary for the presence/high value of <span class="math inline">\(Y\)</span> (<strong>+ +</strong>), the absence/low value of <span class="math inline">\(X\)</span> is necessary for the presence/high value of <span class="math inline">\(Y\)</span> (<strong>- +</strong>), the presence/high value of <span class="math inline">\(X\)</span> is necessary for the absence/low value of <span class="math inline">\(Y\)</span> (<strong>+ -</strong>), and the absence/low value of <span class="math inline">\(X\)</span> is necessary for the absence/low value of <span class="math inline">\(Y\)</span> (<strong>- -</strong>). This is shown in Figure <a href="theory.html#fig:corners">2.1</a>, where the empty space is in different corners.</p>
+<div class="figure"><span style="display:block;" id="fig:corners"></span>
+<img src="corner1.png" alt="'Direction' of necessary conditions. Upper-left: a high value of $X$ is necessary for a high value of $Y$ (**+ +**). Upper-right: a low value of $X$ is necessary for a high value of $Y$ (**- +**). Lower-left: a high value of $X$ is necessary for a low value of $Y$ (**+ -**). Lower-right: a low value of $X$ is necessary for a low value of $Y$ (**- -**)." width="50%" /><img src="corner2.png" alt="'Direction' of necessary conditions. Upper-left: a high value of $X$ is necessary for a high value of $Y$ (**+ +**). Upper-right: a low value of $X$ is necessary for a high value of $Y$ (**- +**). Lower-left: a high value of $X$ is necessary for a low value of $Y$ (**+ -**). Lower-right: a low value of $X$ is necessary for a low value of $Y$ (**- -**)." width="50%" /><img src="corner3.png" alt="'Direction' of necessary conditions. Upper-left: a high value of $X$ is necessary for a high value of $Y$ (**+ +**). Upper-right: a low value of $X$ is necessary for a high value of $Y$ (**- +**). Lower-left: a high value of $X$ is necessary for a low value of $Y$ (**+ -**). Lower-right: a low value of $X$ is necessary for a low value of $Y$ (**- -**)." width="50%" /><img src="corner4.png" alt="'Direction' of necessary conditions. Upper-left: a high value of $X$ is necessary for a high value of $Y$ (**+ +**). Upper-right: a low value of $X$ is necessary for a high value of $Y$ (**- +**). Lower-left: a high value of $X$ is necessary for a low value of $Y$ (**+ -**). Lower-right: a low value of $X$ is necessary for a low value of $Y$ (**- -**)." width="50%" />
+<p class="caption">
+Figure 2.1: ‘Direction’ of necessary conditions. Upper-left: a high value of <span class="math inline">\(X\)</span> is necessary for a high value of <span class="math inline">\(Y\)</span> (<strong>+ +</strong>). Upper-right: a low value of <span class="math inline">\(X\)</span> is necessary for a high value of <span class="math inline">\(Y\)</span> (<strong>- +</strong>). Lower-left: a high value of <span class="math inline">\(X\)</span> is necessary for a low value of <span class="math inline">\(Y\)</span> (<strong>+ -</strong>). Lower-right: a low value of <span class="math inline">\(X\)</span> is necessary for a low value of <span class="math inline">\(Y\)</span> (<strong>- -</strong>).
+</p>
+</div>
+<p>Figure <a href="theory.html#fig:direction1">2.2</a> shows conceptual models in which the arrows suggest a necessity causal relationship using the symbol (“nc” = ‘necessary condition’ or ‘necessary cause’), and the ‘direction’ of causality is specified as well.</p>
+<div class="figure"><span style="display:block;" id="fig:direction1"></span>
+<img src="Fig1modelDIRECTION.png" alt="Conceptual models for necessary conditions. Top-Left: presence of $X$ is necessary for presence of $Y$. Top-Right: absence of $X$ is necessary for presence of $Y$. Bottom-Left: presence of $X$ is necessary for absence of $Y$. Bottom-Right: absence of $X$ is necessary for absence of $Y$." width="45%" /><img src="Fig2modelDIRECTION.png" alt="Conceptual models for necessary conditions. Top-Left: presence of $X$ is necessary for presence of $Y$. Top-Right: absence of $X$ is necessary for presence of $Y$. Bottom-Left: presence of $X$ is necessary for absence of $Y$. Bottom-Right: absence of $X$ is necessary for absence of $Y$." width="45%" /><img src="Fig3modelDIRECTION.png" alt="Conceptual models for necessary conditions. Top-Left: presence of $X$ is necessary for presence of $Y$. Top-Right: absence of $X$ is necessary for presence of $Y$. Bottom-Left: presence of $X$ is necessary for absence of $Y$. Bottom-Right: absence of $X$ is necessary for absence of $Y$." width="45%" /><img src="Fig4modelDIRECTION.png" alt="Conceptual models for necessary conditions. Top-Left: presence of $X$ is necessary for presence of $Y$. Top-Right: absence of $X$ is necessary for presence of $Y$. Bottom-Left: presence of $X$ is necessary for absence of $Y$. Bottom-Right: absence of $X$ is necessary for absence of $Y$." width="45%" />
+<p class="caption">
+Figure 2.2: Conceptual models for necessary conditions. Top-Left: presence of <span class="math inline">\(X\)</span> is necessary for presence of <span class="math inline">\(Y\)</span>. Top-Right: absence of <span class="math inline">\(X\)</span> is necessary for presence of <span class="math inline">\(Y\)</span>. Bottom-Left: presence of <span class="math inline">\(X\)</span> is necessary for absence of <span class="math inline">\(Y\)</span>. Bottom-Right: absence of <span class="math inline">\(X\)</span> is necessary for absence of <span class="math inline">\(Y\)</span>.
+</p>
+</div>
+<p>If the direction is not specified, the <strong>+ +</strong> direction is implied. Note that in NCA the hypothesis is not described by a verb like in ‘<span class="math inline">\(X\)</span> <em>increases</em> <span class="math inline">\(Y\)</span>’ or ‘<span class="math inline">\(X\)</span> <em>has</em> a positive effect on <span class="math inline">\(Y\)</span>’, which are common formulations to express probabilistic sufficiency (average effect) relationships. In NCA a noun or adverb is used to describe levels of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> as for example in ‘<em>the absence</em> of <span class="math inline">\(X\)</span> is necessary for <em>the presence</em> of <span class="math inline">\(Y\)</span>’ or ‘<em>low</em> <span class="math inline">\(X\)</span> is necessary for <em>high</em> <span class="math inline">\(Y\)</span>’. Note also that the two ‘ceiling lines’ in the lower part of the plot can be considered as ‘floor lines’. An empty space in the lower-left corner represents that a high value of <span class="math inline">\(X\)</span> is necessary for a low value of <span class="math inline">\(Y\)</span>. This is logically equivalent to the statement that a not-high level of <span class="math inline">\(X\)</span> is <em>sufficient</em> for a not-low level of <span class="math inline">\(Y\)</span>. The floor line in this corner suggests therefore that a low level of <span class="math inline">\(X\)</span> is <em>sufficient</em> for a not so high level of <span class="math inline">\(Y\)</span>. Similarly, an empty space in the lower-right corner suggests that a high level of <span class="math inline">\(X\)</span> is <em>sufficient</em> for a not so high level of <span class="math inline">\(Y\)</span>.</p>
+<!-- In situations that the empty space is in a lower corner, the sufficiency formulation of the necessary condition and the floor line may be helpful for theorizing about the relationship between $X$ and $Y$ [@goertz2013ceilings].      -->
+</div>
+<div id="relatedmultiple" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Related multiple necessary conditions<a href="theory.html#relatedmultiple" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Although multiple necessary conditions and thus multiple hypotheses could be formulated independently, it is also possible that the necessary conditions are theoretically related. An example is combining several necessary conditions into successive necessities where <span class="math inline">\(X\)</span> is necessary for <span class="math inline">\(M\)</span>, and <span class="math inline">\(M\)</span> is necessary for <span class="math inline">\(Y\)</span>. This situation is shown in Figure <a href="theory.html#fig:fig4model">2.3</a>. The concept <span class="math inline">\(M\)</span> could be considered a <em>necessity mediator</em> when <span class="math inline">\(X\)</span> is also necessary for <span class="math inline">\(Y\)</span>, resulting in the necessity chain <span class="math inline">\(X \rightarrow M \rightarrow Y\)</span>. In the situation of ‘necessity in degree’, the necessity of <span class="math inline">\(X\)</span> for <span class="math inline">\(M\)</span> and the necessity of <span class="math inline">\(M\)</span> for <span class="math inline">\(Y\)</span> may or may not result in the necessity of <span class="math inline">\(X\)</span> for <span class="math inline">\(Y\)</span>. This depends on the locations of the ceiling lines.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig4model"></span>
+<img src="Fig4model.png" alt="Conceptual model of a necessity theory with one condition one necessity mediator and one outcome." width="90%" />
+<p class="caption">
+Figure 2.3: Conceptual model of a necessity theory with one condition one necessity mediator and one outcome.
+</p>
+</div>
+</div>
+</div>
+<div id="justificationnecessity" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Justification of necessity hypotheses<a href="theory.html#justificationnecessity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A theory is more than a set of hypotheses. It is also important to describe the mechanism <em>why</em> <span class="math inline">\(X\)</span> is necessary for <span class="math inline">\(Y\)</span>.</p>
+<div id="temporalorder" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Temporal order<a href="theory.html#temporalorder" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A first requirement for claiming causality is that condition occurs before the outcome: first the condition, then the outcome. If an empty spaces is observed in the upper left corner of the <span class="math inline">\(XY\)</span> plot, this could not only indicate that the presence of <span class="math inline">\(X\)</span> is necessary for the presence of <span class="math inline">\(Y\)</span> (first <span class="math inline">\(X\)</span> then <span class="math inline">\(Y\)</span>), but also that the presence of <span class="math inline">\(Y\)</span> is sufficient for the presence of <span class="math inline">\(X\)</span> (first <span class="math inline">\(Y\)</span> then <span class="math inline">\(X\)</span>). Often it is easy to theorize that the second temporal order does not exist. For example if <span class="math inline">\(X\)</span> is oxigen and <span class="math inline">\(Y\)</span> is being alive, the empty space could support the claim that being alive is a sufficient causal condition for having oxigen, but theoretically this does not make sense. If the causal direction is not immediately clear, the temporal order should be part of the theoretical justification of the necessity hypothesis.</p>
+</div>
+<div id="causalmechanism" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Causal mechinism<a href="theory.html#causalmechanism" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The causal mechanism of a necessity relationship can be argued by answering three why questions. Assuming that the presence of <span class="math inline">\(X\)</span> is necessary or the presence of <span class="math inline">\(Y\)</span> these questions are:</p>
+<ul>
+<li>Why if <span class="math inline">\(X\)</span> is absent also <span class="math inline">\(Y\)</span> is absent? This can be done by imagining a case without <span class="math inline">\(X\)</span> and without <span class="math inline">\(Y\)</span> and describing why without <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> cannot be produced.</li>
+<li>Why if <span class="math inline">\(Y\)</span> is present also <span class="math inline">\(X\)</span> is present? This can be done by imagining a case with <span class="math inline">\(X\)</span> and with <span class="math inline">\(Y\)</span> and describing why <span class="math inline">\(Y\)</span> would disappear when <span class="math inline">\(X\)</span> disappears, thus why <span class="math inline">\(Y\)</span> could not have happened without <span class="math inline">\(X\)</span>?</li>
+<li>Why the absence of <span class="math inline">\(X\)</span> cannot be compensated by another concept? This can be done by imagining a case without <span class="math inline">\(X\)</span> and with <span class="math inline">\(Y\)</span>.</li>
+</ul>
+<p>If in any of these situations a case can be imagined, the consequence for the theory’s domain (smaller?) or for the concept definition <span class="math inline">\(X\)</span> (higher order concept?) should be considered. It is also possible that such imagined case is very exceptional, and ignored from the perspective of typicality necessity.</p>
+<div class="figure"><span style="display:block;" id="fig:theory"></span>
+<img src="theory-formulation.png" alt="Questions to justify a '++' necessity hypothesis." width="100%" />
+<p class="caption">
+Figure 2.4: Questions to justify a ‘++’ necessity hypothesis.
+</p>
+</div>
+<p>Figure <a href="theory.html#fig:theory">2.4</a> shows that these questions relate to three cells of the 2x2 table that are compatible with the ‘++’ necessary condition hypothesis: where cases are possible or impossible when the necessary condition ‘the presence of <span class="math inline">\(X\)</span> is necessary for the presence of <span class="math inline">\(Y\)</span>’ holds. Note that the lower right cell is not informative about necessity.</p>
+<p>Describing the causal mechanism is often difficult. It is a creative process inspired by the three questions. The answers can be based on exploring and combining knowledge from the literature, from practice and from the researcher’s own experience. In the literature, researchers may partly use necessity arguments when describing the causal mechanism why an ‘important’ factor produces an outcome. Practitioners may tell stories why a ‘must have’ factor is ‘critical’ or a ‘bottleneck’ for the outcome and why he acts upon them for getting the outcome.</p>
+</div>
+</div>
+<div id="theoreticalcontribution" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Theoretical contribution<a href="theory.html#theoreticalcontribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>[<strong>Acknowledgement</strong>: Stefan Breet contributed to this section].</p>
+<p>According to <span class="citation">Campbell &amp; Aguilera (<a href="#ref-campbell2022rejected">2022</a>)</span> scholars are expected to contribute the a ‘conversation’ about a certain topic in the academic literature. Based on <span class="citation">Lange &amp; Pfarrer (<a href="#ref-lange2017editors">2017</a>)</span>,
+suggestions can be made for formulating a contribution with a necessity theory. The conversation starts with a ‘common ground’. The primary literature with the ongoing conversation about the problem/topic, and to which new insights with NCA will contribute, is identified (i.e., what do we know?). Next, an interesting ‘complication’ in the literature is highlighted. This can be a missing element or failure in the literature, something that is missing in the conversation, or how the conversation falling short (i.e., what we don’t know?). Afterwards, it should be explained why this complication is a ‘concern’ (i.e., so what?). Next, in the ‘course of action’ it is explained how the complication is addressed with NCA. Finally, the ‘contribution’ is described showing how and why the new insights are now part of the ongoing conversation.</p>
+<p>I give two examples of possible formulations of a contribution with NCA:</p>
+<ul>
+<li>A contribution to a conversation on causal relationships of a phenomenon <span class="citation">(e.g., <a href="#ref-knoldissertation">Knol, 2022</a>)</span>.
+<!-- * A contribution to a conversation on whether factors are complements or substitutes [e.g., @van2016contracts]. --></li>
+<li>A contribution to conversation on a necessity relationship of a phenomenon <span class="citation">(e.g., <a href="#ref-karwowski2016intellligence">Karwowski et al., 2016</a>)</span>.</li>
+</ul>
+<!-- Tables \@ref(tab:contr1), \@ref(tab:contr2) and \@ref(tab:contr3) provide details about how these contributions can be formulated. -->
+<p>Tables <a href="theory.html#tab:contr1">2.2</a> and <a href="theory.html#tab:contr3">2.3</a> provide details about how these contributions can be formulated.
+<br/>
+<br/></p>
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:contr1">Table 2.2: </span>Formulating a theoretical contribution with NCA: causal relationships of a phenomenon.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Topic
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="1">
+<td colspan="1" style="border-bottom: 1px solid;">
+<strong>Common Ground (What do we know?)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Several contributing factors to the outcome of interest are identified in the primary literature that describes a complex multicausal phenomenon.
+</td>
+</tr>
+<tr grouplength="1">
+<td colspan="1" style="border-bottom: 1px solid;">
+<strong>Complication (What don’t we know?)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+We do not  know which factors are essential.
+</td>
+</tr>
+<tr grouplength="1">
+<td colspan="1" style="border-bottom: 1px solid;">
+<strong>Concern (So what?)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+If the essential factor is not known, we do not know if it is present. If it is not present the outcome will not occur no matter the other factors. Acting on other factors than the bottleneck factor is a waste of effort.
+</td>
+</tr>
+<tr grouplength="1">
+<td colspan="1" style="border-bottom: 1px solid;">
+<strong>Course of action</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+We analyse the phenomenon from the causal perspective of necessity by formulating a necessity theory and testing it with NCA to ensure theory-method fit.
+</td>
+</tr>
+<tr grouplength="1">
+<td colspan="1" style="border-bottom: 1px solid;">
+<strong>Contribution</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+The phenomenon is now described in more detail by distinguishing between factors that contribute to the outcome and can be substituted (as commonly done), and essential factors that must be in place.
+</td>
+</tr>
+</tbody>
+</table>
+<p><br/></p>
+<!-- ```{r contr2, echo = FALSE, warning=FALSE, message=FALSE, include=TRUE, cache=FALSE} -->
+<!-- library("kableExtra") -->
+<!-- g2 <- read.csv("Theoretical contribution2a.csv") -->
+<!-- kbl(g2, caption = "Formulating a theoretical contribution with NCA: are factors complements or substitutes.", longtable = TRUE, align = c("l", "c")) %>% -->
+<!-- kable_paper("striped", full_width = F) %>% -->
+<!-- pack_rows("Common Ground (What do we know?)", 1,1) %>% -->
+<!-- pack_rows("Complication (What don't we know?)", 2, 2) %>% -->
+<!-- pack_rows("Concern (So what?)", 3, 3) %>% -->
+<!-- pack_rows("Course of action", 4, 4) %>% -->
+<!-- pack_rows("Contribution", 5, 5) -->
+<!-- ``` -->
+<!-- <br/> -->
+<table class=" lightable-paper lightable-striped" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:contr3">Table 2.3: </span>Theoretical contribution with NCA: add to the conversation on a necessity relationship of a phenomenon.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Topic
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="1">
+<td colspan="1" style="border-bottom: 1px solid;">
+<strong>Common Ground (What do we know?)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+A necessity relationship is suggested in the primary literature that describes a complex multicausal phenomenon (i.e., what do we know?)
+</td>
+</tr>
+<tr grouplength="1">
+<td colspan="1" style="border-bottom: 1px solid;">
+<strong>Complication (What don’t we know?)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+But necessity logic was not used when empirically testing that relationship so we do not know if it is a true necessity relationship(i.e., what don’t we know?)
+</td>
+</tr>
+<tr grouplength="1">
+<td colspan="1" style="border-bottom: 1px solid;">
+<strong>Concern (So what?)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Whether or not the relationship is a necessary relationship makes a big difference for theoretical understanding and practical action. If necessary, the factor is essential in theory and practice; if not the factor ‘only’ contributes and can be substituted (i.e., so what?)
+</td>
+</tr>
+<tr grouplength="1">
+<td colspan="1" style="border-bottom: 1px solid;">
+<strong>Course of action</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+We test the necessity relationship with NCA to ensure theory-method fit.
+</td>
+</tr>
+<tr grouplength="1">
+<td colspan="1" style="border-bottom: 1px solid;">
+<strong>Contribution</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+There is now empirical evidence (or not) of a claim of a necessity relationship.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="theorytypes" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Types of necessity theories<a href="theory.html#theorytypes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="citation">Bokrantz &amp; Dul (<a href="#ref-bokrantz2022building">2023</a>)</span> distinguish two types of necessity theories. First, <em>Pure necessity theories</em> are theories that consist only of necessary condition relationships between <span class="math inline">\(X\)</span>’s and <span class="math inline">\(Y\)</span>’s. Because necessary conditions operate in isolation from the rest of the causal structure, such theories can be parsimonious with only one or a few necessary conditions. An example of a pure necessity theory with one condition and one outcome is the early theory of <span class="citation">Guilford (<a href="#ref-guilford1967nature">1967</a>)</span> that intelligence is ‘necessary-but-not-sufficient’ for creativity. Shortly after NCA was introduced <span class="citation">(<a href="#ref-dul2016orm">Dul, 2016b</a>)</span>, this theory was empirically tested with NCA by <span class="citation">Karwowski et al. (<a href="#ref-karwowski2016intellligence">2016</a>)</span>. Other examples of pure necessity theories that have been proposed and tested with NCA and that are described in well-cited articles are theories about necessary conditions for lean manufacturing <span class="citation">(<a href="#ref-knol2018implementing">Knol et al., 2018</a>)</span>, for workplace spirituality <span class="citation">(<a href="#ref-garg2017workplace">N. Garg, 2017</a>)</span>, and innovation in buyer-supply relationships <span class="citation">(<a href="#ref-van2016contracts">Van der Valk et al., 2016</a>)</span>. Also the established Theory of Planned Behavior (TPB) has been revisited by <span class="citation">Frommeyer et al. (<a href="#ref-frommeyer2022utility">2022</a>)</span> from the perspective of necessity, showing with NCA that intention is a necessary but not sufficient condition for behavior. Other established theories could be revisited as well, and tested with NCA. For example, the Resource Based View of the firm (RBV) is a framework that is often described in terms of necessity <span class="citation">(e.g., <a href="#ref-wernerfelt1984resource">Wernerfelt, 1984</a>)</span> but has not yet been tested accordingly. One theory about the necessary conditions for success of start-up firms was developed based on literature and common beliefs, but this necessity theory was rejected after empirical testing with NCA <span class="citation">(<a href="#ref-arenius2017no">Arenius et al., 2017</a>)</span>.</p>
+<p>Second, <em>Embedded necessity theories</em> are theories that consist of a mix of necessity relations and common additive relations where all factors are supposed to contribute to producing the outcome, but some factors (additionally) may also be necessary. These theories are usually complex as their main goal is to describe how the outcome is produced (sufficiency). One of the first embedded necessity theories is an extension of the Technology Acceptance Model (TAM). <span class="citation">Richter, Schubring, et al. (<a href="#ref-richter2020predictors">2020</a>)</span> first described TAM as a structural (sufficiency) model including the classical antecedents ‘perceived usefulness’ and ‘perceived ease of use’ and analysed this model with Partial Least Squares Structural Equation Modeling (PLS-SEM). Subsequently, the relations were described as necessity conditions, and analysed with NCA. The results show that, for example the two classical antecedents not only help to produce technology acceptance on average, but they are also necessary.</p>
+</div>
+<div id="morecorners" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Two empty corners<a href="theory.html#morecorners" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It is possible that a researcher formulates a theory that a single factor has two necessity relations with the outcome at the same time, implying that more than one corner is empty.</p>
+<p>First, a researcher may theorize that an <em>optimum</em> (not low, not high) level of <span class="math inline">\(X\)</span> is necessary for a <em>high</em> level of <span class="math inline">\(Y\)</span>. Then the upper left <em>and</em> the upper right corners are expected to be empty (Figure <a href="theory.html#fig:corners1234">2.5</a>, left). Similarly, a researcher may theorize that an <em>optimum</em> (not low, not high) level of <span class="math inline">\(X\)</span> is necessary for a <em>low</em> level of <span class="math inline">\(Y\)</span>. Then the lower left and the lower right corners are expected to be empty (Figure <a href="theory.html#fig:corners1234">2.5</a>, right).</p>
+<div class="figure"><span style="display:block;" id="fig:corners1234"></span>
+<img src="corners12.png" alt="Left: The necessity of an *optimum* level of $X_{c1} &lt; X &lt; X_{c2}$ for a *high* level of $Y = Y_c$. Right: The necessity of an *optimum* level of $X_{c1} &lt; X &lt; X_{c2}$ for a *low* level of $Y = Y_c$." width="50%" /><img src="corners34.png" alt="Left: The necessity of an *optimum* level of $X_{c1} &lt; X &lt; X_{c2}$ for a *high* level of $Y = Y_c$. Right: The necessity of an *optimum* level of $X_{c1} &lt; X &lt; X_{c2}$ for a *low* level of $Y = Y_c$." width="50%" />
+<p class="caption">
+Figure 2.5: Left: The necessity of an <em>optimum</em> level of <span class="math inline">\(X_{c1} &lt; X &lt; X_{c2}\)</span> for a <em>high</em> level of <span class="math inline">\(Y = Y_c\)</span>. Right: The necessity of an <em>optimum</em> level of <span class="math inline">\(X_{c1} &lt; X &lt; X_{c2}\)</span> for a <em>low</em> level of <span class="math inline">\(Y = Y_c\)</span>.
+</p>
+</div>
+<p>In the <code>NCA</code> software, it is possible to do a combined test of the two necessity relations of a single factor by using the argument <code>effect_aggregation</code> in the <code>nca_analysis</code> function. The software can estimate the aggregate effect size of two adjacent corners, which is the sum of the effect sizes of the separate empty spaces, and its p value. For example, with an expectation that and optimum level of <span class="math inline">\(X\)</span> is necessary for a high level of <span class="math inline">\(Y\)</span>, it is expected that the upper-left and the upper-right corners are empty, and the total empty zone can be aggregated and tested for randomness.</p>
+<p>It is also possible that a researcher theorizes that a <em>high</em> level of <span class="math inline">\(X\)</span> is necessary for an <em>extreme</em> (low or high) level of <span class="math inline">\(Y\)</span>. Then the upper left and the lower left corners are expected to be empty (Figure <a href="theory.html#fig:corners1324">2.6</a>, left). Similarly, a researcher may theorize that a <em>low</em> level of <span class="math inline">\(X\)</span> is necessary for an <em>extreme</em> (low or high) level of <span class="math inline">\(Y\)</span>. Then the upper right and the lower right corners are expected to be empty (Figure <a href="theory.html#fig:corners1324">2.6</a>, right).</p>
+<div class="figure"><span style="display:block;" id="fig:corners1324"></span>
+<img src="corners13.png" alt="Left: The necessity of a *high* level of $X &gt; X_c$ for an *extreme* (low or high) level of $Y = Y_{c1}$ or $Y = Y_{c2}$. Right: The necessity of a *low* level of $X &lt; X_c$ for an *extreme* (low or high) level of $Y = Y_{c1}$ or $Y = Y_{c2}$." width="50%" /><img src="corners24.png" alt="Left: The necessity of a *high* level of $X &gt; X_c$ for an *extreme* (low or high) level of $Y = Y_{c1}$ or $Y = Y_{c2}$. Right: The necessity of a *low* level of $X &lt; X_c$ for an *extreme* (low or high) level of $Y = Y_{c1}$ or $Y = Y_{c2}$." width="50%" />
+<p class="caption">
+Figure 2.6: Left: The necessity of a <em>high</em> level of <span class="math inline">\(X &gt; X_c\)</span> for an <em>extreme</em> (low or high) level of <span class="math inline">\(Y = Y_{c1}\)</span> or <span class="math inline">\(Y = Y_{c2}\)</span>. Right: The necessity of a <em>low</em> level of <span class="math inline">\(X &lt; X_c\)</span> for an <em>extreme</em> (low or high) level of <span class="math inline">\(Y = Y_{c1}\)</span> or <span class="math inline">\(Y = Y_{c2}\)</span>.
+</p>
+</div>
+<p>The final possible situation with two empty corners is that a researcher theorizes that a <em>high</em> level of <span class="math inline">\(X\)</span> is necessary for a <em>high</em> level of <span class="math inline">\(Y\)</span> and a <em>low</em> level of <span class="math inline">\(X\)</span> is necessary for a <em>low</em> level of <span class="math inline">\(Y\)</span> (Figure <a href="theory.html#fig:corners1423">2.7</a>, left). Similarly, a researcher may theorize that a <em>low</em> level of <span class="math inline">\(X\)</span> is necessary for a <em>high</em> level of <span class="math inline">\(Y\)</span> and that a <em>high</em> level of <span class="math inline">\(X\)</span> is necessary for a <em>low</em> level of <span class="math inline">\(Y\)</span>. Then two opposite corners are empty (Figure <a href="theory.html#fig:corners1423">2.7</a>, right).</p>
+<div class="figure"><span style="display:block;" id="fig:corners1423"></span>
+<img src="corners14.png" alt="Left: The necessity of a *high* level of $X &gt; X_{c1}$ for a *high* level of $Y = Y_{c1}$, and the necessity of *low* level of $X &lt; X_{c2}$ for a *low* level of $Y = Y_{c2}$. Right: The necessity of *low* level of $X &lt; X_{c1}$ for a *high* level of $Y = Y_{c1}$, and the necessity of *high* level of $X &gt; X_{c2}$ for a *low* level of $Y = Y_{c2}$." width="50%" /><img src="corners23.png" alt="Left: The necessity of a *high* level of $X &gt; X_{c1}$ for a *high* level of $Y = Y_{c1}$, and the necessity of *low* level of $X &lt; X_{c2}$ for a *low* level of $Y = Y_{c2}$. Right: The necessity of *low* level of $X &lt; X_{c1}$ for a *high* level of $Y = Y_{c1}$, and the necessity of *high* level of $X &gt; X_{c2}$ for a *low* level of $Y = Y_{c2}$." width="50%" />
+<p class="caption">
+Figure 2.7: Left: The necessity of a <em>high</em> level of <span class="math inline">\(X &gt; X_{c1}\)</span> for a <em>high</em> level of <span class="math inline">\(Y = Y_{c1}\)</span>, and the necessity of <em>low</em> level of <span class="math inline">\(X &lt; X_{c2}\)</span> for a <em>low</em> level of <span class="math inline">\(Y = Y_{c2}\)</span>. Right: The necessity of <em>low</em> level of <span class="math inline">\(X &lt; X_{c1}\)</span> for a <em>high</em> level of <span class="math inline">\(Y = Y_{c1}\)</span>, and the necessity of <em>high</em> level of <span class="math inline">\(X &gt; X_{c2}\)</span> for a <em>low</em> level of <span class="math inline">\(Y = Y_{c2}\)</span>.
+</p>
+</div>
+<p>.<br />
+<!-- This can be illustrated with the example that a country's optimum level of Risk taking is necessary for a high level of a country's Innovation performance. --></p>
+<!-- ```{r, echo = FALSE, eval = FALSE, warning=FALSE, message=FALSE} -->
+<!-- library(NCA) -->
+<!-- data(nca.example) -->
+<!-- #High level of Risk taking is necessary for high level of Innovation performance -->
+<!-- model1 <- nca_analysis(nca.example,2,3, corner = 1, ceilings = "ce_fdh", test.rep = 10000) -->
+<!-- model1 -->
+<!-- nca_output(model1, plots = T, summaries = F) -->
+<!-- #Low level of Risk taking is necessary for a  high level of Innovation performance -->
+<!-- model2 <- nca_analysis(nca.example,2,3, corner = 2, ceilings = "ce_fdh", test.rep = 10000) -->
+<!-- model2 -->
+<!-- nca_output(model2, plots = T, summaries = F) -->
+<!-- #Optimum level of Risk taking is necessary for high level of Innovation performance -->
+<!-- model3 <- nca_analysis(nca.example,2,3, effect_aggregation = c(2), ceilings = "ce_fdh", test.rep = 10000) -->
+<!-- model3 -->
+<!-- ``` -->
+<!-- <!-- Model 1 tests the emptiness of the upper left corner; model 2 of the lower right corner and model 3 is the aggregate test. The results of the latter test shows that the combined necessity/sufficiency relationship of Risk taking for Innovation performance is not rejected. -->
+<p>–&gt;</p>
+</div>
+<div id="necessarybutnotsufficient" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> The meaning of ‘necessary but not sufficient’<a href="theory.html#necessarybutnotsufficient" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Figure <a href="theory.html#fig:corners">2.1</a> shows a single factor with a one necessity relationship, and Figures <a href="theory.html#fig:corners1234">2.5</a>, <a href="theory.html#fig:corners1324">2.6</a>, and <a href="theory.html#fig:corners1423">2.7</a> show a single factor with two necessity relationships. In all figures, consistent with necessity, there are no observations in the empty space and observations in the grey area. If the necessity relationship holds, and no observations were in the grey area, all observations would be exactly on the border line. Then, the necessary condition is also a sufficient conditions. However this is not realistic as single necessary conditions are seldom also sufficient. This implies that the words ‘but not sufficient’ can normally be added to all necessity statements.</p>
+<p>For example, upper left Figure <a href="theory.html#fig:corners">2.1</a>, shows a single factor with one necessary condition: only the upper left corner is empty. This corresponds to the statement “a high level of <span class="math inline">\(X\)</span> is necessary for a high level of <span class="math inline">\(Y\)</span>”. If all points were on the border line (ceiling line) the condition is also sufficient resulting in the statement: “a high level of <span class="math inline">\(X\)</span> is necessary <em>and sufficient</em> for a high level of <span class="math inline">\(Y\)</span>”. In practice, observations will appear below the ceiling line. This justifies the statement that “a high level of <span class="math inline">\(X\)</span> is necessary <em>but not sufficient</em> for a high level of <span class="math inline">\(Y\)</span>”.</p>
+<p>Figure <a href="theory.html#fig:corners1234">2.5</a>, left is an example of a factor with two necessity relations, “a high level of <span class="math inline">\(X\)</span> is necessary for a high level of <span class="math inline">\(Y\)</span>” and “a low level of <span class="math inline">\(X\)</span> is necessary for a high level of <span class="math inline">\(Y\)</span>” (thus an optimum level of <span class="math inline">\(X\)</span> is necessary for a high level of <span class="math inline">\(Y\)</span>). If all observations were on the two ceiling lines, the words ‘and sufficient’ could be added to the word ‘necessary’. Again, in practice observations show up below the border lines such that the words “but not sufficient” can be added to the word ‘necessary’. The same holds for any other necessity relationship shown in Figures <a href="theory.html#fig:corners">2.1</a>, <a href="theory.html#fig:corners1234">2.5</a>, <a href="theory.html#fig:corners1324">2.6</a>, and <a href="theory.html#fig:corners1423">2.7</a>.</p>
+<p>Any necessity statement can be rephrased as a sufficiency statement by formulating its logical complement. For example, the upper left corner of Figure <a href="theory.html#fig:corners1234">2.5</a> left (ignoring the upper right corner) indicates that a high level of <span class="math inline">\(X\)</span> is necessary but not sufficient for a high value of <span class="math inline">\(Y\)</span>. This can be reformulated as ‘the absence of a high level of <span class="math inline">\(X\)</span> is sufficient but not necessary for the absence of a high value of <span class="math inline">\(Y\)</span>’. This means that a level of <span class="math inline">\(X &lt; X_{c1}\)</span> guarantees (is sufficient for) <span class="math inline">\(Y &lt; Y_c\)</span>.</p>
+<p>Similarly, the lower right corner of Figure <a href="theory.html#fig:corners1234">2.5</a> right (ignoring the lower left corner) indicates that a low level of <span class="math inline">\(X\)</span> is necessary but not sufficient for a low value of <span class="math inline">\(Y\)</span>. This can be reformulated as: ‘the absence of a low level of <span class="math inline">\(X\)</span> is sufficient but not necessary for the absence of a high level of <span class="math inline">\(Y\)</span>’. A value of <span class="math inline">\(X &gt; X_{c2}\)</span> guarantees that <span class="math inline">\(Y &gt; Y_c\)</span>.</p>
+<p>When a single factor has two necessary relationships, it is possible to use the necessity formulation for one necessary condition, and the sufficiency formulation for the other. For example, in Figure <a href="theory.html#fig:corners1423">2.7</a>, left the double necessity formulation is: ‘a high level of <span class="math inline">\(X &gt; X_{1c}\)</span> is necessary but not sufficient for a high level of <span class="math inline">\(Y = Y_{c1}\)</span>’, and ‘the absence or low level of <span class="math inline">\(X &lt; X_{c2}\)</span> is necessary but not sufficient for the absence or low level of <span class="math inline">\(Y = Y_{2c}\)</span>’. When the necessity formulation is used for the upper left necessity relation, and the sufficiency formulation for the lower right necessity relation, the new equivalent statement is: ‘a high level of <span class="math inline">\(X &gt; X_{1c}\)</span> is necessary but not sufficient for a high level of <span class="math inline">\(Y = Y_{c1}\)</span>’, and ‘a high level of <span class="math inline">\(X &lt; X_{c2}\)</span> is sufficient but not necessary for a high level of <span class="math inline">\(Y = Y_{2c}\)</span>’.</p>
+<p>Note that dual statements cannot be combined into a single statement, because the two border lines have a different location. This means that for a given <span class="math inline">\(Y\)</span> there are different levels of <span class="math inline">\(X\)</span> (see Figures <a href="theory.html#fig:corners1234">2.5</a>, and <a href="theory.html#fig:corners1423">2.7</a>) and for a given <span class="math inline">\(X\)</span> there different levels of <span class="math inline">\(Y\)</span> (see Figures <a href="theory.html#fig:corners1324">2.6</a>, and <a href="theory.html#fig:corners1423">2.7</a>).</p>
+<p>Sometimes, the situation in Figure <a href="theory.html#fig:corners1423">2.7</a>, left is formulated ‘in kind’ as ‘<span class="math inline">\(X\)</span> is necessary and sufficient for <span class="math inline">\(Y\)</span>’, which implies that the upper left necessity relationship is formulated in terms of necessity, and the lower right in terms of sufficiency. However, this formulation is problematic when the actual necessity relationships are ‘in degree’. The ‘in degree’ formulation of the situation is <em>not</em>: ‘a high level of <span class="math inline">\(X\)</span> is necessary and sufficient for a high level of <span class="math inline">\(Y\)</span>’, but instead: ‘<span class="math inline">\(X &gt; X_{c1}\)</span> is necessary for <span class="math inline">\(Y = Y_{c1}\)</span> and <span class="math inline">\(X &gt; X_{c2}\)</span> is sufficient for <span class="math inline">\(Y = Y_{c2}\)</span>’. There is no common <span class="math inline">\(X\)</span> that is necessary and sufficient for a common <span class="math inline">\(Y\)</span> and no common <span class="math inline">\(Y\)</span> for which a common <span class="math inline">\(X\)</span> is necessary and sufficient.</p>
+<p>Only when the two borderlines overlap, the ‘in kind’ statement also holds in an ‘in degree’ situation: ‘a certain level of <span class="math inline">\(X\)</span> is necessary and sufficient for a certain level of <span class="math inline">\(Y\)</span>’. At best, the ‘in kind’ formulation could be re-formulated as ‘a high level of <span class="math inline">\(X\)</span> is necessary for a high level of <span class="math inline">\(Y\)</span> and sufficient for a not so high level of <span class="math inline">\(Y\)</span>’, or similar. The theoretical meaning is that a high level of <span class="math inline">\(X\)</span> is necessary for (enables) a high level of <span class="math inline">\(Y\)</span> (border line = ceiling line) and is sufficient for (ensures) a low level of <span class="math inline">\(Y\)</span> (border line = floor line).</p>
+
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
+<div id="ref-arenius2017no" class="csl-entry">
+Arenius, P., Engel, Y., &amp; Klyver, K. (2017). No particular action needed? A necessary condition analysis of gestation activities and firm emergence. <em>Journal of Business Venturing Insights</em>, <em>8</em>, 87–92. <a href="https://doi.org/10.1016/j.jbvi.2017.07.004">https://doi.org/10.1016/j.jbvi.2017.07.004</a>
+</div>
+<div id="ref-bokrantz2022building" class="csl-entry">
+Bokrantz, J., &amp; Dul, J. (2023). Building and testing necessity theories in supply chain management. <em>Journal of Supply Chain Management</em>, <em>59</em>, 48–65. <a href="https://doi.org/10.1111/jscm.12287">https://doi.org/10.1111/jscm.12287</a>
+</div>
+<div id="ref-campbell2022rejected" class="csl-entry">
+Campbell, J. T., &amp; Aguilera, R. V. (2022). <span class="nocase">Why I Rejected Your Paper: Common Pitfalls in Writing Theory Papers and How to Avoid Them</span>. <em>Academy of Management Review</em>, <em>47</em>(4), 521–527. <a href="https://doi.org/10.5465/amr.2022.0331">https://doi.org/10.5465/amr.2022.0331</a>
+</div>
+<div id="ref-cassia2024value" class="csl-entry">
+Cassia, F., &amp; Magno, F. (2024). The value of self-determination theory in marketing studies: Insights from the application of <span>PLS-SEM</span> and <span>NCA</span> to anti-food waste apps. <em>Journal of Business Research</em>, <em>172</em>, 114454. <a href="https://doi.org/10.1016/j.jbusres.2023.114454">https://doi.org/10.1016/j.jbusres.2023.114454</a>
+</div>
+<div id="ref-dul2016orm" class="csl-entry">
+Dul, J. (2016b). <span>Necessary Condition Analysis</span> (<span>NCA</span>): Logic and methodology of <span>“necessary but not sufficient”</span> causality. <em>Organizational Research Methods</em>, <em>19</em>(1), 10–52. <a href="https://doi.org/10.1177/1094428115584005">https://doi.org/10.1177/1094428115584005</a>
+</div>
+<div id="ref-dul2024different" class="csl-entry">
+Dul, J. (2024a). A different causal perspective with <span>Necessary Condition Analysis</span>. <em>Journal of Business Research</em>, <em>177</em>, 114618. <a href="https://doi.org/10.1016/j.jbusres.2024.114618">https://doi.org/10.1016/j.jbusres.2024.114618</a>
+</div>
+<div id="ref-dul2008case" class="csl-entry">
+Dul, J., &amp; Hak, T. (2008). <em>Case <span>S</span>tudy <span>M</span>ethodology in <span>B</span>usiness <span>R</span>esearch</em>. Routledge. <a href="https://www.routledge.com/Case-Study-Methodology-in-Business-Research/Dul-Hak/p/book/9780750681964">https://www.routledge.com/Case-Study-Methodology-in-Business-Research/Dul-Hak/p/book/9780750681964</a>
+</div>
+<div id="ref-frommeyer2022utility" class="csl-entry">
+Frommeyer, B., Wagner, E., Hossiep, C. R., &amp; Schewe, G. (2022). The utility of intention as a proxy for sustainable buying behavior–a necessary condition analysis. <em>Journal of Business Research</em>, <em>143</em>, 201–213. <a href="https://doi.org/10.1016/j.jbusres.2022.01.041">https://doi.org/10.1016/j.jbusres.2022.01.041</a>
+</div>
+<div id="ref-garg2017workplace" class="csl-entry">
+Garg, N. (2017). Workplace spirituality and employee well-being: An empirical exploration. <em>Journal of Human Values</em>, <em>23</em>(2), 129–147. <a href="https://doi.org/10.1177/0971685816689741">https://doi.org/10.1177/0971685816689741</a>
+</div>
+<div id="ref-guilford1967nature" class="csl-entry">
+Guilford, J. P. (1967). <em>The nature of human intelligence.</em> McGraw-Hill. <a href="https://www.worldcat.org/title/nature-of-human-intelligence/oclc/204270">https://www.worldcat.org/title/nature-of-human-intelligence/oclc/204270</a>
+</div>
+<div id="ref-karwowski2016intellligence" class="csl-entry">
+Karwowski, M., Dul, J., Gralewski, J., Jauk, E., Jankowska, D. M., Gajda, A., Chruszczewski, M. H., &amp; Benedek, M. (2016). Is creativity without intelligence possible? A necessary condition analysis. <em>Intelligence</em>, <em>57</em>, 105–117. <a href="https://doi.org/10.1016/j.intell.2016.04.006">https://doi.org/10.1016/j.intell.2016.04.006</a>
+</div>
+<div id="ref-knoldissertation" class="csl-entry">
+Knol, W. H. (2022). <em>On the implementation of lean production in manufacturing SMEs</em>. Radboud University. <a href="https://hdl.handle.net/2066/282673">https://hdl.handle.net/2066/282673</a>
+</div>
+<div id="ref-knol2018implementing" class="csl-entry">
+Knol, W. H., Slomp, J., Schouteten, R. L., &amp; Lauche, K. (2018). Implementing lean practices in manufacturing SMEs: Testing <span>“critical success factors”</span> using necessary condition analysis. <em>International Journal of Production Research</em>, <em>56</em>(11), 3955–3973. <a href="https://doi.org/10.1080/00207543.2017.1419583">https://doi.org/10.1080/00207543.2017.1419583</a>
+</div>
+<div id="ref-lange2017editors" class="csl-entry">
+Lange, D., &amp; Pfarrer, M. D. (2017). Editors’ comments: Sense and structure—the core building blocks of an <span>AMR</span> article. <em>Academy of Management Review</em>, <em>42</em>(3), 407–416. <a href="https://journals.aom.org/doi/10.5465/amr.2016.0225">https://journals.aom.org/doi/10.5465/amr.2016.0225</a>
+</div>
+<div id="ref-porter1985competitive" class="csl-entry">
+Porter, M. E. (1985). <em>Competitive advantage of nations: Creating and sustaining superior performance</em>. The Free Press.
+</div>
+<div id="ref-richter2020predictors" class="csl-entry">
+Richter, N. F., Schubring, S., Hauff, S., Ringle, C. M., &amp; Sarstedt, M. (2020). When predictors of outcomes are necessary: Guidelines for the combined use of <span>PLS-SEM</span> and <span>NCA</span>. <em>Industrial Management &amp; Data Systems</em>, <em>120</em>(12), 2243–2267. <a href="https://doi.org/10.1108/IMDS-11-2019-0638">https://doi.org/10.1108/IMDS-11-2019-0638</a>
+</div>
+<div id="ref-rogers1957necessary" class="csl-entry">
+Rogers, C. R. (1957). The necessary and sufficient conditions of therapeutic personality change. <em>Journal of Consulting Psychology</em>, <em>21</em>(2), 95. <a href="https://doi.org/10.1037/0033-3204.44.3.240">https://doi.org/10.1037/0033-3204.44.3.240</a>
+</div>
+<div id="ref-teece1997dynamic" class="csl-entry">
+Teece, D. J., Pisano, G., &amp; Shuen, A. (1997). Dynamic capabilities and strategic management. <em>Strategic Management Journal</em>, <em>18</em>(7), 509–533. <a href="https://doi.org/10.1002/(SICI)1097-0266(199708)18:7&lt;509::AID-SMJ882&gt;3.0.CO;2-Z">https://doi.org/10.1002/(SICI)1097-0266(199708)18:7&lt;509::AID-SMJ882&gt;3.0.CO;2-Z</a>
+</div>
+<div id="ref-turner2009handbook" class="csl-entry">
+Turner, J. R. (2009). <em>The <span>H</span>andbook of <span>P</span>roject-based <span>M</span>anagement</em>. The McGraw-Hill Companies, Inc. <a href="https://www.accessengineeringlibrary.com/content/book/9780071549745">https://www.accessengineeringlibrary.com/content/book/9780071549745</a>
+</div>
+<div id="ref-tuuli2021ability" class="csl-entry">
+Tuuli, M. M., &amp; Rhee, H. van. (2021). How ability, motivation, and opportunity drive individual performance behaviors in projects: Tests of competing theories. <em>Journal of Management in Engineering</em>, <em>37</em>(6), 04021070. <a href="https://doi.org/10.1061/(ASCE)ME.1943-5479.0000969">https://doi.org/10.1061/(ASCE)ME.1943-5479.0000969</a>
+</div>
+<div id="ref-van2016contracts" class="csl-entry">
+Van der Valk, W., Sumo, R., Dul, J., &amp; Schroeder, R. G. (2016). When are contracts and trust necessary for innovation in buyer-supplier relationships? A necessary condition analysis. <em>Journal of Purchasing and Supply Management</em>, <em>22</em>(4), 266–277. <a href="https://doi.org/10.1016/j.pursup.2016.06.005">https://doi.org/10.1016/j.pursup.2016.06.005</a>
+</div>
+<div id="ref-wernerfelt1984resource" class="csl-entry">
+Wernerfelt, B. (1984). A resource-based view of the firm. <em>Strategic Management Journal</em>, <em>5</em>(2), 171–180. <a href="https://doi.org/10.1002/smj.4250050207">https://doi.org/10.1002/smj.4250050207</a>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Doing a though experiment is a type of counterfactual reasoning. A counterfactual is a hypothetical scenario that describes what could have happened, but didn’t. It can be used not only for theorizing about necessity but also for sufficiency. In counterfactual reasoning for necessity it is first assumed that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> occurred and subsequently the question is raised “what would have happened if <span class="math inline">\(X\)</span> had not occurred?” If <span class="math inline">\(Y\)</span> would still be there, <span class="math inline">\(X\)</span> is not necessary for <span class="math inline">\(Y\)</span>. If <span class="math inline">\(Y\)</span> would disappear, <span class="math inline">\(X\)</span> is necessary for <span class="math inline">\(Y\)</span>. In counterfactual reasoning for sufficiency it is first assumed that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> did not occur and subsequently the question is raised “what would have happened if <span class="math inline">\(X\)</span> would have happened if X had occurred?” If <span class="math inline">\(Y\)</span> would still not be there, <span class="math inline">\(X\)</span> is not sufficient for <span class="math inline">\(Y\)</span>. If <span class="math inline">\(Y\)</span> would appear, <span class="math inline">\(X\)</span> is sufficient for <span class="math inline">\(Y\)</span>.<a href="theory.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="summary.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": true,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "serif",
+    "size": 2
+  },
+  "edit": null,
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  },
+  "info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

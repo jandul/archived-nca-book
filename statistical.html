@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 NCA’s statistics | Advances in Necessary Condition Analysis</title>
+  <meta name="description" content="Necessary Condition Analysis (NCA) is an emerging research method that is based on necessity logic. If a condition is not present, the outcome will not exist. Other factors cannot compensate for its absence. This is different from common causal reasoning where factors produce the outcome and can be compensated. The book intends to support users, readers and reviewers of NCA to better understand the method." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 NCA’s statistics | Advances in Necessary Condition Analysis" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://bookdown.org/ncabook/advanced_nca2//Image/cover2b.png" />
+  <meta property="og:description" content="Necessary Condition Analysis (NCA) is an emerging research method that is based on necessity logic. If a condition is not present, the outcome will not exist. Other factors cannot compensate for its absence. This is different from common causal reasoning where factors produce the outcome and can be compensated. The book intends to support users, readers and reviewers of NCA to better understand the method." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 NCA’s statistics | Advances in Necessary Condition Analysis" />
+  
+  <meta name="twitter:description" content="Necessary Condition Analysis (NCA) is an emerging research method that is based on necessity logic. If a condition is not present, the outcome will not exist. Other factors cannot compensate for its absence. This is different from common causal reasoning where factors produce the outcome and can be compensated. The book intends to support users, readers and reviewers of NCA to better understand the method." />
+  <meta name="twitter:image" content="https://bookdown.org/ncabook/advanced_nca2//Image/cover2b.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="mathematical.html"/>
+<link rel="next" href="miscellaneous.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.33/datatables.js"></script>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+|<img src="logoNCA.png" width="270" height="270">
+<li><a href="./">Advances in NCA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>1</b> Summary of NCA</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="summary.html"><a href="summary.html#standalone"><i class="fa fa-check"></i><b>1.1</b> NCA as stand-alone method</a></li>
+<li class="chapter" data-level="1.2" data-path="summary.html"><a href="summary.html#complementary"><i class="fa fa-check"></i><b>1.2</b> NCA as a complementary method</a></li>
+<li class="chapter" data-level="1.3" data-path="summary.html"><a href="summary.html#formulate"><i class="fa fa-check"></i><b>1.3</b> Formulate the necessary condition hypothesis</a></li>
+<li class="chapter" data-level="1.4" data-path="summary.html"><a href="summary.html#collect"><i class="fa fa-check"></i><b>1.4</b> Collect the data</a></li>
+<li class="chapter" data-level="1.5" data-path="summary.html"><a href="summary.html#dataanalysissummary"><i class="fa fa-check"></i><b>1.5</b> Analyse the data</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="summary.html"><a href="summary.html#prepare-the-analysis"><i class="fa fa-check"></i><b>1.5.1</b> Prepare the analysis</a></li>
+<li class="chapter" data-level="1.5.2" data-path="summary.html"><a href="summary.html#load-the-data"><i class="fa fa-check"></i><b>1.5.2</b> Load the data</a></li>
+<li class="chapter" data-level="1.5.3" data-path="summary.html"><a href="summary.html#estimate-effect-size-and-the-p-value-with-nca_analysis"><i class="fa fa-check"></i><b>1.5.3</b> Estimate effect size and the p value with <code>nca_analysis</code></a></li>
+<li class="chapter" data-level="1.5.4" data-path="summary.html"><a href="summary.html#create-output-with-nca_output"><i class="fa fa-check"></i><b>1.5.4</b> Create output with <code>nca_output</code></a></li>
+<li class="chapter" data-level="1.5.5" data-path="summary.html"><a href="summary.html#summarybottleneck"><i class="fa fa-check"></i><b>1.5.5</b> Perform the bottleneck analysis with <code>nca_output</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="summary.html"><a href="summary.html#report"><i class="fa fa-check"></i><b>1.6</b> Report the results</a></li>
+<li class="chapter" data-level="1.7" data-path="summary.html"><a href="summary.html#guidelines"><i class="fa fa-check"></i><b>1.7</b> Basic guidelines for good NCA practice</a></li>
+<li class="chapter" data-level="1.8" data-path="summary.html"><a href="summary.html#review"><i class="fa fa-check"></i><b>1.8</b> SCoRe-NCA. A checklist for reviewing an NCA publication</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="theory.html"><a href="theory.html"><i class="fa fa-check"></i><b>2</b> Theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="theory.html"><a href="theory.html#partstheory"><i class="fa fa-check"></i><b>2.1</b> The four parts of a theory</a></li>
+<li class="chapter" data-level="2.2" data-path="theory.html"><a href="theory.html#formulationnecessity"><i class="fa fa-check"></i><b>2.2</b> Formulation of necessity hypotheses</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="theory.html"><a href="theory.html#sources"><i class="fa fa-check"></i><b>2.2.1</b> Sources with potential necessary conditions</a></li>
+<li class="chapter" data-level="2.2.2" data-path="theory.html"><a href="theory.html#thoughtexperiment"><i class="fa fa-check"></i><b>2.2.2</b> Thought experiment</a></li>
+<li class="chapter" data-level="2.2.3" data-path="theory.html"><a href="theory.html#direction"><i class="fa fa-check"></i><b>2.2.3</b> Direction of necessity</a></li>
+<li class="chapter" data-level="2.2.4" data-path="theory.html"><a href="theory.html#relatedmultiple"><i class="fa fa-check"></i><b>2.2.4</b> Related multiple necessary conditions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="theory.html"><a href="theory.html#justificationnecessity"><i class="fa fa-check"></i><b>2.3</b> Justification of necessity hypotheses</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="theory.html"><a href="theory.html#temporalorder"><i class="fa fa-check"></i><b>2.3.1</b> Temporal order</a></li>
+<li class="chapter" data-level="2.3.2" data-path="theory.html"><a href="theory.html#causalmechanism"><i class="fa fa-check"></i><b>2.3.2</b> Causal mechinism</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="theory.html"><a href="theory.html#theoreticalcontribution"><i class="fa fa-check"></i><b>2.4</b> Theoretical contribution</a></li>
+<li class="chapter" data-level="2.5" data-path="theory.html"><a href="theory.html#theorytypes"><i class="fa fa-check"></i><b>2.5</b> Types of necessity theories</a></li>
+<li class="chapter" data-level="2.6" data-path="theory.html"><a href="theory.html#morecorners"><i class="fa fa-check"></i><b>2.6</b> Two empty corners</a></li>
+<li class="chapter" data-level="2.7" data-path="theory.html"><a href="theory.html#necessarybutnotsufficient"><i class="fa fa-check"></i><b>2.7</b> The meaning of ‘necessary but not sufficient’</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Data</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#transformation"><i class="fa fa-check"></i><b>3.1</b> Data transformation</a></li>
+<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#experiment"><i class="fa fa-check"></i><b>3.2</b> Experiment</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data.html"><a href="data.html#the-traditional-experiment"><i class="fa fa-check"></i><b>3.2.1</b> The traditional experiment</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data.html"><a href="data.html#necessityexperiment"><i class="fa fa-check"></i><b>3.2.2</b> The necessity experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#samplesize"><i class="fa fa-check"></i><b>3.3</b> Sample size</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data.html"><a href="data.html#smalln"><i class="fa fa-check"></i><b>3.3.1</b> Small N studies</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data.html"><a href="data.html#largen"><i class="fa fa-check"></i><b>3.3.2</b> Large N studies</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data.html"><a href="data.html#quantitative"><i class="fa fa-check"></i><b>3.4</b> Quantitative data</a></li>
+<li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#qualitative"><i class="fa fa-check"></i><b>3.5</b> Qualitative data</a></li>
+<li class="chapter" data-level="3.6" data-path="data.html"><a href="data.html#longitudinal"><i class="fa fa-check"></i><b>3.6</b> Longitudinal, panel and time-series data</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data.html"><a href="data.html#pooled"><i class="fa fa-check"></i><b>3.6.1</b> NCA with pooled data</a></li>
+<li class="chapter" data-level="3.6.2" data-path="data.html"><a href="data.html#nca-for-describing-time-trends"><i class="fa fa-check"></i><b>3.6.2</b> NCA for describing time trends</a></li>
+<li class="chapter" data-level="3.6.3" data-path="data.html"><a href="data.html#interpretation"><i class="fa fa-check"></i><b>3.6.3</b> Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="data.html"><a href="data.html#setmembership"><i class="fa fa-check"></i><b>3.7</b> Set membership data</a></li>
+<li class="chapter" data-level="3.8" data-path="data.html"><a href="data.html#outliers"><i class="fa fa-check"></i><b>3.8</b> Outliers</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="data.html"><a href="data.html#outliertypes"><i class="fa fa-check"></i><b>3.8.1</b> Outlier types</a></li>
+<li class="chapter" data-level="3.8.2" data-path="data.html"><a href="data.html#outlieridentification"><i class="fa fa-check"></i><b>3.8.2</b> Outlier identification</a></li>
+<li class="chapter" data-level="3.8.3" data-path="data.html"><a href="data.html#outlierdecisionmaking"><i class="fa fa-check"></i><b>3.8.3</b> Outlier decision approach</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="dataanalysis.html"><a href="dataanalysis.html"><i class="fa fa-check"></i><b>4</b> Data analysis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="dataanalysis.html"><a href="dataanalysis.html#visualinspection"><i class="fa fa-check"></i><b>4.1</b> Visual inspection of the scatter plot</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="dataanalysis.html"><a href="dataanalysis.html#is-the-expected-corner-empty"><i class="fa fa-check"></i><b>4.1.1</b> Is the expected corner empty?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="dataanalysis.html"><a href="dataanalysis.html#selectioneilingline"><i class="fa fa-check"></i><b>4.1.2</b> What is an appropriate ceiling line?</a></li>
+<li class="chapter" data-level="4.1.3" data-path="dataanalysis.html"><a href="dataanalysis.html#what-are-potential-outliers"><i class="fa fa-check"></i><b>4.1.3</b> What are potential outliers?</a></li>
+<li class="chapter" data-level="4.1.4" data-path="dataanalysis.html"><a href="dataanalysis.html#what-is-the-data-pattern-in-the-rest-of-plot"><i class="fa fa-check"></i><b>4.1.4</b> What is the data pattern in the rest of plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="dataanalysis.html"><a href="dataanalysis.html#inkind"><i class="fa fa-check"></i><b>4.2</b> The ‘empty space: Necessary condition ’in kind’</a></li>
+<li class="chapter" data-level="4.3" data-path="dataanalysis.html"><a href="dataanalysis.html#bottleneck"><i class="fa fa-check"></i><b>4.3</b> The bottleneck table: Necessary conditions ‘in degree’</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="dataanalysis.html"><a href="dataanalysis.html#percentagerange"><i class="fa fa-check"></i><b>4.3.1</b> Levels expressed as percentage of range</a></li>
+<li class="chapter" data-level="4.3.2" data-path="dataanalysis.html"><a href="dataanalysis.html#actual"><i class="fa fa-check"></i><b>4.3.2</b> Levels expressed as actual values</a></li>
+<li class="chapter" data-level="4.3.3" data-path="dataanalysis.html"><a href="dataanalysis.html#percentile"><i class="fa fa-check"></i><b>4.3.3</b> Levels expressed as percentiles</a></li>
+<li class="chapter" data-level="4.3.4" data-path="dataanalysis.html"><a href="dataanalysis.html#percentagemax"><i class="fa fa-check"></i><b>4.3.4</b> Levels expressed as percentage of maximum</a></li>
+<li class="chapter" data-level="4.3.5" data-path="dataanalysis.html"><a href="dataanalysis.html#bottleneckothercorners"><i class="fa fa-check"></i><b>4.3.5</b> Interpretation of the bottleneck table with other corners</a></li>
+<li class="chapter" data-level="4.3.6" data-path="dataanalysis.html"><a href="dataanalysis.html#na"><i class="fa fa-check"></i><b>4.3.6</b> NN and NA in the bottleneck table</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="dataanalysis.html"><a href="dataanalysis.html#robustnesschecks"><i class="fa fa-check"></i><b>4.4</b> Robustness checks</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="dataanalysis.html"><a href="dataanalysis.html#choiceceiling"><i class="fa fa-check"></i><b>4.4.1</b> Choice of ceiling line</a></li>
+<li class="chapter" data-level="4.4.2" data-path="dataanalysis.html"><a href="dataanalysis.html#choiceeffectsize"><i class="fa fa-check"></i><b>4.4.2</b> Choice of the threshold level of the effect size</a></li>
+<li class="chapter" data-level="4.4.3" data-path="dataanalysis.html"><a href="dataanalysis.html#choicepvalue"><i class="fa fa-check"></i><b>4.4.3</b> Choice of the threshold level of the p value</a></li>
+<li class="chapter" data-level="4.4.4" data-path="dataanalysis.html"><a href="dataanalysis.html#choicescope"><i class="fa fa-check"></i><b>4.4.4</b> Choice of the scope</a></li>
+<li class="chapter" data-level="4.4.5" data-path="dataanalysis.html"><a href="dataanalysis.html#choiceoutlier"><i class="fa fa-check"></i><b>4.4.5</b> Choice of outlier removal</a></li>
+<li class="chapter" data-level="4.4.6" data-path="dataanalysis.html"><a href="dataanalysis.html#choice-of-target-outcome"><i class="fa fa-check"></i><b>4.4.6</b> Choice of target outcome</a></li>
+<li class="chapter" data-level="4.4.7" data-path="dataanalysis.html"><a href="dataanalysis.html#robustnesstable"><i class="fa fa-check"></i><b>4.4.7</b> Robustness table</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="dataanalysis.html"><a href="dataanalysis.html#ncaregression"><i class="fa fa-check"></i><b>4.5</b> Combining NCA with regression analysis</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="dataanalysis.html"><a href="dataanalysis.html#introduction"><i class="fa fa-check"></i><b>4.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.5.2" data-path="dataanalysis.html"><a href="dataanalysis.html#logic-and-theory"><i class="fa fa-check"></i><b>4.5.2</b> Logic and theory</a></li>
+<li class="chapter" data-level="4.5.3" data-path="dataanalysis.html"><a href="dataanalysis.html#data-analysis"><i class="fa fa-check"></i><b>4.5.3</b> Data analysis</a></li>
+<li class="chapter" data-level="4.5.4" data-path="dataanalysis.html"><a href="dataanalysis.html#how-to-combine-nca-and-regression"><i class="fa fa-check"></i><b>4.5.4</b> How to combine NCA and regression</a></li>
+<li class="chapter" data-level="4.5.5" data-path="dataanalysis.html"><a href="dataanalysis.html#what-is-the-same-in-nca-and-regression"><i class="fa fa-check"></i><b>4.5.5</b> What is the same in NCA and regression?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="dataanalysis.html"><a href="dataanalysis.html#ncaplssem"><i class="fa fa-check"></i><b>4.6</b> Combining NCA with (PLS-)SEM</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="dataanalysis.html"><a href="dataanalysis.html#stepsncasem"><i class="fa fa-check"></i><b>4.6.1</b> Steps for conducting NCA with SEM</a></li>
+<li class="chapter" data-level="4.6.2" data-path="dataanalysis.html"><a href="dataanalysis.html#examplencaplssem"><i class="fa fa-check"></i><b>4.6.2</b> Demonstration of combining NCA and PLS-SEM with R</a></li>
+<li class="chapter" data-level="4.6.3" data-path="dataanalysis.html"><a href="dataanalysis.html#recommendations-for-combining-nca-and-pls-sem"><i class="fa fa-check"></i><b>4.6.3</b> Recommendations for combining NCA and (PLS-)SEM</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="dataanalysis.html"><a href="dataanalysis.html#ncaqca"><i class="fa fa-check"></i><b>4.7</b> Combining NCA with QCA</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="dataanalysis.html"><a href="dataanalysis.html#introduction-to-qca"><i class="fa fa-check"></i><b>4.7.1</b> Introduction to QCA</a></li>
+<li class="chapter" data-level="4.7.2" data-path="dataanalysis.html"><a href="dataanalysis.html#the-differences-between-nca-and-qca"><i class="fa fa-check"></i><b>4.7.2</b> The differences between NCA and QCA</a></li>
+<li class="chapter" data-level="4.7.3" data-path="dataanalysis.html"><a href="dataanalysis.html#recommendation-for-combining-nca-and-qca"><i class="fa fa-check"></i><b>4.7.3</b> Recommendation for combining NCA and QCA</a></li>
+<li class="chapter" data-level="4.7.4" data-path="dataanalysis.html"><a href="dataanalysis.html#examples"><i class="fa fa-check"></i><b>4.7.4</b> Examples</a></li>
+<li class="chapter" data-level="4.7.5" data-path="dataanalysis.html"><a href="dataanalysis.html#misinterpretationsqca"><i class="fa fa-check"></i><b>4.7.5</b> Logical misinterpretations when combining NCA and QCA</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="dataanalysis.html"><a href="dataanalysis.html#causalinference"><i class="fa fa-check"></i><b>4.8</b> Causal inference</a></li>
+<li class="chapter" data-level="4.9" data-path="dataanalysis.html"><a href="dataanalysis.html#metaanalysis"><i class="fa fa-check"></i><b>4.9</b> Meta-analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="mathematical.html"><a href="mathematical.html"><i class="fa fa-check"></i><b>5</b> NCA’s mathematical backgrounds</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="mathematical.html"><a href="mathematical.html#formalexpression"><i class="fa fa-check"></i><b>5.1</b> Formal mathematical expression</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="mathematical.html"><a href="mathematical.html#effectsize"><i class="fa fa-check"></i><b>5.1.1</b> Effect size</a></li>
+<li class="chapter" data-level="5.1.2" data-path="mathematical.html"><a href="mathematical.html#necinefficiency"><i class="fa fa-check"></i><b>5.1.2</b> Necessity inefficiency</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="mathematical.html"><a href="mathematical.html#multiplenca"><i class="fa fa-check"></i><b>5.2</b> Multiple NCA</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistical.html"><a href="statistical.html"><i class="fa fa-check"></i><b>6</b> NCA’s statistics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="statistical.html"><a href="statistical.html#ncas-statistical-expression"><i class="fa fa-check"></i><b>6.1</b> NCA’s statistical expression</a></li>
+<li class="chapter" data-level="6.2" data-path="statistical.html"><a href="statistical.html#permutationtest"><i class="fa fa-check"></i><b>6.2</b> NCA’s statistical test</a></li>
+<li class="chapter" data-level="6.3" data-path="statistical.html"><a href="statistical.html#simulations-with-nca"><i class="fa fa-check"></i><b>6.3</b> Simulations with NCA</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="statistical.html"><a href="statistical.html#requirementssim"><i class="fa fa-check"></i><b>6.3.1</b> Requirements for simulations with NCA</a></li>
+<li class="chapter" data-level="6.3.2" data-path="statistical.html"><a href="statistical.html#power"><i class="fa fa-check"></i><b>6.3.2</b> Simulations for estimating the power of NCA’s statistical test</a></li>
+<li class="chapter" data-level="6.3.3" data-path="statistical.html"><a href="statistical.html#ceilingquality"><i class="fa fa-check"></i><b>6.3.3</b> Simulations for evaluating a ceiling line and its effect size</a></li>
+<li class="chapter" data-level="6.3.4" data-path="statistical.html"><a href="statistical.html#simulations-of-correlation"><i class="fa fa-check"></i><b>6.3.4</b> Simulations of correlation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>7</b> Miscellaneous</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="miscellaneous.html"><a href="miscellaneous.html#software"><i class="fa fa-check"></i><b>7.1</b> NCA software</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="miscellaneous.html"><a href="miscellaneous.html#rsoftware"><i class="fa fa-check"></i><b>7.1.1</b> Main NCA software: R package</a></li>
+<li class="chapter" data-level="7.1.2" data-path="miscellaneous.html"><a href="miscellaneous.html#othersoftware"><i class="fa fa-check"></i><b>7.1.2</b> Other NCA software packages</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="miscellaneous.html"><a href="miscellaneous.html#learning-about-nca"><i class="fa fa-check"></i><b>7.2</b> Learning about NCA</a></li>
+<li class="chapter" data-level="7.3" data-path="miscellaneous.html"><a href="miscellaneous.html#hqscatterplots"><i class="fa fa-check"></i><b>7.3</b> Producing high-quality NCA scatter plots</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="miscellaneous.html"><a href="miscellaneous.html#standard-plot"><i class="fa fa-check"></i><b>7.3.1</b> Standard plot</a></li>
+<li class="chapter" data-level="7.3.2" data-path="miscellaneous.html"><a href="miscellaneous.html#standard-plot-with-basic-adaptations"><i class="fa fa-check"></i><b>7.3.2</b> Standard plot with basic adaptations</a></li>
+<li class="chapter" data-level="7.3.3" data-path="miscellaneous.html"><a href="miscellaneous.html#standard-plot-with-advanced-adaptations"><i class="fa fa-check"></i><b>7.3.3</b> Standard plot with advanced adaptations</a></li>
+<li class="chapter" data-level="7.3.4" data-path="miscellaneous.html"><a href="miscellaneous.html#plot-with-plotly"><i class="fa fa-check"></i><b>7.3.4</b> Plot with <code>plotly</code></a></li>
+<li class="chapter" data-level="7.3.5" data-path="miscellaneous.html"><a href="miscellaneous.html#plot-with-ggplot"><i class="fa fa-check"></i><b>7.3.5</b> Plot with <code>ggplot</code></a></li>
+<li class="chapter" data-level="7.3.6" data-path="miscellaneous.html"><a href="miscellaneous.html#saving-the-plot-from-within-the-r-script"><i class="fa fa-check"></i><b>7.3.6</b> Saving the plot from within the R script</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="miscellaneous.html"><a href="miscellaneous.html#additionalcode"><i class="fa fa-check"></i><b>7.4</b> Additional functions for use with the NCA softare in R (beta)</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="miscellaneous.html"><a href="miscellaneous.html#ncarobustnesstablegeneral"><i class="fa fa-check"></i><b>7.4.1</b> <code>nca_robustness_table_general.R</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="miscellaneous.html"><a href="miscellaneous.html#ncarobustnesschecksgeneral"><i class="fa fa-check"></i><b>7.4.2</b> <code>nca_robustness_checks_general.R</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="miscellaneous.html"><a href="miscellaneous.html#getoutliers"><i class="fa fa-check"></i><b>7.4.3</b> <code>get_outliers.R</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="miscellaneous.html"><a href="miscellaneous.html#getindicatordata"><i class="fa fa-check"></i><b>7.4.4</b> <code>get_indicator_data_TAM.R</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="miscellaneous.html"><a href="miscellaneous.html#estimatesemmodel"><i class="fa fa-check"></i><b>7.4.5</b> <code>estimate_sem_model_TAM.R</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="miscellaneous.html"><a href="miscellaneous.html#significancesem"><i class="fa fa-check"></i><b>7.4.6</b> <code>get_signficance_sem.R</code></a></li>
+<li class="chapter" data-level="7.4.7" data-path="miscellaneous.html"><a href="miscellaneous.html#unstandardize"><i class="fa fa-check"></i><b>7.4.7</b> <code>unstandardize.R</code></a></li>
+<li class="chapter" data-level="7.4.8" data-path="miscellaneous.html"><a href="miscellaneous.html#normalize"><i class="fa fa-check"></i><b>7.4.8</b> <code>normalize.R</code></a></li>
+<li class="chapter" data-level="7.4.9" data-path="miscellaneous.html"><a href="miscellaneous.html#getbottleneckcases"><i class="fa fa-check"></i><b>7.4.9</b> <code>get_bottleneck_cases.R</code></a></li>
+<li class="chapter" data-level="7.4.10" data-path="miscellaneous.html"><a href="miscellaneous.html#getipmadf"><i class="fa fa-check"></i><b>7.4.10</b> <code>get_ipma_df.R</code></a></li>
+<li class="chapter" data-level="7.4.11" data-path="miscellaneous.html"><a href="miscellaneous.html#getipmaplot"><i class="fa fa-check"></i><b>7.4.11</b> <code>get_ipma_plot.R</code></a></li>
+<li class="chapter" data-level="7.4.12" data-path="miscellaneous.html"><a href="miscellaneous.html#getcipmadf"><i class="fa fa-check"></i><b>7.4.12</b> <code>get_cipma_df.R</code></a></li>
+<li class="chapter" data-level="7.4.13" data-path="miscellaneous.html"><a href="miscellaneous.html#getcipmaplot"><i class="fa fa-check"></i><b>7.4.13</b> <code>get_cipma_plot.R</code></a></li>
+<li class="chapter" data-level="7.4.14" data-path="miscellaneous.html"><a href="miscellaneous.html#getsinglebottleneckcases"><i class="fa fa-check"></i><b>7.4.14</b> <code>get_single_bottleneck_cases.R</code></a></li>
+<li class="chapter" data-level="7.4.15" data-path="miscellaneous.html"><a href="miscellaneous.html#getbipmadf"><i class="fa fa-check"></i><b>7.4.15</b> <code>get_bipma_df.R</code></a></li>
+<li class="chapter" data-level="7.4.16" data-path="miscellaneous.html"><a href="miscellaneous.html#getbipmaplot"><i class="fa fa-check"></i><b>7.4.16</b> <code>get_bipma_plot.R</code></a></li>
+<li class="chapter" data-level="7.4.17" data-path="miscellaneous.html"><a href="miscellaneous.html#ncasem"><i class="fa fa-check"></i><b>7.4.17</b> <code>ncasem.R</code></a></li>
+<li class="chapter" data-level="7.4.18" data-path="miscellaneous.html"><a href="miscellaneous.html#ncasemexample"><i class="fa fa-check"></i><b>7.4.18</b> <code>ncasem_example_TAM.R</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<a href="https://www.erim.eur.nl/necessary-condition-analysis/">
+<img alt="erim" src="NCAwebsite2.png" width="270"></a
+<a href="https://www.erim.eur.nl/necessary-condition-analysis/" target="blank">NCA website</a></li>
+<li><a href="mailto:jdul@rsm.nl">Send email to the author</a>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Advances in Necessary Condition Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistical" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> NCA’s statistics<a href="statistical.html#statistical" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>[<strong>Acknowledgement</strong>: Roelof Kuik contributed to this Chapter]</p>
+<p>The central idea underlying NCA is that of an area in the <span class="math inline">\(XY\)</span> plane exists that does not hold data. This empty space is defined by the ceiling line and the scope (bounds on the variables). No assumptions beyond such empty space are being made. So, the theory does not require specification of probability distributions or data generation processes for the area that can hold data, the feasible area (area under the ceiling).
+Rather than turning to probability theory, NCA bases its analysis on the empty spaces and uses geometry (relations between data points in terms of distances and areas) for developing its notions of strength of estimated ceilings (through calculation of an effect size), and cardinality (number of elements in a set) for measures of fit (ceiling accuracy).
+Still, NCA is not at odds with assumptions from probability theory or statistics. Extending NCA with such assumptions allows the use of statistical techniques into the analysis.</p>
+<p>This chapter discusses two statistical techniques that can be used in the context of NCA.
+First, NCA’s statistical significance test is a null hypothesis test that evaluates if NCA’s observed effect size could be compatible with effect sizes produced by two unrelated variables. The test rejects the null hypothesis when there is a low probability that the observed effect is a random result of unrelated variables (e.g., p &lt; 0.05). NCA’s statistical test is one of the three parts of NCA. The other parts are the use of necessity logic for formulating the causal assumptions (hypotheses), and the data analysis to calculate the NCA effect size. Second, Monte Carlo simulations with NCA may be performed. Such statistical simulations requires an assumption about the probability distribution of the data in the feasible area. This chapter shows three examples of simulations: estimation of the power of NCA’s statistical test, evaluation of the quality of effect size and ceiling line estimations, and demonstration that necessity can produce correlation.</p>
+<div id="ncas-statistical-expression" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> NCA’s statistical expression<a href="statistical.html#ncas-statistical-expression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Based on NCA’s mathematical backgrounds (see Chapter <a href="mathematical.html#mathematical">5</a>), NCA employs a bivariate statistical data analysis for each condition separately (multiple bivariate analysis). The statistical model of NCA can be expressed by an equality equation as</p>
+<p><span class="math display" id="eq:stat1">\[\begin{equation}
+\tag{6.1}y = f(x_i) - \epsilon_{x_i}
+\end{equation}\]</span></p>
+<p>Here the function <span class="math inline">\(f(x_i)\)</span> represents the border line of the i-th condition in the <span class="math inline">\(X_iY\)</span> plane and <span class="math inline">\(\epsilon_{x_i}\)</span> is a random variable that takes on non-negative values only (when the border line is a ceiling line, i.e., when the upper left or upper right corner of the <span class="math inline">\(XY\)</span> plot are empty) or a non-positive value only (when the border line is a floor line, i.e. when the lower left or lower right corner of the <span class="math inline">\(XY\)</span> plot are empty). In the remainder of this Chapter it is assumed that the empty space is in the upper left corner and the error term is non-negative. The NCA model assumes that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <em>bounded</em> (have minimum and maximum values) and that there are no errors of measurement in variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. The NCA model does not make strong assumptions about the error term (e.g., no assumption about the type of distribution, the mean value, or the variance).
+The NCA model differs from a regression model. The regression model is expressed as</p>
+<p><span class="math display" id="eq:stat2">\[\begin{equation}
+\tag{6.2}y = f(x) + \epsilon_x
+\end{equation}\]</span></p>
+<p>Here the function <span class="math inline">\(f(x)\)</span> has additive terms consisting of (combinations of) <span class="math inline">\(X\)</span>’s with coefficients. The regression model assumes that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <em>unbounded</em> variables (can have values between minus and plus infinity) and that there are no errors of measurement in variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. The regression model makes several strong assumptions about the error term. For example, it is assumed that <span class="math inline">\(\epsilon_x\)</span> is independent of <span class="math inline">\(X\)</span>, its average value is zero, and its variance does not depend on <span class="math inline">\(X\)</span>. Additionally, it is often assumed that the errors are normally distributed. Therefore, <span class="math inline">\(f(x)\)</span> describes the average effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> such that conventional regression techniques are not appropriate for modeling necessity relationships.</p>
+<p>NCA’s statistical approach is a ‘semi-parametric’ approach, that only specifies particular features of the distribution (in NCA: the ceiling line, bounded variables within a scope) but not the distribution itself <span class="citation">(<a href="#ref-greene2012econometric">Greene, 2012, p. 482</a>)</span>. Thus, NCA does not require making assumptions about the distributions of <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(\epsilon_x\)</span>. NCA only specifies a part of the Data Generation Process (DGP): the ceiling function of bounded variables within the scope. NCA does not specify how the data below the ceiling are generated, thus no further specification of <span class="math inline">\(\epsilon_x\)</span> is needed. This is inherent to NCA’s goal of analyzing necessary <em>but not sufficient</em> conditions: a certain level of <span class="math inline">\(X\)</span> is required for having a certain level of <span class="math inline">\(Y\)</span> but it does not automatically produce that level of <span class="math inline">\(Y\)</span>: NCA does not predict <span class="math inline">\(Y\)</span>.</p>
+</div>
+<div id="permutationtest" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> NCA’s statistical test<a href="statistical.html#permutationtest" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>NCA’s statistical test is a null hypothesis test that estimates a p value for the effect size using a permutation approach <span class="citation">(<a href="#ref-dul2020book">Dul, 2020</a>; <a href="#ref-dul2020orm">Dul, Van der Laan, et al., 2020</a>)</span><a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. Mathematical proofs and simulations have shown <span class="citation">(<a href="#ref-dul2020orm">Dul, Van der Laan, et al., 2020</a>)</span> that the estimated p value of NCA’ statistical test is valid. Indeed, the validity of the permutation test on which NCA is based is a theorem <span class="citation">(<a href="#ref-hoeffding1952">Hoeffding, 1952</a>; <a href="#ref-kennedy1995">Kennedy, 1995</a>; <a href="#ref-lehmann2005">Lehmann et al., 2005</a>)</span>. NCA’s statistical test can be classified as a permutation and randomization test in the terminology of <span class="citation">Lehmann et al. (<a href="#ref-lehmann2005">2005</a>)</span>. The justification of the test rests on the so-called Randomization Hypothesis being true. The Randomization Hypothesis states <span class="citation">(see <a href="#ref-lehmann2005">Lehmann et al., 2005, p. 633</a>)</span>:</p>
+<p><em>Under the null hypothesis, the distribution of the data <span class="math inline">\(X\)</span> is invariant under the transformation <span class="math inline">\(g\)</span>, that is, for every transformation <span class="math inline">\(g\)</span> in <span class="math inline">\(G\)</span>, <span class="math inline">\(gX\)</span> and <span class="math inline">\(X\)</span> have the same distribution whenever <span class="math inline">\(X\)</span> has distribution <span class="math inline">\(P\)</span> in H0.</em></p>
+<p>In this context <span class="math inline">\(G\)</span> is the group of permutations of <span class="math inline">\(n\)</span> elements. The transformation of the sample data <span class="math inline">\(S\)</span> under a permutation <span class="math inline">\(g\)</span> in <span class="math inline">\(G\)</span> is here <span class="math inline">\(S \mapsto gS\)</span> and the Randomization Hypothesis is that <span class="math inline">\(S\)</span> and <span class="math inline">\(gS\)</span> have the same distribution when <span class="math inline">\(S\)</span> has been sampled from a distribution in NCA’s H0 (variables are independent). In other words, under the Randomization Hypothesis, repeated sampling of <span class="math inline">\(S\)</span>, with each time making <span class="math inline">\(gS\)</span>, the distributions of <span class="math inline">\(S\)</span> and <span class="math inline">\(gS\)</span> should be the same. For NCA’s statistical test this condition is satisfied.</p>
+<p>NCA’s statistical test is a part of an entire NCA method consisting of (1) formulating necessity theory, (2) calculating necessity effect size (relative size of empty space in <span class="math inline">\(XY\)</span> plot) and (3) performing a statistical test. Within this context the test has a specific purpose of testing the randomness of the empty space when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are unrelated. Therefore, a test result of a large p value (e.g., p &gt; 0.05) means that the empty space is compatible with randomness of unrelated variables. A test result of a small p value (e.g., p &lt; 0.05) means that the empty space is not compatible with randomness of unrelated variables. However, falsifying H0 does not mean that a specific H1 is accepted. The goal of a null-hypothesis test is to test the null (H0) not a specific alternative (H1). The p value is only defined when the null is true. However, the p value is not defined when a specific H1 is true. Therefore, the p value is not informative about which H1 applies. This is a general characteristic of the p value that is often misunderstood. “A widespread misconception … is that rejecting H0 allows for accepting a specific H1. This is what most practicing researchers do in practice when they reject H0 and argue for their specific H1 in turn” <span class="citation">(<a href="#ref-szucs2017h1">Szucs &amp; Ioannidis, 2017, p. p8</a>)</span>.</p>
+<p>NCA’s statistical test is only a part of the entire NCA method. With a high p value, the tests accepts the null, and rejects any H1 (including necessity). With a low p value the test rejects the null, but does not accept any specific H1, thus also not necessity. It depends on the results of the entire NCA method (including theory and effect size) and of the researcher’s judgment whether or not necessity is plausible, considering all evidence. Therefore, NCA’s statistical test result of a low p value is a ‘necessary but not sufficient condition’ for concluding that an empty space be considered to be caused by necessity <span class="citation">(<a href="#ref-dul2020orm">Dul, Van der Laan, et al., 2020</a>)</span>. The test protects the researcher from making a false positive conclusion, namely that necessity is supported when the empty space is likely a random result of two unrelated variables.</p>
+</div>
+<div id="simulations-with-nca" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Simulations with NCA<a href="statistical.html#simulations-with-nca" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="requirementssim" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Requirements for simulations with NCA<a href="statistical.html#requirementssim" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Although NCA does not specify the full DGP, for conduction simulations the full DGP needs to be specified by the researcher for being able to do such simulation. This means that the researcher must make not only a choice for the ‘true’ ceiling line in the population (<span class="math inline">\(f(x_i)\)</span>), but also for the distribution of the error term (<span class="math inline">\(\epsilon_x\)</span>) in equation <a href="statistical.html#eq:stat1">(6.1)</a>. For making this choice two fundamental assumptions of NCA must be met:</p>
+<ol style="list-style-type: decimal">
+<li><p>A sharp border exist between an area with and without observations defined by the ceiling line (to represent necessity theory: no <span class="math inline">\(Y\)</span> without <span class="math inline">\(X\)</span>).</p></li>
+<li><p><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are bounded.</p></li>
+</ol>
+<p>The ceiling line can be linear or non-linear. The distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> must be bounded. Valid examples of commonly used bounded distributions are the uniform distribution and the truncated normal distribution. The NCA software in R from version 4.0.0 includes the function <code>nca_random</code> that can be used in NCA simulations. Input arguments are the number of observations (N), the intercept of the ceiling line, the slope of the ceiling line, and the type of distribution under the ceiling (uniform-based or truncated normal-based).</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="statistical.html#cb122-1" tabindex="-1"></a><span class="fu">library</span>(NCA)</span>
+<span id="cb122-2"><a href="statistical.html#cb122-2" tabindex="-1"></a><span class="co">#generate random data </span></span>
+<span id="cb122-3"><a href="statistical.html#cb122-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb122-4"><a href="statistical.html#cb122-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">nca_random</span>(<span class="dv">100</span>, <span class="co"># sample size</span></span>
+<span id="cb122-5"><a href="statistical.html#cb122-5" tabindex="-1"></a>                   <span class="fl">0.2</span>, <span class="co"># ceiling intercept</span></span>
+<span id="cb122-6"><a href="statistical.html#cb122-6" tabindex="-1"></a>                   <span class="dv">1</span>,   <span class="co"># ceiling slope</span></span>
+<span id="cb122-7"><a href="statistical.html#cb122-7" tabindex="-1"></a>                   <span class="at">distribution.x =</span> <span class="st">&quot;uniform&quot;</span>, <span class="co"># distribution under the ceiling</span></span>
+<span id="cb122-8"><a href="statistical.html#cb122-8" tabindex="-1"></a>                   <span class="at">distribution.y =</span> <span class="st">&quot;uniform&quot;</span>  <span class="co"># distribution under the ceiling</span></span>
+<span id="cb122-9"><a href="statistical.html#cb122-9" tabindex="-1"></a>                   )</span>
+<span id="cb122-10"><a href="statistical.html#cb122-10" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">nca_analysis</span>(data, <span class="st">&quot;X&quot;</span>, <span class="st">&quot;Y&quot;</span>, <span class="at">ceilings =</span> <span class="st">&quot;c_lp&quot;</span>)</span>
+<span id="cb122-11"><a href="statistical.html#cb122-11" tabindex="-1"></a><span class="fu">nca_output</span>(model)</span>
+<span id="cb122-12"><a href="statistical.html#cb122-12" tabindex="-1"></a>model<span class="sc">$</span>summaries<span class="sc">$</span>X<span class="sc">$</span>params[<span class="dv">10</span>] <span class="co"># estimated intercept (true intercept = 0.2)</span></span>
+<span id="cb122-13"><a href="statistical.html#cb122-13" tabindex="-1"></a>model<span class="sc">$</span>summaries<span class="sc">$</span>X<span class="sc">$</span>params[<span class="dv">9</span>] <span class="co"># estimated intercept (true slope = 1.0)</span></span></code></pre></div>
+<!-- #data -->
+<!-- # getRandomData <- function(N, -->
+<!-- #                           slope, -->
+<!-- #                           intercept, -->
+<!-- #                           type= "uniform"){ -->
+<!-- #    -->
+<!-- #   collectXY<- function(x,y){ # helper function: sort x's and y's -->
+<!-- #     temp <- cbind(x, y) -->
+<!-- #     temp <- temp[order(temp[, 1]),] # sort data points on x values -->
+<!-- #     return(list(x = temp[, 1], y = temp[, 2])) -->
+<!-- #   } -->
+<!-- #    -->
+<!-- #   if (type == "uniform") {   -->
+<!-- #     uniformRandomData <- function(N, slope, intercept) { -->
+<!-- #       xdata <- ydata <- rep(NA, N) -->
+<!-- #       for (i in 1:N) { -->
+<!-- #         reject <- TRUE -->
+<!-- #         while (reject) { # check if is below line -->
+<!-- #           xtry <- runif(1,0,1); -->
+<!-- #           ytry <- runif(1,0,1) -->
+<!-- #           if (ytry <= min(1, (intercept + slope * xtry))) { -->
+<!-- #             reject<-FALSE -->
+<!-- #           } -->
+<!-- #         } -->
+<!-- #         ydata[i] <- ytry ; -->
+<!-- #         xdata[i] <- xtry -->
+<!-- #       } -->
+<!-- #       return(collectXY(xdata, ydata)) -->
+<!-- #     } -->
+<!-- #   } -->
+<!-- #    -->
+<!-- #   if (type == "normal") { -->
+<!-- #     normalRandomData <- function(N, slope, intercept) { -->
+<!-- #       xdata <- ydata <- rep(NA, N) -->
+<!-- #       for (i in 1:N) { -->
+<!-- #         reject <- TRUE -->
+<!-- #         while (reject) { # check if is below line -->
+<!-- #           xtry <- rtruncnorm(1, a=0, b=1, mean = 0.5, sd = 0.2); -->
+<!-- #           ytry <- rtruncnorm(1, a=0, b=1, mean = 0.5, sd = 0.2) -->
+<!-- #           if (ytry <= min(1, (intercept + slope * xtry))) { -->
+<!-- #             reject<-FALSE -->
+<!-- #           } -->
+<!-- #         } -->
+<!-- #         ydata[i] <- ytry ; -->
+<!-- #         xdata[i] <- xtry -->
+<!-- #       } -->
+<!-- #       return(collectXY(xdata, ydata)) -->
+<!-- #     } -->
+<!-- #   } -->
+<!-- #    -->
+<!-- #    -->
+<!-- #   if (type == "uniform") { -->
+<!-- #     return (uniformRandomData(N, slope, intercept) ) -->
+<!-- #   } -->
+<!-- #   else if (type == "normal") { -->
+<!-- #     return (normalRandomData(N, slope, intercept)) -->
+<!-- #   } -->
+<!-- # } -->
+<p>The <code>nca_random</code> function produces a bivariate distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> of points below the ceiling line within the scope [0,1] by first assuming distributions for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> separately (uniform or truncated normal) and then combine them into one bivariate distribution by removing points above the ceiling line. Figure <a href="statistical.html#fig:powerdistributions">6.1</a> shows two typical random samples of n = 100, one drawn from the uniform-based bivariate distribution (A), and one from the truncated normal-based bivariate distribution (B). In this example, the true ceiling line in the populations has a slope of 1 and an intercept of 0.367544468, resulting in a true necessity effect size of 0.2.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:powerdistributions"></span>
+<img src="powerdistributions2.png" alt="Typical sample (n = 100) from a population with true straight ceiling line and effect size = 0.2 with a uniform-based distribution (A) and a truncated normal-based distribution (B)." width="90%" />
+<p class="caption">
+Figure 6.1: Typical sample (n = 100) from a population with true straight ceiling line and effect size = 0.2 with a uniform-based distribution (A) and a truncated normal-based distribution (B).
+</p>
+</div>
+<p><br></p>
+<p>Note that a necessity relationship cannot be simulated with unbounded distributions such as the normal distribution. With unbounded variables a necessity effect cannot exist in the population. For example, NCA’s necessity effect size for bivariate normal variables is zero in the population. A possible empty space in a sample is not the result of a necessity effect in the population but a result of finite sampling. Thus, a sample empty space has no necessity meaning when the population distribution of the variables is unbounded. With unbounded distributions, a finite sample always leads to a finite (empirical) scope (box) that allows the computation of an ‘effect size’. But, such quantity is not related to necessity as defined in NCA. Producing a number out of a sample is an estimate of some property in the population, but the question is what estimand/property of the population distribution it corresponds to. With population data assumed being generated from an unbounded distribution, empirical scopes would grow beyond any bound with growing size of the sample.</p>
+</div>
+<div id="power" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Simulations for estimating the power of NCA’s statistical test<a href="statistical.html#power" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>“The power of a test to detect a correct alternative hypothesis is the pre-study probability that the test will reject the test hypothesis (the probability that <span class="math inline">\(p\)</span> will not exceed a pre-specified cut-off such as 0.05)” <span class="citation">(<a href="#ref-greenland2016statistical">Greenland et al., 2016, p. 345</a>)</span>. The higher the power of the test, the more sensitive the test is for identifying necessity if it exists. Knowledge about the power of NCA’s statistical test is useful for planning an NCA study. It can help to establish the minimum required sample size for being able to detect with high probability (e.g., 0.8) an existing necessity effect size that is considered relevant (e.g., 0.10). Note that a post-hoc power calculation as part of the data analysis of a specific study does not make sense <span class="citation">(<a href="#ref-christogiannis2022self">Christogiannis et al., 2022</a>; <a href="#ref-lenth2001some">Lenth, 2001</a>; e.g., <a href="#ref-zhang2019post">Zhang et al., 2019</a>)</span>. In a specific study, power does not add new information to the p value. Because power is a <em>pre-study</em> probability, a study with low power (e.g., with a small sample size) can still produce a small p value and conclude that an necessary condition exists, although the probability of identifying this necessity effect is less than with a high powered study (e.g., with a large sample size).</p>
+<!-- However, when the p value is high (e.g., p > 0.05) the null hypothesis is not rejected, and two interpretations are possible. The first interpretation is that the variables are unrelated and that the observed necessity effect is a random result. The second interpretation is that the test had insufficient statistical power to detect an existing necessity relationship in the population. When a necessity relationship exists and the test has enough power, a low p value suggests that the null hypothesis is correctly rejected. To ensure that a study has enough power to detect a true necessity relationship a power analysis may be done before the study is designed^[Note that post hoc power analysis makes no sense, see for example, @zhang2019post, @christogiannis2022self.].    -->
+<p>Statistical power increases when effect size and sample size increase. For a given expected necessity effect size in the population, the probability of not rejecting the null hypothesis when necessity is true can be reduced by increasing the sample size.</p>
+<!-- The simulation presented here estimates the probability (power) that the null is rejected when the necessity relationship exists for different sample sizes and different effect sizes. -->
+<!-- The simulation study is performed for dichotomous and continuous variables.  In the dichotomous situation the condition and outcome have only two levels and the only possible necessity effect size is 1.00. In the continuous situation the condition and outcome can have an infinite number of levels, and an infinite number of effect sizes between 0 and 1 is possible.  -->
+<!-- #### Dichotomous -->
+<!-- In the dichotomous situation the effect size of a necessary condition equals 1.  Figure \@(fig:powerdichotomous) shows the relationship between sample size and power. From sample size of 25 the power is about 0.8, and from sample size of 50 it is about 1. This means that NCA necessity test has a high power when the sample size is above 25. -->
+<!-- ```{r powerdichotomous, echo = FALSE, warning=FALSE, message=FALSE, out.width='90%', fig.align = "center", fig.cap="Power of NCA's statistical test for dichotomous necessary condition (effect size = 1)."} -->
+<!-- knitr:: include_graphics("power dichotomous.png") -->
+<!-- ``` -->
+<p>The power of NCA’s statistical test can be evaluated by using the <code>nca_power</code> function which is available from NCA software version 4.0.0.in R. The simulation presented here includes five population effect sizes ranging from 0.10 (small) to 0.5 (large) (Figure <a href="statistical.html#fig:powerslopes">6.2</a>). The population effect size is the result of a straight population ceiling line with slope = 1 and an intercept that corresponds to the given population effect size.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:powerslopes"></span>
+<img src="trueceilinglines.png" alt="Five ceiling lines (slope = 1) with corresponding effect sizes of of 0.1, 0.2, 0.3, 0.4, and 0.5." width="60%" />
+<p class="caption">
+Figure 6.2: Five ceiling lines (slope = 1) with corresponding effect sizes of of 0.1, 0.2, 0.3, 0.4, and 0.5.
+</p>
+</div>
+<p><br>
+<br></p>
+<p>For the simulation a large number of samples (500) of a given sample size are randomly drawn from the bivariate population distribution. This is done for 2 x 5 x 11 = 110 situations: two bivariate distributions (uniform-based or truncnormal-based), five effect sizes (0.1, 0.2, 0.3, 0.4, 0.5), and 11 sample sizes (5, 10, 20, 30, 40, 50, 100, 200, 500, 1000, 5000). In each situation, NCA’s p value is estimated for all 500 samples. The power is calculated as the proportion of samples with estimated p value less than or equal to the selected threshold level of 0.05. This means that if, for example, 400 out of 500 samples have p <span class="math inline">\(\le0.05\)</span>, the power of the test in that situation is 0.8. A power value of 0.8 is a commonly used benchmark for a high powered study. For an acceptable computation time the number of permutations to estimate NCA’s p value for a given sample is limited to 200, and the number of resamples is set to 500; more accurate power estimations are possible with more permutations and more resamples.</p>
+<p>The details of the simulation (which may take several hours) are as follows:</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="statistical.html#cb123-1" tabindex="-1"></a><span class="fu">library</span>(NCA)</span>
+<span id="cb123-2"><a href="statistical.html#cb123-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb123-3"><a href="statistical.html#cb123-3" tabindex="-1"></a><span class="co"># simulation parameters</span></span>
+<span id="cb123-4"><a href="statistical.html#cb123-4" tabindex="-1"></a>rep <span class="ot">=</span> <span class="dv">500</span>  <span class="co">#number of datasets (repetitions, iterations)</span></span>
+<span id="cb123-5"><a href="statistical.html#cb123-5" tabindex="-1"></a>test.rep <span class="ot">=</span> <span class="dv">200</span>  <span class="co">#number of permutations</span></span>
+<span id="cb123-6"><a href="statistical.html#cb123-6" tabindex="-1"></a>p.Threshold <span class="ot">=</span> <span class="fl">0.05</span>  <span class="co">#pvalue threshold alpha</span></span>
+<span id="cb123-7"><a href="statistical.html#cb123-7" tabindex="-1"></a>distribution <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;uniform&quot;</span>, <span class="st">&quot;normal&quot;</span>)</span>
+<span id="cb123-8"><a href="statistical.html#cb123-8" tabindex="-1"></a>ns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">5000</span>)  <span class="co">#sample sizes</span></span>
+<span id="cb123-9"><a href="statistical.html#cb123-9" tabindex="-1"></a>true.effect <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.5</span>)  <span class="co">#true effect sizes</span></span>
+<span id="cb123-10"><a href="statistical.html#cb123-10" tabindex="-1"></a>true.slope <span class="ot">&lt;-</span> <span class="dv">1</span>  <span class="co">#rep(1,length(true.effect)) #true slope</span></span>
+<span id="cb123-11"><a href="statistical.html#cb123-11" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow =</span> <span class="dv">0</span>, <span class="at">ncol =</span> <span class="dv">8</span>)  <span class="co"># for storing simulation results</span></span>
+<span id="cb123-12"><a href="statistical.html#cb123-12" tabindex="-1"></a></span>
+<span id="cb123-13"><a href="statistical.html#cb123-13" tabindex="-1"></a><span class="co"># simulation</span></span>
+<span id="cb123-14"><a href="statistical.html#cb123-14" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb123-15"><a href="statistical.html#cb123-15" tabindex="-1"></a><span class="cf">for</span> (d <span class="cf">in</span> distribution) {</span>
+<span id="cb123-16"><a href="statistical.html#cb123-16" tabindex="-1"></a>    power <span class="ot">&lt;-</span> <span class="fu">nca_power</span>(<span class="at">n =</span> ns, <span class="at">effect =</span> true.effect, <span class="at">slope =</span> true.slope,</span>
+<span id="cb123-17"><a href="statistical.html#cb123-17" tabindex="-1"></a>        <span class="at">ceiling =</span> <span class="st">&quot;ce_fdh&quot;</span>, <span class="at">p =</span> p.Threshold, <span class="at">distribution.x =</span> d,</span>
+<span id="cb123-18"><a href="statistical.html#cb123-18" tabindex="-1"></a>        <span class="at">distribution.y =</span> d, <span class="at">rep =</span> rep, <span class="at">test.rep =</span> test.rep)</span>
+<span id="cb123-19"><a href="statistical.html#cb123-19" tabindex="-1"></a>    results <span class="ot">&lt;-</span> <span class="fu">rbind</span>(results, power)</span>
+<span id="cb123-20"><a href="statistical.html#cb123-20" tabindex="-1"></a>}</span>
+<span id="cb123-21"><a href="statistical.html#cb123-21" tabindex="-1"></a></span>
+<span id="cb123-22"><a href="statistical.html#cb123-22" tabindex="-1"></a><span class="co"># powerplot: x axis is sample size; y axis is power</span></span>
+<span id="cb123-23"><a href="statistical.html#cb123-23" tabindex="-1"></a><span class="cf">for</span> (d <span class="cf">in</span> distribution) {</span>
+<span id="cb123-24"><a href="statistical.html#cb123-24" tabindex="-1"></a>    dfs <span class="ot">&lt;-</span> <span class="fu">subset</span>(results, results<span class="sc">$</span>distr.x <span class="sc">==</span> d <span class="sc">&amp;</span> results<span class="sc">$</span>distr.y <span class="sc">==</span></span>
+<span id="cb123-25"><a href="statistical.html#cb123-25" tabindex="-1"></a>        d)</span>
+<span id="cb123-26"><a href="statistical.html#cb123-26" tabindex="-1"></a>    dfs<span class="sc">$</span>ES <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dfs<span class="sc">$</span>ES)</span>
+<span id="cb123-27"><a href="statistical.html#cb123-27" tabindex="-1"></a>    dfs<span class="sc">$</span>n <span class="ot">&lt;-</span> <span class="fu">factor</span>(dfs<span class="sc">$</span>n, <span class="at">levels =</span> ns)</span>
+<span id="cb123-28"><a href="statistical.html#cb123-28" tabindex="-1"></a>    dfs<span class="sc">$</span>power <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dfs<span class="sc">$</span>power)</span>
+<span id="cb123-29"><a href="statistical.html#cb123-29" tabindex="-1"></a>    p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dfs, <span class="fu">aes</span>(<span class="at">x =</span> n, <span class="at">y =</span> power, <span class="at">group =</span> ES, <span class="at">color =</span> ES)) <span class="sc">+</span></span>
+<span id="cb123-30"><a href="statistical.html#cb123-30" tabindex="-1"></a>        <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fl">0.8</span>),</span>
+<span id="cb123-31"><a href="statistical.html#cb123-31" tabindex="-1"></a>        <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Effect size&quot;</span>) <span class="sc">+</span></span>
+<span id="cb123-32"><a href="statistical.html#cb123-32" tabindex="-1"></a>        <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Effect size&quot;</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Sample size&quot;</span>,</span>
+<span id="cb123-33"><a href="statistical.html#cb123-33" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">&quot;Power&quot;</span>)</span>
+<span id="cb123-34"><a href="statistical.html#cb123-34" tabindex="-1"></a>    <span class="fu">print</span>(p)</span>
+<span id="cb123-35"><a href="statistical.html#cb123-35" tabindex="-1"></a>}</span></code></pre></div>
+<!-- {r powernca, eval=FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=60)} -->
+<!-- library (NCA) -->
+<!-- library(truncnorm) -->
+<!-- library(ggplot2) -->
+<!-- #load getRandomData function -->
+<!-- #simulation parameters -->
+<!-- rep = 500  #number of datasets (repetitions, iterations) -->
+<!-- test.rep = 200 #number of permutations -->
+<!-- p.Threshold = 0.05 #pvalue threshold alpha -->
+<!-- distribution = c("uniform", "normal") -->
+<!-- ns <- c(5, 10, 20, 30, 40, 50, 100, 200, 500, 1000, 5000) #sample sizes -->
+<!-- true.effect <- c(0.05, 0.1, 0.2, 0.3, 0.4, 0.5) #true effect sizes -->
+<!-- true.slope <- rep(1,length(true.effect)) #true slope -->
+<!-- results <- matrix(nrow = 0,ncol = 5) # for storing simulation result -->
+<!-- count <- 0 #counter of iterations (single samples) -->
+<!-- n_iterations <- rep * length(distribution) * length(ns) * length(true.effect) -->
+<!-- #simulation -->
+<!-- set.seed(123) -->
+<!-- for (d in distribution) { #start loop distributions -->
+<!--   type <- d -->
+<!--   for (i in 1:length(ns)) { #start loop sample sizes -->
+<!--     sample_size <- ns[i] -->
+<!--     for (j in 1: length(true.effect)) { #start loop effect sizes -->
+<!--       effect <- true.effect[j] -->
+<!--       intercept <- 1 - sqrt(2*effect)  -->
+<!--       slope <- true.slope[j] -->
+<!--       pval <- c() -->
+<!--       sig_results <- c() -->
+<!--       for (r in 1:rep) { #start loop repeated datasets -->
+<!--         df1 <- data.frame(getRandomData(sample_size, -->
+<!--                                         slope, -->
+<!--                                         intercept, -->
+<!--                                         type)) -->
+<!--         #nca -->
+<!--         model1 <- nca_analysis(df1, -->
+<!--                                1, -->
+<!--                                2, -->
+<!--                                ceilings = "ce_fdh", -->
+<!--                                test.rep = test.rep, -->
+<!--                                scope = c(0,1,0,1)) -->
+<!--         count <- count + 1 -->
+<!--         print(paste0(count, " of ",n_iterations, " iterations")) -->
+<!--         pval[r] <- model1$summaries$x$params[6] #estimated p value -->
+<!--         sig_results[r] <- (pval[r] <= p.Threshold) #power -->
+<!--         } -->
+<!--       results <- rbind(results, c(type, -->
+<!--                                   effect, -->
+<!--                                   sample_size, -->
+<!--                                   mean(pval), -->
+<!--                                   mean(sig_results))) -->
+<!--     } -->
+<!--   } -->
+<!-- }                   -->
+<!-- #numeric results #### -->
+<!-- resultsdf <- data.frame(results) -->
+<!-- colnames(resultsdf) <- c("distr.", "ES", "n", "p", "power") -->
+<!-- #powerplots:  x axis is sample size; y axis is power -->
+<!-- for (i in 1: length(distribution)) { -->
+<!--   dfs<-subset(resultsdf, resultsdf$distr.== distribution[i]) -->
+<!--   dfs$ES <- as.factor(dfs$ES) -->
+<!--   dfs$n <- factor(dfs$n, levels = ns) -->
+<!--   dfs$power <- as.numeric(dfs$power) -->
+<!--   p <- ggplot(dfs, aes(x = n, y = power, group = ES, color = ES)) + -->
+<!--   geom_line() + -->
+<!--   ylim(0, 1) + -->
+<!--   geom_hline(aes(yintercept = .8), linetype = 'dashed') + -->
+<!--   theme_minimal() + -->
+<!--   labs(color = "Effect size") + -->
+<!--   ggtitle(paste(dfs[1,1])) + -->
+<!--   labs(color = "Effect size") + -->
+<!--   labs(x = 'Sample size', y = 'Power') -->
+<!--   print(p) -->
+<!-- } -->
+<p><br>
+<br></p>
+<p>The relationship between sample size and power for different population necessity effect sizes is shown in Figure <a href="statistical.html#fig:powercontinuousa">6.3</a> for the uniform distribution and in Figure <a href="statistical.html#fig:powercontinuousb">6.4</a> for the truncated normal distribution. The figures show that when the effect size to be detected is large, the power increases rapidly with increasing sample size. A large necessity effect of about 0.5 can be detected nearly always (power ~ 1.0) with a sample size of about 30. However, to obtain a high power of 0.8 for a small effect size of about 0.1, the sample size needs to be doubled with a uniform distribution (about 60) and be more than 10 times larger (about 300) with a truncated normal distribution. In general, the minimum required effect size for detecting a necessary condition is larger for a truncated normal distribution than for a uniform distribution. Additional simulations indicate that sample sizes must be larger when the the density of observations near the ceiling is smaller, in particular when there are few cases in the upper right or lower left corners under the ceiling. Also larger minimum samples sizes are usually needed when the ceiling line is more horizontal and to a lesser extend when it is more vertical. On the other hand, when sample sizes are large even very small effect sizes (e.g., 0.05) can be detected.
+Note that a high powered study only increases the <em>probability</em> of detecting a necessity effect when it exists. Low powered studies (e.g., with a small sample size) can still detect necessity (<span class="math inline">\(p \leq 0.05\)</span>), but have a higher risk of making a false negative conclusion: concluding that necessity does not exist, whereas it actually exists. Note also that small N studies can easily <em>falsify</em> a dichotomous necessary condition where <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> can have only two values, when the necessary condition does <em>not</em> exist in the population (see section <a href="data.html#smalln">3.3.1</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:powercontinuousa"></span>
+<img src="power2A.png" alt="Power as a function of sample size andeffect size for a uniform-based distribution." width="90%" />
+<p class="caption">
+Figure 6.3: Power as a function of sample size andeffect size for a uniform-based distribution.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:powercontinuousb"></span>
+<img src="power2B.png" alt="Power as a function of sample size and effect size for a truncated normal-based distribution." width="90%" />
+<p class="caption">
+Figure 6.4: Power as a function of sample size and effect size for a truncated normal-based distribution.
+</p>
+</div>
+<!-- These results can be compared with a power analysis of simple linear regression analysis (with one predictor $X$) with normally distributed $X$ and $Y$ (mean = 0, standard deviation = 1). In this case the correlation coefficient equals the regression coefficient and is a relevant effect size measure. The relationship between sample size and power for given effect sizes (correlation coefficients of 0.05, 0.1,  0.2, 0.3, 0.4 and 0.5.) is shown in Figure \@ref(fig:powerregressionn).  -->
+<!-- ```{r,powerrho, echo = FALSE, eval=FALSE} -->
+<!-- library(broom) -->
+<!-- #set simulation parameters -->
+<!-- ns <- c(5, 10, 20, 30, 40, 50, 100, 200, 500) -->
+<!-- true.rho <- c(0.05, 0.1, 0.2, 0.3, 0.4, 0.5) -->
+<!-- rep = 500 -->
+<!-- #simulation -->
+<!-- set.seed(123) -->
+<!-- results <- matrix(nrow = 0,ncol = 7) -->
+<!-- for (i in 1:length(ns)) { -->
+<!--   sample_size <- ns[i] -->
+<!--   for (j in 1:length(true.rho)) { -->
+<!--     rho <- true.rho[j] -->
+<!--     sig_results <- c() -->
+<!--     corr <- c() -->
+<!--     beta <- c() -->
+<!--     stbeta <- c() -->
+<!--     sig <- c() -->
+<!--     for (r in 1:rep) { -->
+<!--       X = rnorm(n = sample_size, mean = 0, sd = 1) -->
+<!--       Y = (rho * X) + sqrt(1 - rho*rho) * rnorm(n = sample_size, mean = 0, sd = 1) -->
+<!--       df1 <- data.frame(cbind(X,Y)) -->
+<!--       model <- lm(Y ~ X, data = df1) -->
+<!--       beta[r] <- (model$coefficients[2]) -->
+<!--       stmodel <- lm(data.frame(scale(model$model))) -->
+<!--       corr[r] <- (cor(X,Y)) -->
+<!--       sig[r] <- tidy(model)$p.value[2] -->
+<!-- # plot(X,Y) -->
+<!-- # abline(0, true.rho) -->
+<!--       stbeta[r] <- (stmodel$coefficients[2]) -->
+<!--       sig_results[r] <- tidy(model)$p.value[2] <= .05 -->
+<!--     } -->
+<!--     results <- rbind(results, -->
+<!--                      c(mean(sig_results), -->
+<!--                        sample_size, -->
+<!--                        rho, -->
+<!--                        mean(corr), -->
+<!--                        mean(beta), -->
+<!--                        mean(stbeta), -->
+<!--                        mean(sig))) -->
+<!--   } -->
+<!-- } -->
+<!-- resultsdf <- data.frame(results) -->
+<!-- names(resultsdf) <- c("power", "n", "rho", "corr", "beta", "stbeta", "sig") -->
+<!-- #plot:  x axis is effect size -->
+<!-- resultsdf$n <- as.factor(resultsdf$n) -->
+<!-- #png("powerregressionrho.png") -->
+<!-- ggplot(resultsdf, -->
+<!--        aes(x = rho, y = power, group = n, color = n)) + -->
+<!--   geom_line() + -->
+<!--   geom_hline(aes(yintercept = .8), linetype = 'dashed') + -->
+<!--   theme_minimal()+ -->
+<!--   labs(color = "Sample size") + -->
+<!--   labs(x = 'Effect Size (\U03C1)', y = 'Power') -->
+<!-- #dev.off() -->
+<!-- #plot:  x axis is sample size -->
+<!-- resultsdf$rho <- as.factor(resultsdf$rho) -->
+<!-- resultsdf -->
+<!-- #png("powerregressionn.png") -->
+<!-- ggplot(resultsdf, -->
+<!--        aes(x = n, y = power, group = rho, color = rho)) + -->
+<!--   geom_line() + -->
+<!--   #ylim(0, 100) + -->
+<!--   geom_hline(aes(yintercept = 0.8), linetype = 'dashed') + -->
+<!--   theme_minimal()+ -->
+<!--   labs(color = "Effect size (\U03C1)") + -->
+<!--   labs(x = 'Sample size', y = 'Power') -->
+<!-- #dev.off() -->
+<!-- ``` -->
+<!-- ```{r powerregressionn, echo = FALSE, warning=FALSE, message=FALSE, out.width='90%', fig.align = "center", fig.cap="Relationship between effect size (correlation coefficient) and power of simple linear regression for different true effect sizes (correlation coefficients)."} -->
+<!-- knitr:: include_graphics("powerregressionn.png") -->
+<!-- ``` -->
+<!-- Following arbitrary guidelines suggested by @cohen1977statistical, effect sizes of 0.1, 0.3 and 0.5 are often considered small, medium and large, respectively. The power analysis for this case of simple linear regression analysis (one predictor) shows that for larger effect sizes of 0.3-0.5, a power of more than 0.8 can be achieved with sample sizes of about 30-100. For smaller effect sizes (0.1-0.3) the required sample size is more than 100, and small effect sizes (0-0.1) require more than 500 cases. -->
+<!-- In general, the minimum required sample size for a good powered NCA study, appears to be considerably smaller than the minimum required sample size for a good powered regression analysis, although specific power requirements depend on specific situations.   -->
+</div>
+<div id="ceilingquality" class="section level3 hasAnchor" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> Simulations for evaluating a ceiling line and its effect size<a href="statistical.html#ceilingquality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When analysing sample data for statistical inference, the calculated ‘statistic’ (in NCA the ceiling line and its effect size) is an <em>estimator</em> of the ‘true’ parameter in the population. An estimator is considered to be a good estimator when for finite (small) samples the estimator is <em>unbiased</em> and <em>efficient</em>, and for infinite (large) samples the estimator is <em>consistent</em>. Unbiasedness indicates that the mean of the estimator for repeated samples corresponds to the true parameter value; efficiency indicates that the variance of the estimator for repeated samples is small compared to other estimators of the population parameter. Consistency indicates that the mean of the estimator approaches the true value of the parameter and that the variance approaches zero when the sample size increases. When the latter applies, the estimator is called <em>asymptotically unbiased</em>, even if the estimator is biased in finite (small) samples. An estimator is <em>asymptotically efficient</em> if the estimate converges relatively fast to the true population value when the sample size increases.</p>
+<p>There are two ways to determine the unbiasdness, efficiency and consistency of estimators: <em>analytically</em> and by <em>simulation</em>. In the analytic approach the properties are mathematically derived. This is possible when certain assumptions are made. For example the OLS regression estimator of a linear relationship in the population is ‘BLUE’ (Best Linear Unbiased Estimator) when the Gauss-Markov assumptions are satisfied (the dependent variable is unbounded, homoskedasticity, error term unrelated to predictors, etc.).</p>
+<p>In the simulation approach
+<!-- (see section \@ref(simulations)) -->
+a Monte Carlo simulation is performed in which first the true parameters (of variables and distributions) in the population are defined, then repeated random samples are drawn from this population, and next the estimator is calculated for each sample. Finally, the sampling distribution of the estimator is determined and compared with the true parameter value in the population.</p>
+<p>For both approaches the following ‘ideal’ situation is usually assumed: the population is infinite, the samples are drawn randomly, the distributions of the variable or estimates are known (e.g. normal distribution), and there is no measurement error. Without these assumptions the analysis and simulations get very complex.</p>
+<p>For NCA, no analytical approach exists (yet) to determine bias, efficiency and consistency of its estimators (ceiling lines and their effect sizes) so currently NCA relies on simulations to evaluate the quality of its estimates.</p>
+<p>For estimating the ceiling line and effect size with empirical data for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, two default estimation techniques are available.
+The first default technique is <em>Ceiling Envelopment - Free Disposal Hull (CE-FDH)</em>, which is a local support boundary curve estimation techniques. The free disposal hull (FDH) constructs a space (the hull) encompassing the observations. The FDH is the smallest space encompassing the data points that has the free disposal property. A space is said to have the free disposal property <span class="citation">(e.g., <a href="#ref-simar2008">Simar &amp; Wilson, 2008</a>)</span>, if having a particular point implies that it also includes the points at the lower right of that point.
+<!-- , more formally, if -->
+<!--    \[ ((x,y) \in {\cal S}  \text{ and } (x',y') \in \mathbb{R}_+^2  \text{ with } x' \geq x \text{ and } y'\leq y ) \Rightarrow (x',y') \in {\cal S} \] -->
+The boundary of the FDH hull is a non-decreasing step function, which can serve as an estimate of the ceiling line, in particular when <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span> are discrete, or when the ceiling line is not straight.</p>
+<p>The second default technique is <em>Ceiling Regression - Free Disposal Hull (CR-FDH)</em>, which is a global support boundary, frontier function and curve estimation technique. The CR-FDH ceiling line is a straight trend line through upper left points of the CE-FDH line using OLS regression. Consequently, the CR-FDH ceiling line has some cases in the otherwise empty space. Therefore, in contrast to CE-FDH, the <em>ceiling accuracy</em> of CR-FDH is usually below 100 percent.</p>
+<p>In addition to the two default ceiling lines, another straight line ceiling technique that is available in the <code>NCA</code> software is <em>Ceiling - Linear Programming (C-LP)</em>. This estimation approach uses linear programming; a technique that optimizes a linear goal function under a number of linear constraints. When applied to NCA the technique draws a straight line through two corner points of CE-FDH such that the area under the line is minimized.</p>
+<p>Monte Carlo simulation is used for estimating the true effect size in a population using the three types of ceiling line (CE-FDH, CR-FDH and C-LP). Variable X has a necessity relationship with Y, represented by a straight ceiling line (Y = 0.4 + X). The corresponding true effect size is 0.18.</p>
+<p>In Monte Carlo simulation the full ‘Data Generation Process’ (DGP) needs to be specified. This means that also assumptions must be made about the distribution of the data under the ceiling line. In this simulation we assume a uniform distribution under the ceiling line, normalized for the vertical distance under the ceiling line. Additional simulations have been done with different distributions <span class="citation">(<a href="#ref-Massu2020">Massu et al., 2020</a>)</span> but the similar results are not reported here.
+The simulation is done with 100 resamples per sample size. The seven sample size vary between 20 and 5000. This is repeated for each type of ceiling line.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sim"></span>
+<img src="box2.png" alt="Monte Carlo simulation results for the effect size of three ceiling lines.True ceiling line = $Y = 0.4 + X$. True effect size is 0.18." width="100%" />
+<p class="caption">
+Figure 6.5: Monte Carlo simulation results for the effect size of three ceiling lines.True ceiling line = <span class="math inline">\(Y = 0.4 + X\)</span>. True effect size is 0.18.
+</p>
+</div>
+<p>Figure <a href="statistical.html#fig:sim">6.5</a> suggests that for small samples the three ceiling lines are upward biased (the true effect size is smaller). When sample size increases, the estimated effect size approaches the true effect size (asymptotically unbiased) and the variance approaches zero. This means that the three estimators are consistent. C-LP and its effect size seems more efficient (less variation). These results only apply to the investigated conditions of a true ceiling line that is straight and there is no measurement error.
+Therefore, only when the true ceiling line is straight and when there is no measurement error the C-LP line may be preferred. Such ‘ideal’ circumstance may apply in simulation studies, but seldom in reality. When the true ceiling line is straight but cases have measurement error the CR-FDH line may perform better because measurement error usually reduces the effect size (ceiling line moves upwards). When the true ceiling line is not a straight line, CE-FDH may perform better because this this line can better follow the non-linearity of a the border (see Figure <a href="data.html#fig:pooled">3.9</a>). Further simulations are needed to clarify the different statistical properties of the ceiling lines under different circumstances. In these simulations the effects of different population parameters (effect size, ceiling slope, ceiling intercept, non-linearity of the ceiling, distribution under the ceiling), and of measurement error (error-in-variable models) on the quality of the estimations could be studied.</p>
+<!-- The results show that the default ceiling lines CE-FDH (step line) and CR-FDH (straight line) seem to be acceptable in terms of  *consistency*. COLS and LH seem not acceptable as they are *inconsistent*. The LP line could be an alternative for CR-FDH for the default straight ceiling lines; -->
+<!-- The advantages and disavantages of LP and CR-FDH are as follows. -->
+<!-- |Line      |      Advantages      |  Disadvantages | -->
+<!-- |:----------:|:-------------:|:------:| -->
+<!-- | CR-FDH |  Current default line | Statistically not the best (under ideal circumstances) | -->
+<!-- |CR-FDH  |   Already used in publications|   Not 100% accurate (ceiling accuracy)| -->
+<!-- | CR-FDH  | May accommodate measurement error  |    Not the best for simulation studies| -->
+<!-- | LP | Statistically better (under ideal circumstances)  |    New | -->
+<!-- | LP | 100% accurate (ceiling accuracy)|    Probably not the final best | -->
+<!-- |LP  | Useful in simulation studies |    | -->
+<!-- Further simulations are needed in which the effects of different population parameters (effect size, ceiling slope, ceiling intercept, distribution under the ceiling), and of measurement error (error-in-variable  models) on the quality of the estimations are studied. -->
+<!-- Other topics for further simulation studies are the estimation of confidence intervals, the introduction of non-linear ceiling lines (e.g., polynomial with degrees other than 1), the effects of outliers, etc. -->
+</div>
+<div id="simulations-of-correlation" class="section level3 hasAnchor" number="6.3.4">
+<h3><span class="header-section-number">6.3.4</span> Simulations of correlation<a href="statistical.html#simulations-of-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The correlation between two variables can me expressed as a number <span class="math inline">\(r\)</span> , which is the correlation coefficient. This coefficient can have a value between -1 and +1. This section shows by simulations that a correlation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> can be produced not only by a sufficiency relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, but also by a necessity relationship. Correlation is not causation, and therefore an observed correlation cannot be automatically interpreted as in indication of sufficiency nor necessity.</p>
+<div id="correlation-by-sufficiency" class="section level4 hasAnchor" number="6.3.4.1">
+<h4><span class="header-section-number">6.3.4.1</span> Correlation by sufficiency<a href="statistical.html#correlation-by-sufficiency" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>For empirical testing of a sufficiency relationship (e.g. as expressed in a hypothesis) the relationship is usually modeled as set of single factors (<span class="math inline">\(X\)</span>’s) and possibly combinations of factors that add up to produce the outcome (<em>additive logic</em>). Such model captures a few factors of interest and assumes that all other factors together have on <em>average</em> no effect on the outcome. This sufficiency model corresponds to the well-known regression model with additive terms (with the factors of interest) and an error term (<span class="math inline">\(\epsilon\)</span>) representing the other factors. Because the error term is assumed to have an average value of zero, the regression model with the factors of interest describes the <em>average</em> effect of these factors on the outcome. Note that it is often assumed that <span class="math inline">\(\epsilon\)</span> is normally distributed and thus can have any value between minus Infinity and plus Infinity. As a consequence also <span class="math inline">\(Y\)</span> can have any value between -Inf and + Inf. Moreover, the additive equation indicates that <span class="math inline">\(X\)</span> is not a necessary cause of <span class="math inline">\(Y\)</span> because a certain value of <span class="math inline">\(\epsilon\)</span> can compensate for it.</p>
+<p>A simple linear (average) sufficiency model is <span class="math inline">\(a + bx = y\)</span>, in which <span class="math inline">\(a\)</span> is the intercept and <span class="math inline">\(b\)</span> is the slope. The average sufficiency effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> can be modeled by the regression equation <span class="math inline">\(y = a + bx + \epsilon\)</span>.
+Figure <a href="statistical.html#fig:sccor">6.6</a> shows a <span class="math inline">\(XY\)</span> scatter plot of 100 cases randomly from a population in which this linear relationship holds. <span class="math inline">\(X\)</span> is a fixed variable between 0 and 1, and <span class="math inline">\(Y\)</span> and <span class="math inline">\(\epsilon\)</span> are normally distributed random variables with zero averages and standard deviations of 1. The simulation shows that the sufficiency relationship results in a correlation of 0.34.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sccor"></span>
+<img src="_main_files/figure-html/sccor-1.png" alt="Correlation with coefficient 0.34 resulting from an average sufficiency relationship. The line through the middle is the regression line representing the sufficiency relationship." width="100%" />
+<p class="caption">
+Figure 6.6: Correlation with coefficient 0.34 resulting from an average sufficiency relationship. The line through the middle is the regression line representing the sufficiency relationship.
+</p>
+</div>
+<p>The true (because induced) additive average sufficiency relationship in the population (in this case linear with parameters <span class="math inline">\(a = 0\)</span> and <span class="math inline">\(b = 1\)</span>) can be described with a regression line through the middle of the data (solid line). It would not be correct to draw a ceiling line on top of the data and interpret it as representing a necessity relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> (dashed line).</p>
+</div>
+<div id="correlation-by-necessity" class="section level4 hasAnchor" number="6.3.4.2">
+<h4><span class="header-section-number">6.3.4.2</span> Correlation by necessity<a href="statistical.html#correlation-by-necessity" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A necessity causal relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> can also produce a correlation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.
+For empirical testing of a necessity relationship (e.g. as expressed in a hypothesis) the relationship is modeled as a single factor that enables the outcome (<em>necessity logic</em>). Such model captures the single necessary factor independently of all other causal factors. This necessity model corresponds to the NCA ceiling line.</p>
+<p>A simple linear necessity model (ceiling line) is <span class="math inline">\(a_c + b_cx = y\)</span>, in which <span class="math inline">\(a_c\)</span> is the intercept of the ceiling line and <span class="math inline">\(b_c\)</span> is the slope of the ceiling line that take values of 0.4 and 1 respectively. This can be represented by the ceiling equation <span class="math inline">\(y \leq  a_c + b_cx\)</span>.</p>
+<p>Figure <a href="statistical.html#fig:nccor">6.7</a> shows a <span class="math inline">\(XY\)</span> scatter plot of 100 cases randomly selected from a population in which this linear ceiling relationship holds. <span class="math inline">\(X\)</span> is a random variable between 0 and 1, and <span class="math inline">\(Y\)</span> is a uniform distributed random variable bounded by the ceiling line. The simulation shows that the necessity relationship results in a correlation of 0.38.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nccor"></span>
+<img src="_main_files/figure-html/nccor-1.png" alt="Correlation with coefficient 0.38 resulting from a necessity relationship. The line on top of the data is the ceiling line representing the necessity relationship." width="100%" />
+<p class="caption">
+Figure 6.7: Correlation with coefficient 0.38 resulting from a necessity relationship. The line on top of the data is the ceiling line representing the necessity relationship.
+</p>
+</div>
+<p>The true (because induced) <em>necessity</em> relationship in the population (in this case linear ceiling with parameters <span class="math inline">\(a\)</span> = 0.4 and <span class="math inline">\(b\)</span> = 1) can be described with a ceiling line on top of the data (solid line). It would not be correct to draw a regression line through the middle of the data and interpret it as representing a sufficiency relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> (dashed line).</p>
+</div>
+<div id="interpretation-of-correlation-when-causality-is-unknown" class="section level4 hasAnchor" number="6.3.4.3">
+<h4><span class="header-section-number">6.3.4.3</span> Interpretation of correlation when causality is unknown<a href="statistical.html#interpretation-of-correlation-when-causality-is-unknown" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>When the underlying causality is unknown the correlation coefficient cannot distinguish between the best way to describe it: by a regression line or by a ceiling line. A regression line can be added to the scatter plot when the underlying causality is assumed to be additive, average sufficiency logic, and the ceiling line can be added when the underlying causality is assumed to be necessity logic (or both).</p>
+<p>The often implicit assumption that the correlation coefficient is caused by an underlying additive causal model may be wrong and may have two reasons. First, additive logic is the main paradigm of causality. Second, the correlation coefficient <span class="math inline">\(r\)</span> and the regression coefficient <span class="math inline">\(b\)</span> are closely related and can be expressed in a mathematical equation: <span class="math inline">\(r = b * sd(x)/sd(y)\)</span> (<span class="math inline">\(sd\)</span> is the standard deviation).
+A similar mathematical equation for the relationship between necessity effect size and correlation coefficient can be derived as well, but is very complex and not intuitive. (You can contact the author for this formulae with the assumption of a uniform distribution of the data below the ceiling line).</p>
+<!-- : Y = a + bX + e, where a is the intercept, b is the slope and e representing all other causes of Y. This equation represents _additive_ causal logic because X or e can produce Y and the equation represents an _average effect_ of X on Y when the average value of e is assumed zero. These _assumptions_ about truth in the population correspond to the assumptions for applying OLS regression analysis and justifies drawing a regression line through the middle of the data. -->
+<!-- The regression line illustrates the correlation _only_ when it is caused by the linear average relationship in the population.  -->
+<!-- It would be _wrong_ to describe correlation with a regression line if the correlation is not caused by a corresponding linear relationship in the population, like in the first example where the correlation is caused by chance. A necessity causal relationship between X and Y can also and only be produced by a correlation between X and Y. In that case the correlation should not be represented by a regression line.   -->
+<!-- Note that it is often assumed that e is normally distributed and thus can have any value between -Inf and + Inf. As a consequence also Y can have any value between -Inf and + Inf. Moreover, the additive equation indicates that X is not a necessary cause of Y because a certain value of e can compensate for it. The linear equation indicates that X is a sufficient but not necessary cause of Y. -->
+<!-- ## \textcolor{gray}{NCA’s Data Generation Process} -->
+<!-- ## <span style="color: #D3D3D3">NCA’s Data Generation Process</span> -->
+<!-- under construction -->
+<!-- ## \textcolor{gray}{The absence of assumptions about the distribution of the data} -->
+<!-- ## <span style="color: #D3D3D3">The absence of assumptions about the distribution of the data</span> -->
+<!-- under construction -->
+<!-- ## \textcolor{gray}{How to perform simulations with NCA} -->
+<!-- ## <span style="color: #D3D3D3">How to perform simulations with NCA</span {#simulations} -->
+<!-- ## How to perform simulations with NCA {#simulations} -->
+<!-- For designing a proper simulation with NCA  a researcher must make several design decisions for the simulation. Here it is assumed that the simulation is done in the context of theory testing research where a hypothesis is formulated and tested with (simulated) data. These data are assumed to be obtained by random sampling from a population with a known causal relation between $X$ and $Y$ and known population parameters. This section discusses how a proper simulation with NCA differs from common simulations with regression analysis. -->
+<!-- A simulation with regression is used in the context of testing an *additive* theory. Such theory assumes that $X$ produces $Y$ ($X$ is sufficient for $Y$) and that also other factors can produce $Y$. The other factors are unknown and collected in a variable epsilon ($\epsilon$). This theory can be expressed for example as the linear relationship: $Y = a + bX + \epsilon$, where $a$ and $b$ are the population parameters to be estimated. This equation also represents the Data Generation Process (i.e., how $Y$ is generated from $X$, $\epsilon$, $a$ and $b$). The factors in the equation can compensate for each other. For example, when $X$ is absent, $\epsilon$ can produce any value of Y the outcome.  -->
+<!-- When regression analysis is used for estimating the population parameters, several assumptions have to be made [@berry1993understanding]. One assumption is that $\epsilon$ is a random variable with average value zero. Another assumption is that $Y$ is unbounded (i.e., has values between minus infinity and plus infinity). To satisfy these assumptions, $\epsilon$ is usually defined as a *normally* distributed random variable (which is unbounded between -Inf and +Inf) with zero mean. This ensures that also $Y$ is unbounded (and thus can have values between -Inf and +Inf). -->
+<!-- A simulation with NCA in the context of a necessity theory starts with defining the ceiling line. For example, a linear ceiling line is $Y = a_c + b_cX$. The ceiling line defines the effect size $d$, which is the main parameter to be estimated. The ceiling line can be reformulated as in \@ref(eq:stat1), where $\epsilon \geq 0$. NCA requires that both $X$ and $Y$ are bounded, which allows the calculation of the scope and the effect size. NCA does not put  other requirements on the distribution other then that the data must be under the ceiling and withing the scope.  -->
+<!-- Consequently, for a proper simulation with NCA the DGP can only use a bounded distribution for $\epsilon$ (e.g., a beta distribution). Using a normal or other *unbounded* distribution to define the population is incorrect. With an unbounded distribution (independently if or how $X$ and $Y$ are related), the scope, ceiling line and effect size do not exist in the population, so it makes no sense to estimate these parameters with NCA (the theoretical scope is infinite). In a finite sample there may be an empirical scope and an empty space but estimated 'effect sizes' and other NCA parameters are then flawed. Similarly, using an *bounded* distribution for evaluating the quality of regression estimators is incorrect and gives flawed results.  -->
+
+</div>
+</div>
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
+<div id="ref-christogiannis2022self" class="csl-entry">
+Christogiannis, C., Nikolakopoulos, S., Pandis, N., &amp; Mavridis, D. (2022). The self-fulfilling prophecy of post-hoc power calculations. <em>American Journal of Orthodontics and Dentofacial Orthopedics</em>, <em>161</em>(2), 315–317. <a href="https://doi.org/10.1016/j.ajodo.2021.10.008">https://doi.org/10.1016/j.ajodo.2021.10.008</a>
+</div>
+<div id="ref-dul2020book" class="csl-entry">
+Dul, J. (2020). <em><span>Conducting Necessary Condition Analysis</span>.</em> Sage. <a href="https://uk.sagepub.com/en-gb/eur/conducting-necessary-condition-analysis-for-business-and-management-students/book262898">https://uk.sagepub.com/en-gb/eur/conducting-necessary-condition-analysis-for-business-and-management-students/book262898</a>
+</div>
+<div id="ref-dul2020orm" class="csl-entry">
+Dul, J., Van der Laan, E., &amp; Kuik, R. (2020). A statistical significance test for <span>Necessary Condition Analysis</span>. <em>Organizational Research Methods</em>, <em>23</em>(2), 385–395. <a href="https://doi.org/10.1177/1094428118795272">https://doi.org/10.1177/1094428118795272</a>
+</div>
+<div id="ref-greene2012econometric" class="csl-entry">
+Greene, W. H. (2012). <em>Econometric analysis. 7th. edition</em>. Pearson Education India.
+</div>
+<div id="ref-greenland2016statistical" class="csl-entry">
+Greenland, S., Senn, S. J., Rothman, K. J., Carlin, J. B., Poole, C., Goodman, S. N., &amp; Altman, D. G. (2016). Statistical tests, p values, confidence intervals, and power: A guide to misinterpretations. <em>European Journal of Epidemiology</em>, <em>31</em>, 337–350. <a href="https://doi.org/10.1007/s10654-016-0149-3">https://doi.org/10.1007/s10654-016-0149-3</a>
+</div>
+<div id="ref-hoeffding1952" class="csl-entry">
+Hoeffding, W. (1952). The large-sample power of tests based on permutations of observations. <em>The Annals of Mathematical Statistics</em>, 169–192. <a href="https://www.jstor.org/stable/2236445">https://www.jstor.org/stable/2236445</a>
+</div>
+<div id="ref-kennedy1995" class="csl-entry">
+Kennedy, F. E. (1995). Randomization tests in econometrics. <em>Journal of Business &amp; Economic Statistics</em>, <em>13</em>(1), 85–94. <a href="https://www.jstor.org/stable/1392523">https://www.jstor.org/stable/1392523</a>
+</div>
+<div id="ref-lehmann2005" class="csl-entry">
+Lehmann, E. L., Romano, J. P., &amp; Casella, G. (2005). <em>Testing statistical hypotheses</em> (3rd ed.). Springer. <a href="https://www.springer.com/gp/book/9780387988641">https://www.springer.com/gp/book/9780387988641</a>
+</div>
+<div id="ref-lenth2001some" class="csl-entry">
+Lenth, R. V. (2001). Some practical guidelines for effective sample size determination. <em>The American Statistician</em>, <em>55</em>(3), 187–193. <a href="https://doi.org/10.1198/000313001317098149">https://doi.org/10.1198/000313001317098149</a>
+</div>
+<div id="ref-Massu2020" class="csl-entry">
+Massu, J., Kuik, R., &amp; Dul, J. (2020). <em>Simulations with <span>NCA</span></em>. Rotterdam School of Management, Erasmus University.
+</div>
+<div id="ref-simar2008" class="csl-entry">
+Simar, L., &amp; Wilson, P. W. (2008). Statistical inference in nonparametric frontier models: Recent developments and perspectives. In H. O. Fried, C. A. Knox Lovell, &amp; S. S. Schmidt (Eds.), <em>The measurement of productive efficiency and productivity growth</em>. Oxford University Press.
+</div>
+<div id="ref-szucs2017h1" class="csl-entry">
+Szucs, D., &amp; Ioannidis, J. P. (2017). Empirical assessment of published effect sizes and power in the recent cognitive neuroscience and psychology literature. <em><span>PloS</span> Biology</em>, <em>15</em>(3), e2000797. <a href="https://doi.org/10.1371/journal.pbio.2000797">https://doi.org/10.1371/journal.pbio.2000797</a>
+</div>
+<div id="ref-zhang2019post" class="csl-entry">
+Zhang, Y., Hedo, R., Rivera, A., Rull, R., Richardson, S., &amp; Tu, X. M. (2019). Post hoc power analysis: Is it an informative and meaningful analysis? <em>General Psychiatry</em>, <em>32</em>(4). <a href="https://doi.org/10.1136/gpsych-2019-100069">https://doi.org/10.1136/gpsych-2019-100069</a>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>Note that standard bootstrapping should not be used, as the test statistic in NCA—the necessity effect size—does not satisfy the ‘smoothness’ assumption required for valid bootstrapping. Using bootstrapping with the necessity effect size may produce biased p values,<a href="statistical.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="mathematical.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="miscellaneous.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": true,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "serif",
+    "size": 2
+  },
+  "edit": null,
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  },
+  "info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

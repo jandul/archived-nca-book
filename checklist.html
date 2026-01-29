@@ -1,0 +1,201 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+
+<style>
+.inline-table {
+  width: 1000px;
+}
+.dt-search {
+  display: none;
+}
+</style>
+
+<table class="inputs">
+    <tbody>
+        <tr>
+            <td><label for="publication">Publication section:</label></td>
+            <td>
+                <select name="publication" id="publication" multiple>
+                  <option value="All" selected>All</option>
+                  <option value="General">General</option>
+                  <option value="Introduction">Introduction</option>
+                  <option value="Theory">Theory</option>
+                  <option value="Methods - data">Methods - data</option>
+                  <option value="Methods - data analysis">Methods - data analysis</option>
+                  <option value="Results">Results</option>
+                  <option value="Discussion">Discussion</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="priority">Priority:</label></td>
+            <td>
+                <select name="priority" id="priority" multiple>
+                  <option value="All" selected>All</option>
+                  <option value="Must-have">Must-have</option>
+                  <option value="Should-have">Should-have</option>
+                  <option value="Nice-to-have">Nice-to-have</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table id="assesments" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Section</th>
+            <th>Priority</th>
+            <th>Item</th>
+            <th>Question</th>
+            <th>Recommendation</th>
+            <th>Further reading</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Paste below here -->
+
+
+<tr><td>General</td><td>Nice-to-have</td><td>1</td><td>Does the title (and abstract) reflect the necessity perspective/NCA?</td><td>If an important part of the publication and/or its conclusion are based on necessity logic and NCA, include in the title (and abstract) words that reflect necessity logic or NCA. </td><td>[Duck Duck Go](https://duckduckgo.com) ; <a href="https://duckduckgo.com">Duck Duck Go</a></td></tr>
+<tr><td>General</td><td>Must-have</td><td>2</td><td>When referring to necessity, are only words that correctly describe a necessity relationship used? </td><td>Refer to necessity only by using words that describe a necessity relationship, and avoid imprecise descriptions like X (cor)relates with Y, X is associated with Y, X affects Y, X causes Y, etc., or incorrect sufficiency-based descriptions like X produces Y, X drives Y, X increase/decreases Y, etc. </td><td>This book: Table \@ref(tab:wordsnecessity).</td></tr>
+
+
+
+<tr>
+<td>General</td>
+<td>Must-have</td>
+<td>3</td>
+<td>Is it explained that NCA is a method that consists of a specific causal logic and a related data analysis technique?</td>
+<td>Refer to NCA as a method that combines necessity causality (rather than common probabilistic or configurational causal logic) and a related data analysis technique (ensuring theory-method fit). It is not just a data analysis technique or statistical tool.  </td>
+<td>Article: @dul2024different </td>
+</tr>
+
+
+<tr><td>General</td><td>Must-have</td><td>4</td><td>Is a proper comparison made between necessity (causal) logic of NCA and the (causal) logic used in conventional (regression-based) approaches?  </td><td>When comparing necessity (causal) logic and NCA with causal interpretations of conventional (regression-based/statistical) approaches, use the term “probabilistic sufficiency” and not “sufficiency” for these approaches.  </td><td>Article: @dul2024different</td></tr>
+<tr><td>General</td><td>Must-have</td><td>5</td><td>Is a proper comparison made between the necessity logic of NCA and the logic used in QCA?  </td><td>When NCA is compared with QCA, use the term “sufficiency” when referring to the (configurational) sufficiency approach of QCA, and the term ‘necessity analysis of QCA’ (and not ‘NCA’) when referring to the standard necessity approach of QCA. Explain the differences between the necessity analysis of QCA and that of NCA. </td><td>Articles:@dul2016jbr; @vis2018analyzing;  @dul2022problematic; This book: Section \@ref(ncaqca)</td></tr>
+<tr><td>General</td><td>Must-have</td><td>6</td><td>Is NCA used as a different perspective on causality and data analysis, and not as a robustness or confirmation test for other methods (and vice versa)?</td><td>Use NCA as an approach for a different perspective on causality and data analysis, and not as a robustness or confirmation test for other methods (and vice versa). </td><td>Article: @dul2024different</td></tr>
+<tr><td>Introduction</td><td>Must-have</td><td>7</td><td>Are the primary and (possibly) secondary goals and contributions of applying NCA  explicitly stated? </td><td>State the primary and (possibly) secondairy goals and contributions  of the NCA applicatons explicitly, such as theoretical (explanatory) contribution: developing theory with data (by testing or building hypotheses); empirical (predictive) contribution: by analyzing data from a necessity perspective without additional theorizing; methodological contribution: application of NCA and its data analysis for the first time in a particular field, or with a specific aspect of NCA;  practical contribution: how NCA results can be used in practice. </td><td> </td></tr>
+<tr><td>Introduction</td><td>Should-have</td><td>8</td><td>For a theoretical contribution: is the (expected) added value explained?</td><td>Explain that the publication contributes to theory by testing (formulating necessity hypotheses before data analysis) or by exploration (formulating necessity hypotheses after data analysis). Note the difference between HARKING (unacceptable), SHARKING (unacceptable) and THARKING (acceptable) [See @hollenbeck2017harking]. Explain the added value of the theoretical contribution (see this book Section  \@ref(theoreticalcontribution)) and why the perspective of necessity is important in the substantive context of the publication. For example, explain (not only mention) the theoretical added value of necessity causality compared to probabilistic sufficiency causality [see @dul2024different]. Also explain how the publication contributes to the ‘conversation’ (see this book: Section  \@ref(theoreticalcontribution)) in the substantive field. For example, the conversation about reconsidering existing probabilistic sufficiency causal relationships in formal theories, in published studies, or in the current publication (when also a regression based-method is used); or the conversation about untested necessity claims made in formal theories (give citations), in published studies (give citations), or in the current publication. Explain if the publication contributes to a ‘pure necessity theory’ or an ‘embedded necessity theory’ [see @bokrantz2022building].</td><td>Articles: @bokrantz2022building; @dul2024different; @hollenbeck2017harking; This book: Section  \@ref(theoreticalcontribution) </td></tr>
+<tr><td>Introduction</td><td>Should-have</td><td>9</td><td>For an empirical contribution: is the(expected) added value explained?</td><td>Explain the added value of the empirical contribution (without theorizing) and why this is important in the substantive context of the publication. For example, explain the added value of a description, prediction, exploration, replication, reproduction, or generalization and why this is important for theory or practice in the field.</td><td>Articles: @shmueli2010explain; @kohler2023constructive </td></tr>
+<tr><td>Introduction</td><td>Should-have</td><td>10</td><td>For a methodological contribution: is the (expected) added value explained? </td><td>Explain the added value of the methodological contribution and why this is important in the substantive context of the publication.  For example, explain that the study applies NCA for the first time in this specific field and specify topics in the field that could profit from using the necessity causal perspective and NCA. Also it is possible that the study applies a specific feature of NCA for the first time, for example necessity mediation (e.g.,  \@ref(formulationnecessity)) or  sub-sampling [@allard2023research]. Both contributions would be called a ‘moderate’ methodological contribution according to @bergh2022constitutes.</td><td>Articles: @allard2023research; @bergh2022constitutes; This book: Section  \@ref(formulationnecessity) </td></tr>
+<tr><td>Introduction</td><td>Should-have</td><td>11</td><td>For a practical contribution: is the (expected) added value explained?</td><td>Explain the added value of the practical contribution and why this is important in the substantive context of the publication. For example, explain the potential specific practical impact of an accepted hypothesis (practitioners must act on bottlenecks to be effective and avoid waste, no compensation possible) or of a rejected  hypothesis (compensation is possible). </td><td> </td></tr>
+
+<tr>
+<td>Theory </td>
+<td>Must-have</td>
+<td>12</td>
+<td>Is the hypothesized necessity relationship explicitly formulated as: ‘X is necessary for Y’?</td>
+<td>Formulate the necessity relationship explicitly as a necessary condition hypothesis: ‘X is necessary for Y’. For hypothesis testing research this is done before data analysis; for hypothesis building/exploration research this is done after data analysis when a necessity relationship is found. When multiple necessary conditions are investigated, formulate separate hypotheses rather than combined hypotheses because one could be rejected and the other one not and because each hypothesis needs a separate theoretical justification. </td>
+<td>This book: Section  \@ref(formulationnecessity) </td>
+</tr>
+
+<tr><td>Theory </td><td>Should-have</td><td>13</td><td>Is the ‘direction’ of the necessity relationship specified? </td><td>If the ‘direction’ of the necessity relationship differs from presence/high level of both X is necessary for presence/high level of Y), formulate the ‘direction’ of necessity in the necessary condition hypothesis by adding presence/high level or absence/low level of X and Y, where appropriate. </td><td>This book: Section  \@ref(formulationnecessity) </td></tr>
+<tr><td>Theory</td><td>Nice-to-have</td><td>14</td><td>Is a relevant ‘nc’ symbol added above the arrow in a figure that represents the XY necessity relationsip?  </td><td>In a figure that represents the (expected) XY necessity relationship by an arrow, add the  relevant symbol (+nc+, or  -nc+ or -nc- or +nc-) near the  arrow.</td><td>This book: Section  \@ref(formulationnecessity) </td></tr>
+<tr><td>Theory </td><td>Nice-to-have</td><td>15</td><td>Is the focal unit of the necessity theory specified?</td><td>Clearly specify the focal unit of the necessity theory (is the necessity theory about person, team, organization, project, dyad, country, etc.).</td><td>This book: Section  \@ref(formulationnecessity) </td></tr>
+<tr><td>Theory </td><td>Should-have</td><td>16</td><td>Is the theoretical domain of the necessity theory specified?  </td><td>Specify the theoretical domain of the necessity theory where you claim/expect that the necessity theory will hold, given its boundary conditions. Note that the theoretical domain is usually larger than a population from which the sample is drawn.</td><td>This book: Section  \@ref(formulationnecessity) </td></tr>
+<tr><td>Theory </td><td>Should-have</td><td>17</td><td>Is the existing literature about the (probabilistic) relationship between X and Y re-considered from a necessity causal perspective</td><td>Consider the existing literature describing probabilistic relationships between your variables X and Y of the necessity hypothesis from the perspective of necessity causality (rather than referring to, describing or summarizing probabilistic findings/ideas). Where possible include quotes in the literature that hint to necessity logic. Avoid using sufficiency/probabilistic causal logic for making a justification for necessity causal logic. </td><td> </td></tr>
+<tr><td>Theory </td><td>Must-have</td><td>18</td><td>Is it convincingly explained why X is necessary for Y using necessity logic </td><td>Explain why X is necessary for Y using necessity logic (why cases with the outcome will almost always have the condition (if Y then X); why cases without the condition rarely have the outcome (if no X then no Y); why the absence of the condition cannot be compensated or substituted by another factor. Consider doing and reporting the results of a thought experiment (searching for exceptions) in the development of a necessity hypothesis: possible re-specification of the condition, the outcome or the  theoretical domain of the hypothesis.</td><td>This book: Section  \@ref(justificationnecessity) </td></tr>
+<tr><td>Theory </td><td>Nice-to-have</td><td>19</td><td>Is the temporal order of X and Y specified?</td><td>Include a plausible explanation of the temporal order (first X then Y) in the description of why the necessity causal relationship exists. If the data would support ‘X is necessary for Y’, why is the alternative explanation, ‘Y is sufficient for X’, less plausible?  </td><td> </td></tr>
+<tr><td>Theory </td><td>Nice-to-have</td><td>20</td><td>Is it specified if rare exceptions are allowed? </td><td>Explain in the necessity theory description if and why rare exceptions are allowed (typicality perspective of necessity: ‘almost always necessary’) or not (deterministic perspective on necessity). </td><td>Article: @dul2024different</td></tr>
+<tr><td>Methods -  data</td><td>Nice-to-have</td><td>21</td><td>Is the research design specified (experiment, large N observational study, small N observational study</td><td>Specify the research design for getting data. This can be the experiment (where X is manipulated and Y is observed), the large N observational study (where X and Y are observed) and the small N cases study (where X and Y are observed). </td><td>This book: Sections  \@ref(experiment), \@ref(largen), \@ref(smalln)  </td></tr>
+<tr><td>Methods -  data</td><td>Should-have</td><td>22</td><td>Are cases (or a sample of cases) only selected from (a part of) the theoretical domain?</td><td>Explain that the selected cases or the selected/obtained sample consists of cases that are from (a part of) the specified theoretical domain (where the necessity hypothesis is claimed/expected to be true) to avoid sampling error (cases outside the theoretical domain).</td><td> </td></tr>
+<tr><td>Methods -  data</td><td>Nice-to-have</td><td>23</td><td>For large N quantitative research: is the type of sampling specified? </td><td>In large N quantitative research: Specify the population in the theoretical domain and the type of sampling from this population. If probability sampling is not applied, specify the type of sampling (e.g., convenience sampling) and its limitations for statistical generalization to the population.</td><td>This book: Section  \@ref(largen) </td></tr>
+<tr><td>Methods -  data</td><td>Nice-to-have</td><td>24</td><td>For large N quantitative research: are the results of a pre-study power analysis reported?</td><td>In large N quantitative research: Report if a pre-study power analysis was done to estimate the required sample size for finding necessity if it exists. If not, explain why not. Note that doing a post-hoc power analysis makes no sense for the present study but could inform future studies only.</td><td> Article:  @dul2024how; This book: Section  \@ref(power) </td></tr>
+<tr><td>Methods -  data</td><td>Must-have</td><td>25</td><td>For simulation studies: are bounded X and Y variables used for obtaining artificial data? </td><td>If data are generated by simulation, ensure that the variables X and Y are bounded (have minimum and maximum values). For example, sampling from uniform or truncated normal distributed data are eligible, but not sampling from normal distributed data.</td><td>This book: Section \@ref(requirementssim)</td></tr>
+<tr><td>Methods -  data</td><td>Nice-to-have</td><td>26</td><td>For small N qualitative research: is the type of case selection specified? </td><td>For small N qualitative research: Specify the purposively selection of cases (based on presence of Y or absence of X). If a different type of purposive cases selection, random case selection, or convenience case selection is used, specify the type of case selection and its limitations.</td><td> Article:  @dul2024how; This book: Section  \@ref(smalln) </td></tr>
+<tr><td>Methods -  data</td><td>Should-have</td><td>27</td><td>Are valid measures used for scoring of X and Y? </td><td>Ensure that scores for X and Y represent levels of the condition and the outcome as defined in the necessity hypothesis (valid measures).</td><td>This book: Sections  \@ref(quantitative), \@ref(qualitative), \@ref(longitudinal), \@ref(setmembership)  </td></tr>
+<tr><td>Methods -  data</td><td>Should-have</td><td>28</td><td>Are levels of X and Y practically interpretable?</td><td>Ensure that scores for X and Y that are practically interpretable such that ‘a certain level of X is necessary for a certain level of Y’ has a practical meaning. For example, when Likert scales are used with meaningful anchor points, unstandardized scores for levels of X and Y are better interpretable than standardized scores.</td><td>This book: Sections \@ref(ncaregression); @richter2023apply</td></tr>
+<tr><td>Methods -  data</td><td>Must-have</td><td>29</td><td>Are non-linear data transformations avoided or explained? </td><td>Do not conduct non-linear data transformation (e.g., log-transformation, logistic transformation) unless the transformed X and Y represent the X and Y in the hypothesis. NCA only allows linear data transformation such as min-max transformation, normalization or percentage transformation.  </td><td>This book: Section \@ref(transformation)</td></tr>
+<tr><td>Methods - data analysis</td><td>Should-have</td><td>30</td><td>If applicable: is the use of NCA justified when NCA is used as addition or alternative for QCA’s necessity analysis?</td><td>Justify (by explaining the added values) the use of NCA for testing necessity in the context of QCA (e.g., necessity in degree versus only necessity in kind, applying a necessity analysis on raw data, and why is this valuable).</td><td>Articles:@dul2016jbr; @vis2018analyzing; @dul2022problematic; This book: Section \@ref(ncaqca)</td></tr>
+<tr><td>Methods - data analysis</td><td>Nice-to-have</td><td>31</td><td>Is a short description of NCA’s data analysis approach provided? </td><td>Provide to readers who are unfamiliar with NCA’s data analysis approach a short description of the NCA’s main elements ceiling line, empty space, scope, effect size) and refer to references for further reading.</td><td>This book: Section \@ref(summary) ; Appendix in @dul2024different</td></tr>
+<tr><td>Methods - data analysis</td><td>Must-have</td><td>32</td><td>Is the selected primary ceiling line specified and justified?</td><td>Specify and justify the primary selection of the ceiling line (e.g., CE-FDH when X or Y is discrete or when the ceiling line is expected to be non-linear; CR-FDH when X and Y are continuous or when the ceiling line is expected to be straight). Explain if, after visual inspection of the XY scatterplot, the choice of ceiling line was reconsidered. </td><td>This book: Sections \@ref(selectioneilingline), \@ref(choiceceiling)</td></tr>
+<tr><td>Methods - data analysis</td><td>Must-have</td><td>33</td><td>Is the threshold value for the effect size specified and justified?</td><td>Specify and justify the selection of the threshold value for necessity effect size for identifying necessity in kind. This threshold depends on the specific context of the study. If no argument is available for a specific value, a common benchmark value may be used (d = 0.10). </td><td>Article: @dul2016orm; This book: Sections \@ref(inkind), \@ref(choiceeffectsize)</td></tr>
+<tr><td>Methods - data analysis</td><td>Must-have</td><td>34</td><td>Is NCA’s statistical test correctly described, and is the threshold p value specified?</td><td>Refer to NCA’s statistical test as a permutation test (avoid incorrect descriptions like bootstrapping, (Monte Carlo) simulation, robustness check, or t-test). Specify the number of permutations that were selected from permutation distribution (commonly 10,000), and the threshold p-value that is selected (commonly 0.05).</td><td>Article: @dul2020orm; This book: Section \@ref(permutationtest)</td></tr>
+<tr><td>Methods - data analysis</td><td>Nice-to-have</td><td>35</td><td>When several conditions are analyzed, is the name ‘multiple NCA’ rather than ‘multivariate NCA’ used?</td><td>When several conditions are analyzed, use the name ‘multiple NCA’ rather than ‘multivariate NCA’.</td><td>This book: Section \@ref(multiplenca)</td></tr>
+<tr><td>Methods - data analysis</td><td>Should-have</td><td>36</td><td>Is the scope correctly described?</td><td>Make sure that the scope is correctly described as the area bounded by the minimum and maximum values of X and Y (the total square).</td><td>This book: Section \@ref(effectsize)</td></tr>
+<tr><td>Methods - data analysis</td><td>Should-have</td><td>37</td><td>Is the feasible area correctly described?</td><td>Make sure that the feasible area is described as the area under the ceiling where points/cases are possible. Avoid names such as “full area”.</td><td>This book: Section \@ref(formalexpression)</td></tr>
+<tr><td>Methods - data analysis</td><td>Nice-to-have</td><td>38</td><td>Is the selected scope specified and justified (empirical, theoretical)?</td><td>Specify and justify the selection of the scope. By default, the empirical scope can be used, but reasons may exist to select a theoretical scope (e.g. representing the minimum and maximum values of the scales that are used for scoring X and Y.</td><td>This book: Section \@ref(effectsize)</td></tr>
+<tr><td>Methods - data analysis</td><td>Nice-to-have</td><td>39</td><td>Is the software that is used for conducting NCA specified?</td><td>Specify which software and which version of the software was used to conduct NCA.</td><td>This book: Section \@ref(software)</td></tr>
+<tr><td>Methods - data analysis</td><td>Nice-to-have</td><td>40</td><td>Is it reported if a visual inspection of XY plots was done?</td><td>Report that a visual inspection of XY plots was done for all hypothesized/explored necessity relations regarding (1) the expected empty corner given the hypothesis, (2) what is the best ceiling line (e.g. irregular or straight border) and (3) if potential outliers exist (ceiling and scope outliers). If a visual inspection was not done explain why not.</td><td>This book: Section \@ref(visualinspection)</td></tr>
+<tr><td>Methods - data analysis</td><td>Should-have</td><td>41</td><td>Is it reported if an NCA robustness check was done? </td><td>Report that a robustness check was done to evaluate the sensitivity of the results for choice of ceiling line, removal of outliers, and other choices. If a robustness check was not done explain why not.</td><td>This book: Section \@ref(robustnesschecks)</td></tr>
+<tr><td>Results</td><td>Must-have</td><td>42</td><td>Are XY tables or XY plots of all tested/explored relationships shown?</td><td>Show in the main text or an appendix the XY tables or XY plots of all tested/explored relationships such that the reader can inspect the patterns.</td><td>This book: Section \@ref(visualinspection)</td></tr>
+<tr><td>Results</td><td>Should-have</td><td>43</td><td>Is only the primary ceiling line that is used for the primary analysis shown in the XY plot?</td><td>Show only the primary selected ceiling line in the XY plot that is used for the main analysis for drawing a conclusion about the necessity relationship.</td><td> </td></tr>
+<tr><td>Results</td><td>Nice-to-have</td><td>44</td><td>Are the conclusions from visual inspection of the XY plots summarized? </td><td>Summarize the conclusions from the visual inspection of the XY plot reported, for example, regarding the expected empty corner given the hypothesis, the selected ceiling line (e.g., irregular or straight border) and potential outliers (ceiling outliers and scope outliers).</td><td>This book: Section \@ref(visualinspection)</td></tr>
+<tr><td>Results</td><td>Must-have</td><td>45</td><td>For large N quantitative research: is the effect size reported?</td><td>Report the estimated effect size with two decimal places (e.g., d = 0.09 or d = 0.11) , ensuring that the two digits have meaningful information about the precision of the effect size (e.g., for making a comparison with a threshold, e.g., d = 0.10 possible), and to avoid suggesting an unwarranted level of accuracy.</td><td> </td></tr>
+<tr><td>Results</td><td>Must-have</td><td>46</td><td>For large N quantitative research: is the p value reported?</td><td>Report the estimated p value with three decimal places (e.g., p = 0.049 or p =0.051), ensuring that the three digits have meaningful information about the precision of the p value (e.g. for making a comparison with a threshold, e.g., p = 0.05 possible), and to avoid suggesting an unwarranted level of accuracy. Avoid using only ‘stars’ for the p value.</td><td> </td></tr>
+<tr><td>Results</td><td>Must-have</td><td>47</td><td>Is the conclusion about necessity (‘in kind’) based on three criteria: theoretical justification, effect size, and p value?</td><td>Conclude about necessity (‘in kind’) using three criteria: 1. theoretical justification (the hypothesis); 2. Effect size large enough (above the selected threshold value), p value small enough (below the selected threshold value).</td><td>This book: Section \@ref(summarybottleneck)</td></tr>
+<tr><td>Results</td><td>Should-have</td><td>48</td><td>Are the results of the robustness checks summarized? </td><td>Summarize the results of the robustness checks: is the conclusion about necessity sensitive for choices like ceiling line selection, selection of effect size threshold, selection of p value threshold, choice of scope (theoretical, empirical), and outliers (ceiling outliers and scope outliers), and conclude if the results are robust or fragile.</td><td>This book: Section \@ref(robustnesschecks)</td></tr>
+<tr><td>Results</td><td>Should-have</td><td>49</td><td>Is the bottleneck table reported when multiple necessary conditions are not rejected?</td><td>Report the bottleneck table when necessary conditions are not rejected. The bottleneck table is particularly useful when multiple necessary conditions are not rejected. </td><td>This book: Section \@ref(bottleneck)</td></tr>
+<tr><td>Results</td><td>Nice-to-have</td><td>50</td><td>If applicable: is the meaning of "NN" and "NA" in the bottleneck table explained?</td><td>Explain the meaning of "NN" and "NA" in the bottleneck table.</td><td>This book: Section \@ref(bottleneck)</td></tr>
+<tr><td>Results</td><td>Should-have</td><td>51</td><td>Is the bottleneck analysis done with non-default values in the bottleneck table?</td><td>Report the bottleneck analysis (also) with type of values for X and Y other than the default of ‘percentage of range’: (e.g., actual values, percentiles). In particular the actual values of Y and percentile values of X might be valuable.</td><td>This book: Section \@ref(bottleneck)</td></tr>
+<tr><td>Discussion</td><td>Should-have</td><td>52</td><td>Is an interpretation given of the results of the bottleneck analysis in terms of necessity in degree?</td><td>Report an interpretation of necessity in degree using the results of the bottleneck analysis. For example, explain what level of X is necessary for what level of Y, for relevant levels of X and Y.</td><td>This book: Section \@ref(bottleneck)</td></tr>
+<tr><td>Discussion</td><td>Must-have</td><td>53</td><td>If applicable: is it explained how the results of NCA and of a regression-based analysis can complement each other?</td><td>When NCA is used in combination with a regression-based analysis, report how the concrete results of NCA and of the regression-based analysis complement each other.</td><td>This book: Section \@ref(ncaregression)</td></tr>
+<tr><td>Discussion</td><td>Must-have</td><td>54</td><td>If applicable: is it explained how the results of NCA and of QCA can complement each other?</td><td>When NCA is used in combination with QCA, report how the concrete results of NCA and of QCA complement each other. For example, include missing NCA’s necessary conditions in QCA’s sufficiency solution.</td><td>This book: Section \@ref(ncaqca)</td></tr>
+<tr><td>Discussion</td><td>Should-have</td><td>55</td><td>Are the results of using NCA summarized in terms of which necessary conditions were tested/explored, and which were (not) rejected?</td><td>Summarize the results of using NCA in terms of which necessary conditions were tested/explored, and which were (not) rejected.</td><td> </td></tr>
+<tr><td>Discussion</td><td>Must-have</td><td>56</td><td>For a theoretical contribution (see introduction): is it discussed if the added value has been realized and what key insights were gained?</td><td>For a theoretical contribution (see introduction), discuss if the added value has been realized and what key insights were gained.</td><td> </td></tr>
+<tr><td>Discussion</td><td>Should-have</td><td>57</td><td>For an empirical contribution (see introduction): is it discussed if the added value has been realized and what key insights were gained?</td><td>For the empirical contribution (see introduction), discuss if the added value has been realized and what key insights were gained.</td><td> </td></tr>
+<tr><td>Discussion</td><td>Should-have</td><td>58</td><td>For a methodological contribution (see introduction): is it discussed if the added value has been realized and what key insights were gained?</td><td>For the methodological contribution (see introduction), discuss if the added value has been realized and what key insights were gained.</td><td> </td></tr>
+<tr><td>Discussion</td><td>Should-have</td><td>59</td><td>For a practical contribution (see introduction): is it discussed if the added value has been realized and what key insights were gained?</td><td>For the practical contribution (see introduction), discuss if the added value has been realized and what key insights were gained. For example, explain the potential specific practical impact of an accepted hypothesis (e.g., practitioners must act on bottlenecks to be effective and avoid wasted efforts, as they cannot be compensated for) or of a rejected hypothesis (compensation possible). Explain the how the results can inform about how to act on a group of cases as well on individual cases, for example based on the bottleneck analysis. Give examples of cases in the scatter plot.</td><td> </td></tr>
+<tr><td>Discussion</td><td>Should-have</td><td>60</td><td>Are limitations of NCA mentioned?</td><td>Mention general limitations of NCA (e.g., only focus on necessity; potential sensitivity to outliers), and specific limitations of applying NCA in the current study. </td><td> </td></tr>
+<tr><td>Discussion</td><td>Should-have</td><td>61</td><td>Are potential future research directions with NCA discussed?</td><td>Discuss potential future research directions with NCA. Note (also when the results are robust) that always more research is needed to allow generalization of the results to the population and other parts of the theoretical domain. (e.g., which replications must be done?; which new topics could be addressed, etc.).</td><td>Article: @kohler2023constructive </td></tr>
+
+
+
+        <!-- Paste above here -->
+    </tbody>
+</table>
+
+<script>
+  const publication = document.querySelector('#publication');
+  const priority = document.querySelector('#priority');
+  const table = new DataTable('#assesments', {info: false, order: [[2, 'asc']]});
+  
+  let publications = getSelectValues(publication);
+  let priorities = getSelectValues(priority);
+ 
+  table.search.fixed('range', function (searchStr, data, index) {
+    if (JSON.stringify(publications) !== JSON.stringify(['All'])) {
+        if (!publications.includes(data[0])) {
+          return false;
+        }
+    }
+    
+    if (JSON.stringify(priorities) !== JSON.stringify(['All'])) {
+        if (!priorities.includes(data[1])) {
+          return false;
+        }
+    }
+    
+    return true;
+  });
+ 
+  publication.addEventListener('change', function () {
+      publications = getSelectValues(publication);
+      table.order([[2, 'asc']]); // Enforce sorting by Item number
+      table.draw();
+  });
+  priority.addEventListener('change', function () {
+      priorities = getSelectValues(priority);
+      table.order([[2, 'asc']]); // Enforce sorting by Item number
+      table.draw();
+  });
+  
+  function getSelectValues(select) {
+    var result = [];
+    var options = select && select.options;
+    for (let i=0; i < options.length; i++) {
+      let opt = options[i];
+      if (opt.selected) {
+        result.push(opt.value || opt.text);
+      }
+    }
+    
+    // User selected 'All' and other options, remove 'All'
+    if (result.includes('All') && result.length > 1) {
+      result.shift();
+      select.getElementsByTagName('option')[0].selected = '';
+    }
+    
+    return result;
+  }
+</script>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 NCA’s mathematical backgrounds | Advances in Necessary Condition Analysis</title>
+  <meta name="description" content="Necessary Condition Analysis (NCA) is an emerging research method that is based on necessity logic. If a condition is not present, the outcome will not exist. Other factors cannot compensate for its absence. This is different from common causal reasoning where factors produce the outcome and can be compensated. The book intends to support users, readers and reviewers of NCA to better understand the method." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 NCA’s mathematical backgrounds | Advances in Necessary Condition Analysis" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://bookdown.org/ncabook/advanced_nca2//Image/cover2b.png" />
+  <meta property="og:description" content="Necessary Condition Analysis (NCA) is an emerging research method that is based on necessity logic. If a condition is not present, the outcome will not exist. Other factors cannot compensate for its absence. This is different from common causal reasoning where factors produce the outcome and can be compensated. The book intends to support users, readers and reviewers of NCA to better understand the method." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 NCA’s mathematical backgrounds | Advances in Necessary Condition Analysis" />
+  
+  <meta name="twitter:description" content="Necessary Condition Analysis (NCA) is an emerging research method that is based on necessity logic. If a condition is not present, the outcome will not exist. Other factors cannot compensate for its absence. This is different from common causal reasoning where factors produce the outcome and can be compensated. The book intends to support users, readers and reviewers of NCA to better understand the method." />
+  <meta name="twitter:image" content="https://bookdown.org/ncabook/advanced_nca2//Image/cover2b.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="dataanalysis.html"/>
+<link rel="next" href="statistical.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.33/datatables.js"></script>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+|<img src="logoNCA.png" width="270" height="270">
+<li><a href="./">Advances in NCA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>1</b> Summary of NCA</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="summary.html"><a href="summary.html#standalone"><i class="fa fa-check"></i><b>1.1</b> NCA as stand-alone method</a></li>
+<li class="chapter" data-level="1.2" data-path="summary.html"><a href="summary.html#complementary"><i class="fa fa-check"></i><b>1.2</b> NCA as a complementary method</a></li>
+<li class="chapter" data-level="1.3" data-path="summary.html"><a href="summary.html#formulate"><i class="fa fa-check"></i><b>1.3</b> Formulate the necessary condition hypothesis</a></li>
+<li class="chapter" data-level="1.4" data-path="summary.html"><a href="summary.html#collect"><i class="fa fa-check"></i><b>1.4</b> Collect the data</a></li>
+<li class="chapter" data-level="1.5" data-path="summary.html"><a href="summary.html#dataanalysissummary"><i class="fa fa-check"></i><b>1.5</b> Analyse the data</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="summary.html"><a href="summary.html#prepare-the-analysis"><i class="fa fa-check"></i><b>1.5.1</b> Prepare the analysis</a></li>
+<li class="chapter" data-level="1.5.2" data-path="summary.html"><a href="summary.html#load-the-data"><i class="fa fa-check"></i><b>1.5.2</b> Load the data</a></li>
+<li class="chapter" data-level="1.5.3" data-path="summary.html"><a href="summary.html#estimate-effect-size-and-the-p-value-with-nca_analysis"><i class="fa fa-check"></i><b>1.5.3</b> Estimate effect size and the p value with <code>nca_analysis</code></a></li>
+<li class="chapter" data-level="1.5.4" data-path="summary.html"><a href="summary.html#create-output-with-nca_output"><i class="fa fa-check"></i><b>1.5.4</b> Create output with <code>nca_output</code></a></li>
+<li class="chapter" data-level="1.5.5" data-path="summary.html"><a href="summary.html#summarybottleneck"><i class="fa fa-check"></i><b>1.5.5</b> Perform the bottleneck analysis with <code>nca_output</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="summary.html"><a href="summary.html#report"><i class="fa fa-check"></i><b>1.6</b> Report the results</a></li>
+<li class="chapter" data-level="1.7" data-path="summary.html"><a href="summary.html#guidelines"><i class="fa fa-check"></i><b>1.7</b> Basic guidelines for good NCA practice</a></li>
+<li class="chapter" data-level="1.8" data-path="summary.html"><a href="summary.html#review"><i class="fa fa-check"></i><b>1.8</b> SCoRe-NCA. A checklist for reviewing an NCA publication</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="theory.html"><a href="theory.html"><i class="fa fa-check"></i><b>2</b> Theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="theory.html"><a href="theory.html#partstheory"><i class="fa fa-check"></i><b>2.1</b> The four parts of a theory</a></li>
+<li class="chapter" data-level="2.2" data-path="theory.html"><a href="theory.html#formulationnecessity"><i class="fa fa-check"></i><b>2.2</b> Formulation of necessity hypotheses</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="theory.html"><a href="theory.html#sources"><i class="fa fa-check"></i><b>2.2.1</b> Sources with potential necessary conditions</a></li>
+<li class="chapter" data-level="2.2.2" data-path="theory.html"><a href="theory.html#thoughtexperiment"><i class="fa fa-check"></i><b>2.2.2</b> Thought experiment</a></li>
+<li class="chapter" data-level="2.2.3" data-path="theory.html"><a href="theory.html#direction"><i class="fa fa-check"></i><b>2.2.3</b> Direction of necessity</a></li>
+<li class="chapter" data-level="2.2.4" data-path="theory.html"><a href="theory.html#relatedmultiple"><i class="fa fa-check"></i><b>2.2.4</b> Related multiple necessary conditions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="theory.html"><a href="theory.html#justificationnecessity"><i class="fa fa-check"></i><b>2.3</b> Justification of necessity hypotheses</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="theory.html"><a href="theory.html#temporalorder"><i class="fa fa-check"></i><b>2.3.1</b> Temporal order</a></li>
+<li class="chapter" data-level="2.3.2" data-path="theory.html"><a href="theory.html#causalmechanism"><i class="fa fa-check"></i><b>2.3.2</b> Causal mechinism</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="theory.html"><a href="theory.html#theoreticalcontribution"><i class="fa fa-check"></i><b>2.4</b> Theoretical contribution</a></li>
+<li class="chapter" data-level="2.5" data-path="theory.html"><a href="theory.html#theorytypes"><i class="fa fa-check"></i><b>2.5</b> Types of necessity theories</a></li>
+<li class="chapter" data-level="2.6" data-path="theory.html"><a href="theory.html#morecorners"><i class="fa fa-check"></i><b>2.6</b> Two empty corners</a></li>
+<li class="chapter" data-level="2.7" data-path="theory.html"><a href="theory.html#necessarybutnotsufficient"><i class="fa fa-check"></i><b>2.7</b> The meaning of ‘necessary but not sufficient’</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Data</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#transformation"><i class="fa fa-check"></i><b>3.1</b> Data transformation</a></li>
+<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#experiment"><i class="fa fa-check"></i><b>3.2</b> Experiment</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data.html"><a href="data.html#the-traditional-experiment"><i class="fa fa-check"></i><b>3.2.1</b> The traditional experiment</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data.html"><a href="data.html#necessityexperiment"><i class="fa fa-check"></i><b>3.2.2</b> The necessity experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#samplesize"><i class="fa fa-check"></i><b>3.3</b> Sample size</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data.html"><a href="data.html#smalln"><i class="fa fa-check"></i><b>3.3.1</b> Small N studies</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data.html"><a href="data.html#largen"><i class="fa fa-check"></i><b>3.3.2</b> Large N studies</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data.html"><a href="data.html#quantitative"><i class="fa fa-check"></i><b>3.4</b> Quantitative data</a></li>
+<li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#qualitative"><i class="fa fa-check"></i><b>3.5</b> Qualitative data</a></li>
+<li class="chapter" data-level="3.6" data-path="data.html"><a href="data.html#longitudinal"><i class="fa fa-check"></i><b>3.6</b> Longitudinal, panel and time-series data</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data.html"><a href="data.html#pooled"><i class="fa fa-check"></i><b>3.6.1</b> NCA with pooled data</a></li>
+<li class="chapter" data-level="3.6.2" data-path="data.html"><a href="data.html#nca-for-describing-time-trends"><i class="fa fa-check"></i><b>3.6.2</b> NCA for describing time trends</a></li>
+<li class="chapter" data-level="3.6.3" data-path="data.html"><a href="data.html#interpretation"><i class="fa fa-check"></i><b>3.6.3</b> Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="data.html"><a href="data.html#setmembership"><i class="fa fa-check"></i><b>3.7</b> Set membership data</a></li>
+<li class="chapter" data-level="3.8" data-path="data.html"><a href="data.html#outliers"><i class="fa fa-check"></i><b>3.8</b> Outliers</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="data.html"><a href="data.html#outliertypes"><i class="fa fa-check"></i><b>3.8.1</b> Outlier types</a></li>
+<li class="chapter" data-level="3.8.2" data-path="data.html"><a href="data.html#outlieridentification"><i class="fa fa-check"></i><b>3.8.2</b> Outlier identification</a></li>
+<li class="chapter" data-level="3.8.3" data-path="data.html"><a href="data.html#outlierdecisionmaking"><i class="fa fa-check"></i><b>3.8.3</b> Outlier decision approach</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="dataanalysis.html"><a href="dataanalysis.html"><i class="fa fa-check"></i><b>4</b> Data analysis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="dataanalysis.html"><a href="dataanalysis.html#visualinspection"><i class="fa fa-check"></i><b>4.1</b> Visual inspection of the scatter plot</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="dataanalysis.html"><a href="dataanalysis.html#is-the-expected-corner-empty"><i class="fa fa-check"></i><b>4.1.1</b> Is the expected corner empty?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="dataanalysis.html"><a href="dataanalysis.html#selectioneilingline"><i class="fa fa-check"></i><b>4.1.2</b> What is an appropriate ceiling line?</a></li>
+<li class="chapter" data-level="4.1.3" data-path="dataanalysis.html"><a href="dataanalysis.html#what-are-potential-outliers"><i class="fa fa-check"></i><b>4.1.3</b> What are potential outliers?</a></li>
+<li class="chapter" data-level="4.1.4" data-path="dataanalysis.html"><a href="dataanalysis.html#what-is-the-data-pattern-in-the-rest-of-plot"><i class="fa fa-check"></i><b>4.1.4</b> What is the data pattern in the rest of plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="dataanalysis.html"><a href="dataanalysis.html#inkind"><i class="fa fa-check"></i><b>4.2</b> The ‘empty space: Necessary condition ’in kind’</a></li>
+<li class="chapter" data-level="4.3" data-path="dataanalysis.html"><a href="dataanalysis.html#bottleneck"><i class="fa fa-check"></i><b>4.3</b> The bottleneck table: Necessary conditions ‘in degree’</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="dataanalysis.html"><a href="dataanalysis.html#percentagerange"><i class="fa fa-check"></i><b>4.3.1</b> Levels expressed as percentage of range</a></li>
+<li class="chapter" data-level="4.3.2" data-path="dataanalysis.html"><a href="dataanalysis.html#actual"><i class="fa fa-check"></i><b>4.3.2</b> Levels expressed as actual values</a></li>
+<li class="chapter" data-level="4.3.3" data-path="dataanalysis.html"><a href="dataanalysis.html#percentile"><i class="fa fa-check"></i><b>4.3.3</b> Levels expressed as percentiles</a></li>
+<li class="chapter" data-level="4.3.4" data-path="dataanalysis.html"><a href="dataanalysis.html#percentagemax"><i class="fa fa-check"></i><b>4.3.4</b> Levels expressed as percentage of maximum</a></li>
+<li class="chapter" data-level="4.3.5" data-path="dataanalysis.html"><a href="dataanalysis.html#bottleneckothercorners"><i class="fa fa-check"></i><b>4.3.5</b> Interpretation of the bottleneck table with other corners</a></li>
+<li class="chapter" data-level="4.3.6" data-path="dataanalysis.html"><a href="dataanalysis.html#na"><i class="fa fa-check"></i><b>4.3.6</b> NN and NA in the bottleneck table</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="dataanalysis.html"><a href="dataanalysis.html#robustnesschecks"><i class="fa fa-check"></i><b>4.4</b> Robustness checks</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="dataanalysis.html"><a href="dataanalysis.html#choiceceiling"><i class="fa fa-check"></i><b>4.4.1</b> Choice of ceiling line</a></li>
+<li class="chapter" data-level="4.4.2" data-path="dataanalysis.html"><a href="dataanalysis.html#choiceeffectsize"><i class="fa fa-check"></i><b>4.4.2</b> Choice of the threshold level of the effect size</a></li>
+<li class="chapter" data-level="4.4.3" data-path="dataanalysis.html"><a href="dataanalysis.html#choicepvalue"><i class="fa fa-check"></i><b>4.4.3</b> Choice of the threshold level of the p value</a></li>
+<li class="chapter" data-level="4.4.4" data-path="dataanalysis.html"><a href="dataanalysis.html#choicescope"><i class="fa fa-check"></i><b>4.4.4</b> Choice of the scope</a></li>
+<li class="chapter" data-level="4.4.5" data-path="dataanalysis.html"><a href="dataanalysis.html#choiceoutlier"><i class="fa fa-check"></i><b>4.4.5</b> Choice of outlier removal</a></li>
+<li class="chapter" data-level="4.4.6" data-path="dataanalysis.html"><a href="dataanalysis.html#choice-of-target-outcome"><i class="fa fa-check"></i><b>4.4.6</b> Choice of target outcome</a></li>
+<li class="chapter" data-level="4.4.7" data-path="dataanalysis.html"><a href="dataanalysis.html#robustnesstable"><i class="fa fa-check"></i><b>4.4.7</b> Robustness table</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="dataanalysis.html"><a href="dataanalysis.html#ncaregression"><i class="fa fa-check"></i><b>4.5</b> Combining NCA with regression analysis</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="dataanalysis.html"><a href="dataanalysis.html#introduction"><i class="fa fa-check"></i><b>4.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.5.2" data-path="dataanalysis.html"><a href="dataanalysis.html#logic-and-theory"><i class="fa fa-check"></i><b>4.5.2</b> Logic and theory</a></li>
+<li class="chapter" data-level="4.5.3" data-path="dataanalysis.html"><a href="dataanalysis.html#data-analysis"><i class="fa fa-check"></i><b>4.5.3</b> Data analysis</a></li>
+<li class="chapter" data-level="4.5.4" data-path="dataanalysis.html"><a href="dataanalysis.html#how-to-combine-nca-and-regression"><i class="fa fa-check"></i><b>4.5.4</b> How to combine NCA and regression</a></li>
+<li class="chapter" data-level="4.5.5" data-path="dataanalysis.html"><a href="dataanalysis.html#what-is-the-same-in-nca-and-regression"><i class="fa fa-check"></i><b>4.5.5</b> What is the same in NCA and regression?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="dataanalysis.html"><a href="dataanalysis.html#ncaplssem"><i class="fa fa-check"></i><b>4.6</b> Combining NCA with (PLS-)SEM</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="dataanalysis.html"><a href="dataanalysis.html#stepsncasem"><i class="fa fa-check"></i><b>4.6.1</b> Steps for conducting NCA with SEM</a></li>
+<li class="chapter" data-level="4.6.2" data-path="dataanalysis.html"><a href="dataanalysis.html#examplencaplssem"><i class="fa fa-check"></i><b>4.6.2</b> Demonstration of combining NCA and PLS-SEM with R</a></li>
+<li class="chapter" data-level="4.6.3" data-path="dataanalysis.html"><a href="dataanalysis.html#recommendations-for-combining-nca-and-pls-sem"><i class="fa fa-check"></i><b>4.6.3</b> Recommendations for combining NCA and (PLS-)SEM</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="dataanalysis.html"><a href="dataanalysis.html#ncaqca"><i class="fa fa-check"></i><b>4.7</b> Combining NCA with QCA</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="dataanalysis.html"><a href="dataanalysis.html#introduction-to-qca"><i class="fa fa-check"></i><b>4.7.1</b> Introduction to QCA</a></li>
+<li class="chapter" data-level="4.7.2" data-path="dataanalysis.html"><a href="dataanalysis.html#the-differences-between-nca-and-qca"><i class="fa fa-check"></i><b>4.7.2</b> The differences between NCA and QCA</a></li>
+<li class="chapter" data-level="4.7.3" data-path="dataanalysis.html"><a href="dataanalysis.html#recommendation-for-combining-nca-and-qca"><i class="fa fa-check"></i><b>4.7.3</b> Recommendation for combining NCA and QCA</a></li>
+<li class="chapter" data-level="4.7.4" data-path="dataanalysis.html"><a href="dataanalysis.html#examples"><i class="fa fa-check"></i><b>4.7.4</b> Examples</a></li>
+<li class="chapter" data-level="4.7.5" data-path="dataanalysis.html"><a href="dataanalysis.html#misinterpretationsqca"><i class="fa fa-check"></i><b>4.7.5</b> Logical misinterpretations when combining NCA and QCA</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="dataanalysis.html"><a href="dataanalysis.html#causalinference"><i class="fa fa-check"></i><b>4.8</b> Causal inference</a></li>
+<li class="chapter" data-level="4.9" data-path="dataanalysis.html"><a href="dataanalysis.html#metaanalysis"><i class="fa fa-check"></i><b>4.9</b> Meta-analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="mathematical.html"><a href="mathematical.html"><i class="fa fa-check"></i><b>5</b> NCA’s mathematical backgrounds</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="mathematical.html"><a href="mathematical.html#formalexpression"><i class="fa fa-check"></i><b>5.1</b> Formal mathematical expression</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="mathematical.html"><a href="mathematical.html#effectsize"><i class="fa fa-check"></i><b>5.1.1</b> Effect size</a></li>
+<li class="chapter" data-level="5.1.2" data-path="mathematical.html"><a href="mathematical.html#necinefficiency"><i class="fa fa-check"></i><b>5.1.2</b> Necessity inefficiency</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="mathematical.html"><a href="mathematical.html#multiplenca"><i class="fa fa-check"></i><b>5.2</b> Multiple NCA</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistical.html"><a href="statistical.html"><i class="fa fa-check"></i><b>6</b> NCA’s statistics</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="statistical.html"><a href="statistical.html#ncas-statistical-expression"><i class="fa fa-check"></i><b>6.1</b> NCA’s statistical expression</a></li>
+<li class="chapter" data-level="6.2" data-path="statistical.html"><a href="statistical.html#permutationtest"><i class="fa fa-check"></i><b>6.2</b> NCA’s statistical test</a></li>
+<li class="chapter" data-level="6.3" data-path="statistical.html"><a href="statistical.html#simulations-with-nca"><i class="fa fa-check"></i><b>6.3</b> Simulations with NCA</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="statistical.html"><a href="statistical.html#requirementssim"><i class="fa fa-check"></i><b>6.3.1</b> Requirements for simulations with NCA</a></li>
+<li class="chapter" data-level="6.3.2" data-path="statistical.html"><a href="statistical.html#power"><i class="fa fa-check"></i><b>6.3.2</b> Simulations for estimating the power of NCA’s statistical test</a></li>
+<li class="chapter" data-level="6.3.3" data-path="statistical.html"><a href="statistical.html#ceilingquality"><i class="fa fa-check"></i><b>6.3.3</b> Simulations for evaluating a ceiling line and its effect size</a></li>
+<li class="chapter" data-level="6.3.4" data-path="statistical.html"><a href="statistical.html#simulations-of-correlation"><i class="fa fa-check"></i><b>6.3.4</b> Simulations of correlation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i><b>7</b> Miscellaneous</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="miscellaneous.html"><a href="miscellaneous.html#software"><i class="fa fa-check"></i><b>7.1</b> NCA software</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="miscellaneous.html"><a href="miscellaneous.html#rsoftware"><i class="fa fa-check"></i><b>7.1.1</b> Main NCA software: R package</a></li>
+<li class="chapter" data-level="7.1.2" data-path="miscellaneous.html"><a href="miscellaneous.html#othersoftware"><i class="fa fa-check"></i><b>7.1.2</b> Other NCA software packages</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="miscellaneous.html"><a href="miscellaneous.html#learning-about-nca"><i class="fa fa-check"></i><b>7.2</b> Learning about NCA</a></li>
+<li class="chapter" data-level="7.3" data-path="miscellaneous.html"><a href="miscellaneous.html#hqscatterplots"><i class="fa fa-check"></i><b>7.3</b> Producing high-quality NCA scatter plots</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="miscellaneous.html"><a href="miscellaneous.html#standard-plot"><i class="fa fa-check"></i><b>7.3.1</b> Standard plot</a></li>
+<li class="chapter" data-level="7.3.2" data-path="miscellaneous.html"><a href="miscellaneous.html#standard-plot-with-basic-adaptations"><i class="fa fa-check"></i><b>7.3.2</b> Standard plot with basic adaptations</a></li>
+<li class="chapter" data-level="7.3.3" data-path="miscellaneous.html"><a href="miscellaneous.html#standard-plot-with-advanced-adaptations"><i class="fa fa-check"></i><b>7.3.3</b> Standard plot with advanced adaptations</a></li>
+<li class="chapter" data-level="7.3.4" data-path="miscellaneous.html"><a href="miscellaneous.html#plot-with-plotly"><i class="fa fa-check"></i><b>7.3.4</b> Plot with <code>plotly</code></a></li>
+<li class="chapter" data-level="7.3.5" data-path="miscellaneous.html"><a href="miscellaneous.html#plot-with-ggplot"><i class="fa fa-check"></i><b>7.3.5</b> Plot with <code>ggplot</code></a></li>
+<li class="chapter" data-level="7.3.6" data-path="miscellaneous.html"><a href="miscellaneous.html#saving-the-plot-from-within-the-r-script"><i class="fa fa-check"></i><b>7.3.6</b> Saving the plot from within the R script</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="miscellaneous.html"><a href="miscellaneous.html#additionalcode"><i class="fa fa-check"></i><b>7.4</b> Additional functions for use with the NCA softare in R (beta)</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="miscellaneous.html"><a href="miscellaneous.html#ncarobustnesstablegeneral"><i class="fa fa-check"></i><b>7.4.1</b> <code>nca_robustness_table_general.R</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="miscellaneous.html"><a href="miscellaneous.html#ncarobustnesschecksgeneral"><i class="fa fa-check"></i><b>7.4.2</b> <code>nca_robustness_checks_general.R</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="miscellaneous.html"><a href="miscellaneous.html#getoutliers"><i class="fa fa-check"></i><b>7.4.3</b> <code>get_outliers.R</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="miscellaneous.html"><a href="miscellaneous.html#getindicatordata"><i class="fa fa-check"></i><b>7.4.4</b> <code>get_indicator_data_TAM.R</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="miscellaneous.html"><a href="miscellaneous.html#estimatesemmodel"><i class="fa fa-check"></i><b>7.4.5</b> <code>estimate_sem_model_TAM.R</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="miscellaneous.html"><a href="miscellaneous.html#significancesem"><i class="fa fa-check"></i><b>7.4.6</b> <code>get_signficance_sem.R</code></a></li>
+<li class="chapter" data-level="7.4.7" data-path="miscellaneous.html"><a href="miscellaneous.html#unstandardize"><i class="fa fa-check"></i><b>7.4.7</b> <code>unstandardize.R</code></a></li>
+<li class="chapter" data-level="7.4.8" data-path="miscellaneous.html"><a href="miscellaneous.html#normalize"><i class="fa fa-check"></i><b>7.4.8</b> <code>normalize.R</code></a></li>
+<li class="chapter" data-level="7.4.9" data-path="miscellaneous.html"><a href="miscellaneous.html#getbottleneckcases"><i class="fa fa-check"></i><b>7.4.9</b> <code>get_bottleneck_cases.R</code></a></li>
+<li class="chapter" data-level="7.4.10" data-path="miscellaneous.html"><a href="miscellaneous.html#getipmadf"><i class="fa fa-check"></i><b>7.4.10</b> <code>get_ipma_df.R</code></a></li>
+<li class="chapter" data-level="7.4.11" data-path="miscellaneous.html"><a href="miscellaneous.html#getipmaplot"><i class="fa fa-check"></i><b>7.4.11</b> <code>get_ipma_plot.R</code></a></li>
+<li class="chapter" data-level="7.4.12" data-path="miscellaneous.html"><a href="miscellaneous.html#getcipmadf"><i class="fa fa-check"></i><b>7.4.12</b> <code>get_cipma_df.R</code></a></li>
+<li class="chapter" data-level="7.4.13" data-path="miscellaneous.html"><a href="miscellaneous.html#getcipmaplot"><i class="fa fa-check"></i><b>7.4.13</b> <code>get_cipma_plot.R</code></a></li>
+<li class="chapter" data-level="7.4.14" data-path="miscellaneous.html"><a href="miscellaneous.html#getsinglebottleneckcases"><i class="fa fa-check"></i><b>7.4.14</b> <code>get_single_bottleneck_cases.R</code></a></li>
+<li class="chapter" data-level="7.4.15" data-path="miscellaneous.html"><a href="miscellaneous.html#getbipmadf"><i class="fa fa-check"></i><b>7.4.15</b> <code>get_bipma_df.R</code></a></li>
+<li class="chapter" data-level="7.4.16" data-path="miscellaneous.html"><a href="miscellaneous.html#getbipmaplot"><i class="fa fa-check"></i><b>7.4.16</b> <code>get_bipma_plot.R</code></a></li>
+<li class="chapter" data-level="7.4.17" data-path="miscellaneous.html"><a href="miscellaneous.html#ncasem"><i class="fa fa-check"></i><b>7.4.17</b> <code>ncasem.R</code></a></li>
+<li class="chapter" data-level="7.4.18" data-path="miscellaneous.html"><a href="miscellaneous.html#ncasemexample"><i class="fa fa-check"></i><b>7.4.18</b> <code>ncasem_example_TAM.R</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<a href="https://www.erim.eur.nl/necessary-condition-analysis/">
+<img alt="erim" src="NCAwebsite2.png" width="270"></a
+<a href="https://www.erim.eur.nl/necessary-condition-analysis/" target="blank">NCA website</a></li>
+<li><a href="mailto:jdul@rsm.nl">Send email to the author</a>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Advances in Necessary Condition Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mathematical" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> NCA’s mathematical backgrounds<a href="mathematical.html#mathematical" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="formalexpression" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Formal mathematical expression<a href="mathematical.html#formalexpression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Necessary Condition Analysis describes the <em>boundary</em> between the area in the <span class="math inline">\(XY\)</span>-plane where cases <span class="math inline">\((X,Y)\)</span> are possible (‘feasible area’) and the area where cases are not possible (‘empty space’). NCA calls this boundary the <em>ceiling</em>. The cases are on or below the ceiling, but not above it. The ceiling is a sharp border indicating that for a certain level of <span class="math inline">\(X\)</span> it is possible to have values less than or equal to the ceiling value of <span class="math inline">\(Y\)</span>, but it is not possible to have values above the ceiling value of <span class="math inline">\(Y\)</span>. This means that <span class="math inline">\(X\)</span> is necessary for <span class="math inline">\(Y\)</span>. However, <span class="math inline">\(X\)</span> is usually not sufficient for <span class="math inline">\(Y\)</span> because normally there are cases below the ceiling. The ceiling represents the constraining effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>: without a certain level of <span class="math inline">\(X\)</span> it is not possible to have a certain level of Y.
+The basic mathematical expression of NCA is therefore
+<span class="math display" id="eq:math0">\[\begin{equation}
+\tag{5.1}
+Y \leq f(X)
+\end{equation}\]</span>
+where <span class="math inline">\(f(X)\)</span> is the ceiling function.</p>
+<p>Figure <a href="mathematical.html#fig:math">5.1</a> shows an example of a non-decreasing piecewise linear ceiling function where <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are bounded (have a minimum and a maximum value). The function indicates that possible outcomes of <span class="math inline">\(Y\)</span> corresponding to a given <span class="math inline">\(X\)</span>-value is an interval <span class="math inline">\([y_{min},f(X)]\)</span>.</p>
+<!---The general mathematical description of necessary conditions is $Y \leq f_i(X_i)$, where $Y$ is the outcome, $X_i$ is the condition, and $f_i(X_i)$ is the ceiling line for $X_i$. NCA assumes that the ceiling line is non-decreasing. This allows making statements like "$X_i \geq X_{ic}$ is necessary for $Y = Y_c$", where C is a point ($X_{ic}$ ,$Y_{c}$) on the ceiling line.-->
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:math"></span>
+<img src="math.png" alt="A linear ceiling function (blue)." width="100%" />
+<p class="caption">
+Figure 5.1: A linear ceiling function (blue).
+</p>
+</div>
+<p>When the ceiling is non-decreasing, the necessary condition of <span class="math inline">\(X\)</span> for <span class="math inline">\(Y\)</span> for a value equal to a specific value <span class="math inline">\(y_{c}\)</span>, can now be expressed as
+<span class="math display" id="eq:math1">\[\begin{equation}
+\tag{5.2}
+Y = y_{c}  \quad \Rightarrow \quad X \geq f^{-1} (y_{c})
+\end{equation}\]</span>
+where <span class="math inline">\(f^{-1}\)</span> is the inverse of <span class="math inline">\(f\)</span> and <span class="math inline">\(C\)</span> is a point on the ceiling line. So, rephrasing, it is needed that <span class="math inline">\(x \geq f^{-1}(y_{c})\)</span> in order to observe a value for <span class="math inline">\(Y\)</span> equal to <span class="math inline">\(y_{c}\)</span>.</p>
+<p>The assumption of bounded <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> allows the definition and calculation of the NCA effect size (see section <a href="mathematical.html#effectsize">5.1.1</a>) and other NCA parameters (e.g., <a href="mathematical.html#necinefficiency">5.1.2</a>). The assumption of a non-decreasing ceiling allows the use of the bottleneck table as explained in section <a href="dataanalysis.html#bottleneck">4.3</a>. Linearity is not a requirement for NCA.</p>
+<div id="effectsize" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Effect size<a href="mathematical.html#effectsize" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are bounded, it is possible to define the effect size of a necessary condition. In Figure <a href="mathematical.html#fig:math">5.1</a> the lines <span class="math inline">\(X=x_{{min}}\)</span>, <span class="math inline">\(X=x_{{max}}\)</span>, <span class="math inline">\(Y=y_{min}\)</span> and <span class="math inline">\(Y=y_{{max}}\)</span> define the space of possible values for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. The area between these lines is called the <em>scope</em>.
+The difference between the absolute maximum possible <span class="math inline">\(Y\)</span>-value (<span class="math inline">\(Y=y_{\text{max}}\)</span>) and the maximum possible <span class="math inline">\(Y\)</span>-value for a given <span class="math inline">\(X\)</span> (<span class="math inline">\(Y=y_{c}\)</span>) can be considered as the <em>constraint</em> that <span class="math inline">\(X\)</span> puts on <span class="math inline">\(Y\)</span>. The slope of the line expresses the change in constraint under varying <span class="math inline">\(X=x\)</span>. The maximum constraint for absence of values of <span class="math inline">\(Y\)</span> occurs for <span class="math inline">\(X = x_{min}\)</span>. The effect builds up with increasing <span class="math inline">\(X\)</span> at a rate determined by the slope of the ceiling line. The total effect is then the surface area between the ceiling line and the maximum possible <span class="math inline">\(Y\)</span>. This area is called the <em>ceiling zone</em>. The effect size of a necessary condition is the ceiling zone divided by the scope, which takes values between 0 and 1. When the minimum and maximum <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> values are theoretically presumed values, the scope is called the <em>theoretical scope</em>. When the minimum and maximum <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> values are empirically observed, the scope is called the <em>empirical scope</em>.</p>
+</div>
+<div id="necinefficiency" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Necessity inefficiency<a href="mathematical.html#necinefficiency" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When <span class="math inline">\((x_{c},y_{c})\)</span> is a point on the ceiling line and <span class="math inline">\(x\leq x_{c}\)</span>, then <span class="math inline">\(x\)</span> is a bottleneck for <span class="math inline">\(y \geq y_{c}\)</span>. Only an increased value of <span class="math inline">\(x\)</span> towards <span class="math inline">\(x = x_{c}\)</span> enables a value <span class="math inline">\(y = y_{c}\)</span>. For reaching the value of <span class="math inline">\(y = y_{max}\)</span> it is necessary to have a value of <span class="math inline">\(x\geq x_{cmax}\)</span>, where <span class="math inline">\(x_{cmax}\)</span> is the value of <span class="math inline">\(x\)</span> of the point where the ceiling line crosses the <span class="math inline">\(y = y_{max}\)</span> line. For enabling the maximum possible <span class="math inline">\(y\)</span> value, <span class="math inline">\(x\)</span> should be <span class="math inline">\(x = x_{cmax}\)</span>. There is no need to increase <span class="math inline">\(x\)</span> beyond <span class="math inline">\(x = x_{cmax}\)</span> for enabling <span class="math inline">\(y = y_{max}\)</span> , as <span class="math inline">\(y\)</span> is not constrained anymore. This is called ‘inefficiency’ regarding enabling the maximum outcome.</p>
+<p>Condition inefficiency specifies the extent to which <span class="math inline">\(x\)</span> does not constrain <span class="math inline">\(y\)</span> for levels of <span class="math inline">\(x_{cmax}\leq x\leq x_{max}\)</span>. Only for <span class="math inline">\(x_{min}\leq x\leq x_{cmax}\)</span>, <span class="math inline">\(x\)</span> constrains <span class="math inline">\(y\)</span> (ceiling line exists for <span class="math inline">\(x_{min} \leq x\leq x_{cmax}\)</span>). Condition efficiency is expressed as a percentage: <span class="math inline">\((x_{max}-x_{cmax})/(x_{max}-x_{min})*100\%\)</span>. Condition inefficiency is 0% if <span class="math inline">\(x\)</span> constrains <span class="math inline">\(y\)</span> for all values of <span class="math inline">\(x\)</span>; condition inefficiency is 100% if <span class="math inline">\(x\)</span> does not constrain <span class="math inline">\(y\)</span> for any value of <span class="math inline">\(x\)</span>.</p>
+<p>Similarly, outcome inefficiency specifies the extent to which <span class="math inline">\(y\)</span> is not constrained by <span class="math inline">\(x\)</span> for lower levels of <span class="math inline">\(y_{min}\leq y\leq y_{cmin}\)</span>, where <span class="math inline">\(y_{cmin}\)</span> is the value of <span class="math inline">\(y\)</span> of the point where the ceiling line crosses the <span class="math inline">\(x = x_{min}\)</span> line. Only for <span class="math inline">\(y_{cmin}\leq y\leq y_{max}\)</span>, <span class="math inline">\(y\)</span> is constrained by <span class="math inline">\(x\)</span> (ceiling line exists for <span class="math inline">\(y_{cmin}\leq y\leq y_{max}\)</span>). Outcome efficiency is expressed as a percentage: <span class="math inline">\((y_{cmin}-y_{min})/(y_{max}-y_{min})*100\%\)</span>. Outcome inefficiency is 0% if <span class="math inline">\(x\)</span> constrains <span class="math inline">\(y\)</span> for all values of <span class="math inline">\(y\)</span>; outcome inefficiency is 100% if <span class="math inline">\(y\)</span> is not constrained for any value of <span class="math inline">\(x\)</span>.</p>
+</div>
+</div>
+<div id="multiplenca" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Multiple NCA<a href="mathematical.html#multiplenca" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>NCA considers one condition at a time. With several conditions, NCA conducts successive analyses by considering the ceilings in the separate <span class="math inline">\(X_iY\)</span>planes. For example, with two conditions (<span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>), two separate analyses are done: one in the <span class="math inline">\(X_1Y\)</span> plane (<span class="math inline">\(X_1Y\)</span> scatter plot) and the other one in the <span class="math inline">\(X_2Y\)</span> plane (<span class="math inline">\(X_2Y\)</span> scatter plot). In other words, in the three dimensional space <span class="math inline">\((X_1,X_2,Y\)</span>) NCA puts a blanket on the data (ceiling surface) and takes the <em>orthogonal projection</em> of the ceiling surface on the <span class="math inline">\(X_1Y\)</span> plane and the projection of the ceiling surface on the <span class="math inline">\(X_2Y\)</span> plane. Therefore, each condition has an independent ceiling line. The two ceiling lines are <span class="math inline">\(f_1(X_1)\)</span> for <span class="math inline">\(X_1\)</span> and <span class="math inline">\(f_2(X_2)\)</span> for <span class="math inline">\(X_2\)</span>. Consequently, for a given value <span class="math inline">\(Y = y_c\)</span> two conditions must be satisfied: <span class="math inline">\(X_1 \geq x_{1c}\)</span> AND <span class="math inline">\(X_2 \geq x_{2c}\)</span>. Therefore, the maximum possible <span class="math inline">\(Y = y_c\)</span> for given values <span class="math inline">\(X_1 = x_{1c}\)</span>, and <span class="math inline">\(X_2= x_{2c}\)</span> is</p>
+<p><span class="math display" id="eq:math2">\[\begin{equation}
+\tag{5.3}
+y_c = min \{f_1(x_{1c}), f_2(x_{2c})\}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(y_c\)</span> is a particular outcome value, <span class="math inline">\(x_{ic}\)</span> is the necessary <span class="math inline">\(X\)</span>-value of the i-th condition, <span class="math inline">\(f_i\)</span> is the ceiling line of the i-th condition and <span class="math inline">\(C\)</span> is a point on the ceiling line.
+With more than two conditions there is a multidimensional ceiling with projections <span class="math inline">\(f_i(X_i)\)</span>. The mathematical descriptions of a necessary AND combination of multiple necessary conditions is: <span class="math inline">\(X_i \geq x_{ic}\)</span> for <span class="math inline">\(Y = y_c\)</span> and the maximum possible <span class="math inline">\(Y = y_c\)</span> for given values of <span class="math inline">\(X_i = x_{ic}\)</span> is</p>
+<p><span class="math display" id="eq:math3">\[\begin{equation}
+\tag{5.4}
+y_c =  min \{f_i(X_i)\}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(y_c\)</span> is a particular outcome value, <span class="math inline">\(x_{ic}\)</span> is the necessary <span class="math inline">\(X\)</span>-value of the i-th condition, <span class="math inline">\(f_i\)</span> is the ceiling line of the i-th condition and <span class="math inline">\(C\)</span> is a point on the ceiling line.</p>
+<p>Although NCA performs separate analyses for each condition, in NCA’s bottleneck table (see section <a href="dataanalysis.html#bottleneck">4.3</a>), the separate analyses are combined and considered in combination. This allows answering the question: “What levels <span class="math inline">\(x_{ic}\)</span> of <span class="math inline">\(X_i\)</span> are necessary for a particular level <span class="math inline">\(Y = y_c\)</span>”? or “For given levels <span class="math inline">\(x_{ic}\)</span> of <span class="math inline">\(X_i\)</span> what is the maximum possible level <span class="math inline">\(y_c\)</span> of <span class="math inline">\(Y\)</span>”.</p>
+<p>There are several reasons why NCA analyses projections of the multidimensional ceiling.</p>
+<ul>
+<li><p>The <em>first</em> reason is the fundamental choice to focus on single factors that are necessary for an outcome. This makes NCA different from conventional analyses. Conventional approaches study multi-causal phenomena by considering a combination of factors and their interplay as a whole. A multivariate analysis is the realistic option for predicting the presence of an outcome, because normally only a combination of factors and not a single factor can produce the outcome. However, for predicting the absence of an outcome is it realistic to study a single factor (the necessary condition or ‘bottleneck’) that can prevent the outcome to exist when the level is too low. Therefore, it is possible and useful to study the necessity of single factors for an outcome with projections.</p></li>
+<li><p>The <em>second</em> reason is that NCA makes statements about single factors that are necessary independently of other factors. Thus, the necessity of a single factor does not depend on the level of other factors. This allows for a “pure” and straightforward interpretation of necessity: “the factor is necessary” rather than “the factor is necessary depending on other factors”. Such pure necessity statement holds independently of other factors. However, the context where the necessity statement holds is usually not unlimited. The domain where the generic necessary condition is supposed to hold must be defined as the ‘theoretical domain’ of the necessity theory. Such specification of the theoretical domain (sometime called “scope conditions”) must be part of any theory and related hypotheses (for further discussion and examples, see <span class="citation">Dul (<a href="#ref-dul2020book">2020</a>)</span>).</p></li>
+<li><p>A <em>third</em> reason is that NCA wants to contribute to parsimonious (simple) theories: avoiding that theories become complex, not understandable and (thus) less useful. This is a general goal of theory building in applied sciences. NCA is an elegant way of reducing complexity, in particular in situations where it is hard or impossible to predict the outcome (e.g., when the explained variance of regression models is low) or when a good prediction is only possible with a very complex model.</p></li>
+<li><p>The <em>fourth</em> reason is that practical recommendations from identified single necessary conditions are immediately clear and useful: “for a given outcome, always satisfy all necessary conditions” otherwise there is guaranteed failure of the outcome. The absence of a necessary condition cannot be compensated by other factors.</p></li>
+<li><p>The <em>final</em> reason is that the search for single necessary conditions is more efficient with a multiple analyses of planes (several ceiling lines) than with a single analysis of a multidimensional space (one multidimesional ceiling) followed by taking the projections on the planes. Modeling and describing a multidimensional ceiling may be complex (e.g., Figure <a href="mathematical.html#fig:multivariatelinear">5.2</a>).[<small>Note: Describing a multidimensional ceiling is done in ‘frontier analysis’: predicting the maximum outcome for a given combination of factors, which is used for example in benchmarking applications to describe how far a case is from the maximum possible outcome. NCA has a different goal than describing the maximum outcome for different values of the condition. NCA describes the maximum possible outcome for a single condition and therefore can focus directly on the <span class="math inline">\(XY\)</span> planes and the ceiling line. NCA uses techniques from frontier analysis, for example the Free Disposal Hull for the CE-FDH and CR-FHD ceiling lines, applies them in the two-dimensional plane, interprets the results in terms of necessity, and focuses on the empty space above the ceiling (prediction of absence of the outcome), rather than the space with cases below the ceiling.</small>]</p></li>
+</ul>
+<p>As an illustration Figure <a href="mathematical.html#fig:multivariatelinear">5.2</a>, shows a linear multivariate three-dimensional ceiling (<span class="math inline">\(Y = X_1 + X_2\)</span>) and its projections on the two two-dimensional XY planes. NCA analyses the two projections separately by considering the ceiling lines in <span class="math inline">\(X_1Y\)</span> plane and in <span class="math inline">\(X_2Y\)</span> plane.</p>
+<!-- When NCA was introduced [@dul2016orm] the term _multivariate NCA_ was used for a necessary condition analysis with more than one condition. However recently [@dul2020book] this term was replaced by _multiple NCA_ or _multiple bivariate NCA_ to avoid confusion about the interpretation of ‘multivariate’. The term multivariate is somewhat loosely used in statistics. The Cambridge Dictionary of Statistics [@everitt2010encyclopedia, pp. 293-294]  gives a broad definition, stating that a multivariate analysis is a ‘generic term for the many methods of analysis important in investigating multivariate data’, and that multivariate data are ‘data for which each observation consists of values for more than one random variable.’ Following this definition, a univariate analysis is an analysis with one variable, and a bivariate analysis is a special case of multivariate analysis with two variables. In the 2016 article [@dul2020book] the term bivariate NCA was used for an analysis with one condition (and one outcome) and the term ‘multivariate NCA’ for an analysis with more than one condition (and one outcome). This terminology fits the above definition of multivariate. In the article multivariate NCA was presented as an analysis of several conditions one by one.  -->
+<!-- The ceiling line for each condition is analysed separately in its two-dimensional plane (e.g., $X_1Y$, $X_2,Y$, $X_3Y$, etc.).  For example, with two conditions and assuming straight ceiling lines the ceiling line for $X_1$ is $Y = a_1 + b_1X_1$ (in the $X_1Y$ plane) and the ceiling line for $X_2$ is $Y = a_2 + b_2X_2$ (in the $X_2Y$ plane). Because each ceiling line is analysed separately the scatter plots of $X_1Y$ and $X_2Y$ can be used to conduct NCA. In NCA’s bottleneck table, the two separate analyses and ceiling lines are considered in combination when answering the question: “What levels of $X_1$ and $X_2$ are necessary for a given level of $Y$”? or “For given levels of $X_1$ and $X_2$ what is the maximum possible level of $Y$”. -->
+<!-- ‘Multivariate NCA is often interpreted as a single analysis with several variables at the same time. For example, in regression analysis a ‘multivariate analysis’ is understood as an analysis of multiple variables at the same time in one model (e.g., regression surface: $Y = a + b_1*X_1 + b_2*X_2+ ….b_i*X_i + \epsilon)$. However, such combined analysis is not used in NCA.  -->
+<!-- NCA does not analyse a multi-dimensional ceiling in the multidimensional space (e.g., ceiling surface $Y = a + b_1X_1 + b_2X_2  + ….b_iX_i )$. NCA analyses single ceiling lines in multiple two dimensional planes (e.g., ceiling line 1:  $Y = a_1 + b_1X_1$  and ceiling line 2:  $Y = a_2 + b_2X_2$, ceiling line i:  $Y = a_i + b_iX_i$) . As shown in Figure \@ref(fig:multivariatelinear), with two conditions there is a 3D ceiling surface in the three-dimensional space (X1,X2,Y, Figure \@ref(fig:multivariatelinear), left) and NCA analyses the corresponding two ceiling lines in the two two-dimensional planes ($X_1Y$ and $X_2Y$, Figure \@ref(fig:multivariatelinear), right. -->
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:multivariatelinear"></span>
+<img src="multivariate%20linear.png" alt="A linear multivariate three-dimensional ceiling ($Y = X_1 + X_2$) and its projection on the two two-dimensional $XY$ planes (ceiling lines in $X_1Y$ plane and in $X_2Y$ plane)." width="100%" />
+<p class="caption">
+Figure 5.2: A linear multivariate three-dimensional ceiling (<span class="math inline">\(Y = X_1 + X_2\)</span>) and its projection on the two two-dimensional <span class="math inline">\(XY\)</span> planes (ceiling lines in <span class="math inline">\(X_1Y\)</span> plane and in <span class="math inline">\(X_2Y\)</span> plane).
+</p>
+</div>
+<!-- The _ceiling line_ is a line on top of the data in a $XY$ scatter plot (in a two-dimensional $XY$ plane. The ceiling line represents the maximum possible value of $Y$ for a given $X$.  A _multidimensional ceiling_ in the three-dimensional space is a ‘blanket’ on top of the data. The three-dimensional ceiling represents the maximum possible $Y$ for a given combination of $X_1$ and $X_2$. In a multidimensional space with more than two conditions, the multidimensional ceiling represents the maximum possible $Y$ for a given combination of all $X$’s, which cannot be graphically imagined. NCA’s ceiling lines are the projections of a multidimensional ceiling on the respective two-dimensional $XY$ planes.-->
+<p>Figure <a href="mathematical.html#fig:multivariatenonlinear">5.3</a> shows a general three-dimensional non-linear ceiling surface (‘the surface of a vulcano mountain’). The projections of the surface on the <span class="math inline">\(XY\)</span> planes result in a non-linear ceiling lines.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:multivariatenonlinear"></span>
+<img src="multivariate%20nonlinear.png" alt="A nonlinear three-dimensional ceiling (mountain surface) and its projection (“shadow”) on two two-dimensional $XY$ planes (non-linear ceiling lines). " width="100%" />
+<p class="caption">
+Figure 5.3: A nonlinear three-dimensional ceiling (mountain surface) and its projection (“shadow”) on two two-dimensional <span class="math inline">\(XY\)</span> planes (non-linear ceiling lines).
+</p>
+</div>
+<!-- NCA is not designed as a multivariate technique for analysing the multidimensional ceiling but as a method of analysing the bivariate ceiling lines. This has several related reasons.  -->
+
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
+<div id="ref-dul2020book" class="csl-entry">
+Dul, J. (2020). <em><span>Conducting Necessary Condition Analysis</span>.</em> Sage. <a href="https://uk.sagepub.com/en-gb/eur/conducting-necessary-condition-analysis-for-business-and-management-students/book262898">https://uk.sagepub.com/en-gb/eur/conducting-necessary-condition-analysis-for-business-and-management-students/book262898</a>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="dataanalysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistical.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": true,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": true,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "serif",
+    "size": 2
+  },
+  "edit": null,
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  },
+  "info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
